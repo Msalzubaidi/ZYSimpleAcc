@@ -33,7 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,14 +59,197 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Class\DataBase.cs" />
+    <Compile Include="Class\Shared.cs" />
+    <Compile Include="Class\SystemSetup.cs" />
+    <Compile Include="Forms\frmAboutWhatsNew.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\frmAboutWhatsNew.Designer.cs">
+      <DependentUpon>frmAboutWhatsNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAreas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAreas.Designer.cs">
+      <DependentUpon>frmAreas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBackup.Designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChildAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChildAccounts.Designer.cs">
+      <DependentUpon>frmChildAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCustomersAndVendors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCustomersAndVendors.Designer.cs">
+      <DependentUpon>frmCustomersAndVendors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDeveloper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDeveloper.Designer.cs">
+      <DependentUpon>frmDeveloper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMainAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMainAccounts.Designer.cs">
+      <DependentUpon>frmMainAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreSettings.Designer.cs">
+      <DependentUpon>frmStoreSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccounts.Designer.cs">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmActivation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmActivation.Designer.cs">
+      <DependentUpon>frmActivation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmInvoiceSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInvoiceSetting.Designer.cs">
+      <DependentUpon>frmInvoiceSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMyAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMyAccount.Designer.cs">
+      <DependentUpon>frmMyAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmResetPassword.Designer.cs">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSendSMSEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSendSMSEmail.Designer.cs">
+      <DependentUpon>frmSendSMSEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSysteminfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSysteminfo.Designer.cs">
+      <DependentUpon>frmSysteminfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUserLogTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUserLogTransactions.Designer.cs">
+      <DependentUpon>frmUserLogTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmYearlyPosting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmYearlyPosting.Designer.cs">
+      <DependentUpon>frmYearlyPosting.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourcesEnglish.Designer.cs">
+      <DependentUpon>ResourcesEnglish.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmAboutWhatsNew.resx">
+      <DependentUpon>frmAboutWhatsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAreas.resx">
+      <DependentUpon>frmAreas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChildAccounts.resx">
+      <DependentUpon>frmChildAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCustomersAndVendors.resx">
+      <DependentUpon>frmCustomersAndVendors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeveloper.resx">
+      <DependentUpon>frmDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMainAccounts.resx">
+      <DependentUpon>frmMainAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreSettings.resx">
+      <DependentUpon>frmStoreSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccounts.resx">
+      <DependentUpon>frmAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmActivation.resx">
+      <DependentUpon>frmActivation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInvoiceSetting.resx">
+      <DependentUpon>frmInvoiceSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMyAccount.resx">
+      <DependentUpon>frmMyAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmResetPassword.resx">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSendSMSEmail.resx">
+      <DependentUpon>frmSendSMSEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSysteminfo.resx">
+      <DependentUpon>frmSysteminfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUserLogTransactions.resx">
+      <DependentUpon>frmUserLogTransactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmYearlyPosting.resx">
+      <DependentUpon>frmYearlyPosting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +258,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResourcesEnglish.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesEnglish.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -75,6 +277,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

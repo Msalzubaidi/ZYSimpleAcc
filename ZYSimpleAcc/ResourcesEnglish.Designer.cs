@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZYSimpleAcc.Properties {
+namespace ZYSimpleAcc {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ZYSimpleAcc.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class ResourcesEnglish {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ResourcesEnglish() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ZYSimpleAcc.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZYSimpleAcc.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZYSimpleAcc.ResourcesEnglish", typeof(ResourcesEnglish).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرخصة غير صحيحة.
+        ///   Looks up a localized string similar to Invalid License.
         /// </summary>
         internal static string activationneeded {
             get {
@@ -70,7 +70,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تمت الاضافة بنجاح.
+        ///   Looks up a localized string similar to Added Successfully.
         /// </summary>
         internal static string AddedSuccessfully {
             get {
@@ -88,15 +88,6 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to نظام محاسبة زد واي.
-        /// </summary>
-        internal static string AppNameAr {
-            get {
-                return ResourceManager.GetString("AppNameAr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to V 1.0.0.0.
         /// </summary>
         internal static string AppVersion {
@@ -106,7 +97,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تم الغاء العملية الاخيرة من قبل المستخدم.
+        ///   Looks up a localized string similar to OPeration Canceled By User.
         /// </summary>
         internal static string CancelByUser {
             get {
@@ -115,7 +106,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تمت المعالجة.
+        ///   Looks up a localized string similar to Completed.
         /// </summary>
         internal static string Completed {
             get {
@@ -133,7 +124,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تم الحذف بنجاح.
+        ///   Looks up a localized string similar to Deleted.
         /// </summary>
         internal static string deleted {
             get {
@@ -142,7 +133,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء إدخال أرقام فقط.
+        ///   Looks up a localized string similar to Plesae Type Digits Only.
         /// </summary>
         internal static string digitOnlyError {
             get {
@@ -151,7 +142,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء ادخال المعلومات المطلوبة.
+        ///   Looks up a localized string similar to Please Fill The Required Fields.
         /// </summary>
         internal static string emptyFields {
             get {
@@ -160,7 +151,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to العنصر موجود مسبقا.
+        ///   Looks up a localized string similar to Item Already Exist.
         /// </summary>
         internal static string Exist {
             get {
@@ -169,7 +160,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to سيتم اغلاق النظام - هل أنت متأكد ؟ .
+        ///   Looks up a localized string similar to System Will Exit ? Sure ? .
         /// </summary>
         internal static string ExitPromt {
             get {
@@ -178,7 +169,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to خطأ في اسم المستخدم أو كلمة المرور - أو المستخدم غير فعال.
+        ///   Looks up a localized string similar to Invalid Username Or Passowrd - User Inactive.
         /// </summary>
         internal static string FaieldLogin {
             get {
@@ -187,7 +178,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء إخال المعلومات بشكل صحيح.
+        ///   Looks up a localized string similar to Invalid Data.
         /// </summary>
         internal static string invalidData {
             get {
@@ -196,7 +187,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to كلمة المرور الحالية خاطئة.
+        ///   Looks up a localized string similar to Current Password Invalid.
         /// </summary>
         internal static string invalidPassword {
             get {
@@ -223,16 +214,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to زد واي لحلول تكنولوجيا المعلومات © 2021 .
-        /// </summary>
-        internal static string LogoAR {
-            get {
-                return ResourceManager.GetString("LogoAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ZY Technologies Solutions - تنبيه.
+        ///   Looks up a localized string similar to ZY Technologies Solutions - Attention.
         /// </summary>
         internal static string MessageTitle {
             get {
@@ -241,7 +223,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء تعبأة المعلومات المطلوبة.
+        ///   Looks up a localized string similar to Missing Text boxes.
         /// </summary>
         internal static string missingTextboxes {
             get {
@@ -250,7 +232,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to لا يوجد بيانات - نتائج بحث.
+        ///   Looks up a localized string similar to No Data.
         /// </summary>
         internal static string NoData {
             get {
@@ -259,7 +241,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء إلأختيار.
+        ///   Looks up a localized string similar to Please Select .
         /// </summary>
         internal static string Noselection {
             get {
@@ -268,7 +250,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to العنصر غير موجود.
+        ///   Looks up a localized string similar to Item not Exist.
         /// </summary>
         internal static string notExist {
             get {
@@ -286,20 +268,11 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to الرجاء تفعيل النظام.
+        ///   Looks up a localized string similar to Plesae Activate App.
         /// </summary>
         internal static string pleaseActive {
             get {
                 return ResourceManager.GetString("pleaseActive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to تمت عملية الصيانة.
-        /// </summary>
-        internal static string ProccessCompleted {
-            get {
-                return ResourceManager.GetString("ProccessCompleted", resourceCulture);
             }
         }
         
@@ -313,7 +286,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to حدث خطأ - حاول مرة أخرى.
+        ///   Looks up a localized string similar to Error Happened - Try Again .
         /// </summary>
         internal static string TryAgain {
             get {
@@ -322,7 +295,7 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to هذا العنصر مستخدم لا يمكن حذفه.
+        ///   Looks up a localized string similar to Item Is used by Another - Can&apos;t be deleted  .
         /// </summary>
         internal static string uesd {
             get {
@@ -331,20 +304,11 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to تم التحديث بنجاح.
+        ///   Looks up a localized string similar to Updated Successfully.
         /// </summary>
         internal static string Updated {
             get {
                 return ResourceManager.GetString("Updated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to سيتم تحديث المعلومات ؟ .
-        /// </summary>
-        internal static string updatePrompt {
-            get {
-                return ResourceManager.GetString("updatePrompt", resourceCulture);
             }
         }
         

@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="activationneeded" xml:space="preserve">
-    <value>الرخصة غير صحيحة</value>
+    <value>Invalid License</value>
   </data>
   <data name="AddedSuccessfully" xml:space="preserve">
-    <value>تمت الاضافة بنجاح</value>
+    <value>Added Successfully</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>ZY Accounting System</value>
@@ -130,28 +130,28 @@
     <value>V 1.0.0.0</value>
   </data>
   <data name="CancelByUser" xml:space="preserve">
-    <value>تم الغاء العملية الاخيرة من قبل المستخدم</value>
+    <value>OPeration Canceled By User</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>تمت المعالجة</value>
+    <value>Completed</value>
   </data>
   <data name="dbnamecon" xml:space="preserve">
     <value>SimpleAcc2021</value>
   </data>
   <data name="digitOnlyError" xml:space="preserve">
-    <value>الرجاء إدخال أرقام فقط</value>
+    <value>Plesae Type Digits Only</value>
   </data>
   <data name="Exist" xml:space="preserve">
-    <value>العنصر موجود مسبقا</value>
+    <value>Item Already Exist</value>
   </data>
   <data name="ExitPromt" xml:space="preserve">
-    <value>سيتم اغلاق النظام - هل أنت متأكد ؟ </value>
+    <value>System Will Exit ? Sure ? </value>
   </data>
   <data name="FaieldLogin" xml:space="preserve">
-    <value>خطأ في اسم المستخدم أو كلمة المرور - أو المستخدم غير فعال</value>
+    <value>Invalid Username Or Passowrd - User Inactive</value>
   </data>
   <data name="invalidData" xml:space="preserve">
-    <value>الرجاء إخال المعلومات بشكل صحيح</value>
+    <value>Invalid Data</value>
   </data>
   <data name="JordanCleaningVersion" xml:space="preserve">
     <value>20</value>
@@ -159,61 +159,49 @@
   <data name="Logo" xml:space="preserve">
     <value>ZY Technologies Solutions © 2021</value>
   </data>
-  <data name="LogoAR" xml:space="preserve">
-    <value>زد واي لحلول تكنولوجيا المعلومات © 2021 </value>
-  </data>
   <data name="MessageTitle" xml:space="preserve">
-    <value>ZY Technologies Solutions - تنبيه</value>
+    <value>ZY Technologies Solutions - Attention</value>
   </data>
   <data name="missingTextboxes" xml:space="preserve">
-    <value>الرجاء تعبأة المعلومات المطلوبة</value>
+    <value>Missing Text boxes</value>
   </data>
   <data name="NoData" xml:space="preserve">
-    <value>لا يوجد بيانات - نتائج بحث</value>
+    <value>No Data</value>
   </data>
   <data name="Noselection" xml:space="preserve">
-    <value>الرجاء إلأختيار</value>
+    <value>Please Select </value>
   </data>
   <data name="notExist" xml:space="preserve">
-    <value>العنصر غير موجود</value>
+    <value>Item not Exist</value>
   </data>
   <data name="passwordcon" xml:space="preserve">
     <value>zy@admin2021</value>
   </data>
   <data name="pleaseActive" xml:space="preserve">
-    <value>الرجاء تفعيل النظام</value>
+    <value>Plesae Activate App</value>
   </data>
   <data name="servercon" xml:space="preserve">
     <value>MZUBAIDI</value>
   </data>
   <data name="TryAgain" xml:space="preserve">
-    <value>حدث خطأ - حاول مرة أخرى</value>
+    <value>Error Happened - Try Again </value>
   </data>
   <data name="Updated" xml:space="preserve">
-    <value>تم التحديث بنجاح</value>
+    <value>Updated Successfully</value>
   </data>
   <data name="usernamecon" xml:space="preserve">
     <value>sa</value>
   </data>
   <data name="emptyFields" xml:space="preserve">
-    <value>الرجاء ادخال المعلومات المطلوبة</value>
-  </data>
-  <data name="AppNameAr" xml:space="preserve">
-    <value>نظام محاسبة زد واي</value>
+    <value>Please Fill The Required Fields</value>
   </data>
   <data name="invalidPassword" xml:space="preserve">
-    <value>كلمة المرور الحالية خاطئة</value>
+    <value>Current Password Invalid</value>
   </data>
   <data name="deleted" xml:space="preserve">
-    <value>تم الحذف بنجاح</value>
+    <value>Deleted</value>
   </data>
   <data name="uesd" xml:space="preserve">
-    <value>هذا العنصر مستخدم لا يمكن حذفه</value>
-  </data>
-  <data name="ProccessCompleted" xml:space="preserve">
-    <value>تمت عملية الصيانة</value>
-  </data>
-  <data name="updatePrompt" xml:space="preserve">
-    <value>سيتم تحديث المعلومات ؟ </value>
+    <value>Item Is used by Another - Can't be deleted  </value>
   </data>
 </root>
