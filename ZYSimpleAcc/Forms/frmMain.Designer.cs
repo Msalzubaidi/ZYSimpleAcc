@@ -723,8 +723,8 @@
             // 
             this.devmode.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.devmode.Name = "devmode";
-            this.devmode.Size = new System.Drawing.Size(100, 21);
-            this.devmode.Text = "Admin Login";
+            this.devmode.Size = new System.Drawing.Size(83, 21);
+            this.devmode.Text = "Dev Login";
             this.devmode.Click += new System.EventHandler(this.devmode_Click_1);
             // 
             // lic

@@ -644,6 +644,7 @@ namespace ZYSimpleAcc.Forms
                     //db.UserLogTransactions(DataBase.Username.ToString(), " تعديل فئة " + id.ToString() + " / " + title.ToString(), DateTime.Now, Environment.MachineName);
                     btncleartax.PerformClick();
 
+
                 }
 
                 else
