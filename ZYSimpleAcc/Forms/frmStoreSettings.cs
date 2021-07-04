@@ -191,9 +191,9 @@ namespace ZYSimpleAcc.Forms
             btnclearunit.PerformClick();
             btncleartax.PerformClick();
             btnclearserv.PerformClick();
-           
+
             btnclearitem.PerformClick();
-           
+
 
 
         }
@@ -485,7 +485,7 @@ namespace ZYSimpleAcc.Forms
             txtSubUnitName.Clear();
             txtSubUnitequal.Clear();
             txtMainUnitequal.Focus();
-           
+
             DataTable dtable = s.SelctData(unittable, 0, "");
             int x = dtable.Rows.Count;
             UnitsGrid.RefreshDataSource();
@@ -574,28 +574,28 @@ namespace ZYSimpleAcc.Forms
             {
                 int id = int.Parse(txtTaxCatId.Text);
                 float value = float.Parse(txtTaxCatValue.Text);
-            
+
 
                 int rest = ss.AddNewCatTax(id, value);
-                    if (rest > 0)
-                    {
-                        XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        //   db.UserLogTransactions(DataBase.Username.ToString(), " اضافة  فئة جديد" + id.ToString() + " / " + title.ToString(), DateTime.Now, Environment.MachineName);
-                        btncleartax.PerformClick();
+                if (rest > 0)
+                {
+                    XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //   db.UserLogTransactions(DataBase.Username.ToString(), " اضافة  فئة جديد" + id.ToString() + " / " + title.ToString(), DateTime.Now, Environment.MachineName);
+                    btncleartax.PerformClick();
 
-                    }
+                }
 
-                    else
-                    {
-                        XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                    }
-                
-            
+                }
+
+
             }
-            
+
         }
-    
+
 
 
         private void btndeleteatx_Click(object sender, EventArgs e)
@@ -729,7 +729,7 @@ namespace ZYSimpleAcc.Forms
 
         private void simpleButton11_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtserviceid.Text) || string.IsNullOrEmpty(txtservicevalue.Text) || string.IsNullOrEmpty(txtservicename.Text)  || string.IsNullOrEmpty(cboservicetax.Text))
+            if (string.IsNullOrEmpty(txtserviceid.Text) || string.IsNullOrEmpty(txtservicevalue.Text) || string.IsNullOrEmpty(txtservicename.Text) || string.IsNullOrEmpty(cboservicetax.Text))
             {
                 XtraMessageBox.Show(Resources.emptyFields, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -740,7 +740,7 @@ namespace ZYSimpleAcc.Forms
                 float value = float.Parse(txtservicevalue.Text);
                 float tax = float.Parse(cboservicetax.Text);
 
-                int rest = ss.AddNewService(id , name , value , tax);
+                int rest = ss.AddNewService(id, name, value, tax);
                 if (rest > 0)
                 {
                     XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -767,7 +767,7 @@ namespace ZYSimpleAcc.Forms
             txtservicevalue.Clear();
             cboservicetax.ResetText();
             txtservicevalue.Focus();
-            
+
             DataTable dtable = s.SelctData(servicetable, 0, "");
             int x = dtable.Rows.Count;
             GridServices.RefreshDataSource();
@@ -813,7 +813,7 @@ namespace ZYSimpleAcc.Forms
                 float value = float.Parse(txtservicevalue.Text);
                 float tax = float.Parse(cboservicetax.Text);
 
-                int rest = ss.UpdateOrDeleteService(id, name, value, tax , 1 );
+                int rest = ss.UpdateOrDeleteService(id, name, value, tax, 1);
                 if (rest > 0)
                 {
                     XtraMessageBox.Show(Resources.deleted, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -897,7 +897,7 @@ namespace ZYSimpleAcc.Forms
             string condition = "ServiceID=" + "'" + id.ToString() + "'";
 
 
-            DataTable dtable = s.SelctData( servicetable, 1, condition);
+            DataTable dtable = s.SelctData(servicetable, 1, condition);
             int x = dtable.Rows.Count;
 
             if (dtable != null && dtable.Rows.Count > 0)
@@ -947,7 +947,7 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-            
+
 
             SqlConnection concat = new SqlConnection(connstring);
             SqlCommand cmdcat;
@@ -969,7 +969,7 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-          
+
 
 
             SqlConnection contax = new SqlConnection(connstring);
@@ -978,7 +978,7 @@ namespace ZYSimpleAcc.Forms
 
             string qrytax = "select* from CatTax";
 
-
+            cbotaxitem.Items.Clear();
             contax.Open();
             //XtraMessageBox.Show("Connected ... ");
 
@@ -988,7 +988,7 @@ namespace ZYSimpleAcc.Forms
             while (drtax.Read())
             {
 
-                cboatxitem.Items.Add(drtax.GetValue(1).ToString());
+                cbotaxitem.Items.Add(drtax.GetValue(1).ToString());
 
             }
 
@@ -999,10 +999,11 @@ namespace ZYSimpleAcc.Forms
             string qryunit = "select* from Units";
 
 
+            cboUnits.Items.Clear();
             conunit.Open();
             //XtraMessageBox.Show("Connected ... ");
 
-            cmdunit  = new SqlCommand(qryunit, conunit);
+            cmdunit = new SqlCommand(qryunit, conunit);
             drunit = cmdunit.ExecuteReader();
 
             while (drunit.Read())
@@ -1011,13 +1012,24 @@ namespace ZYSimpleAcc.Forms
                 cboUnits.Items.Add(drunit.GetValue(1).ToString());
 
             }
-
+            txtitemID.Enabled = true; 
             this.ClearTextBoxes();
-            cboatxitem.ResetText();
+            cbotaxitem.ResetText();
             cbostatus.ResetText();
             cboSupllier.ResetText();
             cboCat.ResetText();
             cboUnits.ResetText();
+            btnadditem.Visible = true;
+            btndeleteitem.Visible = false;
+            btnupdateitem.Visible = false;
+            //////////////////////////////////////
+
+            DataTable dtable = s.SelctData("Items", 0, "");
+            int x = dtable.Rows.Count;
+            GridItems.RefreshDataSource();
+            GridItems.DataSource = dtable;
+
+
 
         }
 
@@ -1047,14 +1059,14 @@ namespace ZYSimpleAcc.Forms
             if (string.IsNullOrEmpty(cboSupllier.Text))
             {
                 // XtraMessageBox.Show(Resources.digitOnlyError, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-              
+
             }
 
             else
 
             {
 
-                string v = cboSupllier.ToString().Trim();
+                string v = cboSupllier.Text.ToString();
                 string condition = "CusVenName=" + "'" + v.ToString() + "'";
 
 
@@ -1065,14 +1077,416 @@ namespace ZYSimpleAcc.Forms
                 {
 
                     txtsupllierid.Text = dtable.Rows[0]["CusVenID"].ToString();//1
-                   
+
                 }
                 else
                 {
                     XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                
+
+                    txtsupllierid.Clear();
                 }
             }
+        }
+
+        private void cboCat_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cboCat.Text))
+            {
+                // XtraMessageBox.Show(Resources.digitOnlyError, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+            else
+
+            {
+
+                string v = cboCat.Text.ToString();
+                string condition = "CatTitle=" + "'" + v.ToString() + "'";
+
+
+                DataTable dtable = s.SelctData(cattable, 1, condition);
+                int x = dtable.Rows.Count;
+
+                if (dtable != null && dtable.Rows.Count > 0)
+                {
+
+                    txtCatItemid.Text = dtable.Rows[0]["CatID"].ToString();//1
+                    DataTable dtable1 = s.SelctData("Items", 6, dtable.Rows[0]["CatID"].ToString());//Customer
+
+                    int max1 = int.Parse(dtable1.Rows[0]["ItemID"].ToString());
+
+                  
+                        if (max1 == 0)
+                        {
+                            txtitemID.Clear();
+                            txtitemID.Enabled = true;
+                          
+
+                        }
+                        else
+                        {
+                            txtitemID.Text = (max1 + 1).ToString();
+                            txtitemID.Enabled = false;
+                           
+                        }
+                 
+
+
+
+                }
+                else
+                {
+                    XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtCatItemid.Clear();
+                }
+
+
+            }
+        }
+
+        private void cboUnits_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cboUnits.Text))
+            {
+                // XtraMessageBox.Show(Resources.digitOnlyError, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+            else
+
+            {
+
+                string v = cboUnits.Text.ToString();
+                string condition = "MainUnitName=" + "'" + v.ToString() + "'";
+
+
+                DataTable dtable = s.SelctData(unittable, 1, condition);
+                int x = dtable.Rows.Count;
+
+                if (dtable != null && dtable.Rows.Count > 0)
+                {
+
+                    txtMainUnititemName.Text = dtable.Rows[0]["MainUnitName"].ToString();//1
+                    txtMainUnititemequal.Text = dtable.Rows[0]["MainUnitValue"].ToString();//1
+                    txtSubUnititemName.Text = dtable.Rows[0]["SubUnitName"].ToString();//1
+                    txtSubUnititemequal.Text = dtable.Rows[0]["SubUnitValue"].ToString();//1
+                    txtitemUnitId.Text = dtable.Rows[0]["UnitID"].ToString();//1
+
+                }
+                else
+                {
+                    XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                    txtMainUnitName.Clear();
+                    txtMainUnitequal.Clear();
+                    txtSubUnitName.Clear();
+                    txtSubUnitequal.Clear();
+                    txtitemUnitId.Clear();
+                }
+            }
+        }
+
+        private void cboUnits_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuyPriceMain_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBuyPriceMain.Text) || string.IsNullOrWhiteSpace(txtSubUnititemequal.Text))
+            {
+
+                XtraMessageBox.Show(Resources.emptyPrice, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBuyPriceMain.Text = "0";
+                txtBuyPriceUnit.Text = "0";
+
+            }
+            else
+            {
+                double mainprice = double.Parse(txtBuyPriceMain.Text);
+                double unitprice = mainprice / int.Parse(txtSubUnititemequal.Text);
+                txtBuyPriceUnit.Text = unitprice.ToString();
+            }
+        }
+
+        private void txtSalePriceMian_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSalePriceMian.Text) || string.IsNullOrWhiteSpace(txtSubUnititemequal.Text))
+            {
+
+                XtraMessageBox.Show(Resources.emptyPrice, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSalePriceMian.Text = "0";
+                txtSalePriceUnit.Text = "0";
+
+            }
+            else
+            {
+                double mainprice = double.Parse(txtSalePriceMian.Text);
+                double unitprice = mainprice / int.Parse(txtSubUnititemequal.Text);
+                txtSalePriceUnit.Text = unitprice.ToString();
+            }
+        }
+
+        private void txtitemID_Leave(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtitemID.Text))
+            {
+
+            }
+            else
+            {
+                string x = txtitemID.Text.ToString();
+                txtBarcCode.Text = x; 
+            }
+        }
+
+        private void btnadditem_Click(object sender, EventArgs e)
+        {
+            if ( 1 > 2  )
+               
+            {
+                XtraMessageBox.Show(Resources.missingTextboxes ,  Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string itemID = txtitemID.Text;
+                string itemName = txtItemName.Text;
+                int ItemCatID = int.Parse(txtCatItemid.Text);
+                string ItemCategoryName = cboCat.Text.ToString() ;
+                int ItemSupplierID = int.Parse(txtsupllierid.Text);
+                string ItemSupplierName = cboSupllier.Text.ToString();
+                string ItemBarCode = txtBarcCode.Text;
+                float ItemBuyPriceMainUnit = float.Parse(txtBuyPriceMain.Text);
+                float ItemBuyPriceSubUnit = float.Parse(txtBuyPriceUnit.Text);
+                float ItemSellPriceMainUnit = float.Parse(txtSalePriceMian.Text);
+                float ItemSellPriceSubUnit = float.Parse(txtSalePriceUnit.Text);
+                float ItemTaxPercentValue = float.Parse(cbotaxitem.Text.ToString());
+                int ItemStatus = 1;
+                if (cbostatus.Text.ToString() == "فعالة")
+                    ItemStatus = 1;
+                else if (cbostatus.Text.ToString() == "غير فعالة")
+                    ItemStatus = 0;
+             
+                int ItemUnitID = int.Parse(txtitemUnitId.Text);
+                int ItemMainUnitValue = int.Parse(txtMainUnititemequal.Text);
+                string ItemMainUnitName = txtMainUnititemName.Text;
+                int ItemSubUnitValue = int.Parse(txtSubUnititemequal.Text);
+                string ItemSubUnitName = txtSubUnititemName.Text;
+
+                int rest = ss.AddNewItem(itemID , itemName , ItemCatID, ItemCategoryName , ItemSupplierID , ItemSupplierName , 
+                               ItemBarCode , ItemBuyPriceMainUnit , ItemBuyPriceSubUnit , ItemSellPriceMainUnit , ItemSellPriceSubUnit , ItemTaxPercentValue
+                                , ItemStatus , ItemUnitID , ItemMainUnitValue , ItemMainUnitName , ItemSubUnitValue , ItemSubUnitName);
+                if (rest > 0 )
+                {
+                    XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // db.UserLogTransactions(DataBase.Username.ToString(), " اضافة  مادة جديدة " + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
+                    btnclearitem.PerformClick();
+                }
+                else if (rest == -150 )
+                {
+                    XtraMessageBox.Show(Resources.Exist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
+        }
+
+        private void txtItemName_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtitemID.Text))
+            {
+
+            }
+            else
+            {
+                string x = txtitemID.Text.ToString();
+                txtBarcCode.Text = x;
+            }
+        }
+
+        private void btndeleteitem_Click(object sender, EventArgs e)
+        {
+            //check invoices //transaction 
+            if (1 > 2)
+
+            {
+                XtraMessageBox.Show(Resources.missingTextboxes, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string itemID = txtitemID.Text;
+                string itemName = txtItemName.Text;
+                int ItemCatID = int.Parse(txtCatItemid.Text);
+                string ItemCategoryName = cboCat.Text.ToString();
+                int ItemSupplierID = int.Parse(txtsupllierid.Text);
+                string ItemSupplierName = cboSupllier.Text.ToString();
+                string ItemBarCode = txtBarcCode.Text;
+                float ItemBuyPriceMainUnit = float.Parse(txtBuyPriceMain.Text);
+                float ItemBuyPriceSubUnit = float.Parse(txtBuyPriceUnit.Text);
+                float ItemSellPriceMainUnit = float.Parse(txtSalePriceMian.Text);
+                float ItemSellPriceSubUnit = float.Parse(txtSalePriceUnit.Text);
+                float ItemTaxPercentValue = float.Parse(cbotaxitem.Text.ToString());
+                int ItemStatus = 1;
+                if (cbostatus.Text.ToString() == "فعالة")
+                    ItemStatus = 1;
+                else if (cbostatus.Text.ToString() == "غير فعالة")
+                    ItemStatus = 0;
+
+                int ItemUnitID = int.Parse(txtitemUnitId.Text);
+                int ItemMainUnitValue = int.Parse(txtMainUnititemequal.Text);
+                string ItemMainUnitName = txtMainUnititemName.Text;
+                int ItemSubUnitValue = int.Parse(txtSubUnititemequal.Text);
+                string ItemSubUnitName = txtSubUnititemName.Text;
+
+                int rest = ss.UpdateOrDeleteItem(itemID, itemName, ItemCatID, ItemCategoryName, ItemSupplierID, ItemSupplierName,
+                               ItemBarCode, ItemBuyPriceMainUnit, ItemBuyPriceSubUnit, ItemSellPriceMainUnit, ItemSellPriceSubUnit, ItemTaxPercentValue
+                                , ItemStatus, ItemUnitID, ItemMainUnitValue, ItemMainUnitName, ItemSubUnitValue, ItemSubUnitName , 1 );
+                if (rest > 0)
+                {
+                    XtraMessageBox.Show(Resources.deleted, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // db.UserLogTransactions(DataBase.Username.ToString(), " حذف  مادة  " + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
+                    btnclearitem.PerformClick();
+                }
+              
+                else
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btnupdateitem_Click(object sender, EventArgs e)
+        {
+            //check invoices //transaction 
+            if (1 > 2)
+
+            {
+                XtraMessageBox.Show(Resources.missingTextboxes, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string itemID = txtitemID.Text;
+                string itemName = txtItemName.Text;
+                int ItemCatID = int.Parse(txtCatItemid.Text);
+                string ItemCategoryName = cboCat.Text.ToString();
+                int ItemSupplierID = int.Parse(txtsupllierid.Text);
+                string ItemSupplierName = cboSupllier.Text.ToString();
+                string ItemBarCode = txtBarcCode.Text;
+                float ItemBuyPriceMainUnit = float.Parse(txtBuyPriceMain.Text);
+                float ItemBuyPriceSubUnit = float.Parse(txtBuyPriceUnit.Text);
+                float ItemSellPriceMainUnit = float.Parse(txtSalePriceMian.Text);
+                float ItemSellPriceSubUnit = float.Parse(txtSalePriceUnit.Text);
+                float ItemTaxPercentValue = float.Parse(cbotaxitem.Text.ToString());
+                int ItemStatus = 1;
+                if (cbostatus.Text.ToString() == "فعالة")
+                    ItemStatus = 1;
+                else if (cbostatus.Text.ToString() == "غير فعالة")
+                    ItemStatus = 0;
+
+                int ItemUnitID = int.Parse(txtitemUnitId.Text);
+                int ItemMainUnitValue = int.Parse(txtMainUnititemequal.Text);
+                string ItemMainUnitName = txtMainUnititemName.Text;
+                int ItemSubUnitValue = int.Parse(txtSubUnititemequal.Text);
+                string ItemSubUnitName = txtSubUnititemName.Text;
+
+                int rest = ss.UpdateOrDeleteItem(itemID, itemName, ItemCatID, ItemCategoryName, ItemSupplierID, ItemSupplierName,
+                               ItemBarCode, ItemBuyPriceMainUnit, ItemBuyPriceSubUnit, ItemSellPriceMainUnit, ItemSellPriceSubUnit, ItemTaxPercentValue
+                                , ItemStatus, ItemUnitID, ItemMainUnitValue, ItemMainUnitName, ItemSubUnitValue, ItemSubUnitName  , 0 );
+                if (rest > 0)
+                {
+                    XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // db.UserLogTransactions(DataBase.Username.ToString(), " تعديل  مادة  " + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
+                    btnclearitem.PerformClick();
+                }
+             
+                else
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btncloseitem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GridItems_Click(object sender, EventArgs e)
+        {
+            string id = (gridView6.GetRowCellValue(gridView6.FocusedRowHandle, "ItemID") + "").ToString();
+
+
+            string condition = "ItemID=" + "'" + id.ToString() + "'";
+
+
+            DataTable dtable = s.SelctData("Items", 1, condition);
+            int x = dtable.Rows.Count;
+
+            if (dtable != null && dtable.Rows.Count > 0)
+            {
+
+                txtitemID.Text = dtable.Rows[0]["ItemID"].ToString();
+                txtItemName.Text = dtable.Rows[0]["ItemName"].ToString();
+                txtCatItemid.Text = dtable.Rows[0]["ItemCategoryID"].ToString();
+                cboCat.Text = dtable.Rows[0]["ItemCategoryName"].ToString();
+                txtsupllierid.Text = dtable.Rows[0]["ItemSupplierID"].ToString();
+                cboSupllier.Text = dtable.Rows[0]["ItemSupplierName"].ToString();
+                txtBarcCode.Text = dtable.Rows[0]["ItemBarCode"].ToString();
+                txtBuyPriceMain.Text = dtable.Rows[0]["ItemBuyPriceMainUnit"].ToString();
+                txtBuyPriceUnit.Text = dtable.Rows[0]["ItemBuyPriceSubUnit"].ToString();
+                txtSalePriceMian.Text = dtable.Rows[0]["ItemSellPriceMainUnit"].ToString();
+                txtSalePriceUnit.Text = dtable.Rows[0]["ItemSellPriceSubUnit"].ToString();
+                cboUnits.Text = dtable.Rows[0]["ItemMainUnitName"].ToString();
+                cbotaxitem.Text = dtable.Rows[0]["ItemTaxPercentValue"].ToString();
+
+                int status = int.Parse(dtable.Rows[0]["ItemStatus"].ToString());
+                if (status == 0)
+                    cbostatus.Text = "غير فعالة";
+                if (status == 1)
+                    cbostatus.Text = "فعالة";
+
+                txtitemUnitId.Text = dtable.Rows[0]["ItemUnitID"].ToString();
+                txtMainUnititemequal.Text = dtable.Rows[0]["ItemMainUnitValue"].ToString();
+                txtMainUnititemName.Text = dtable.Rows[0]["ItemMainUnitName"].ToString();
+                txtSubUnititemequal.Text = dtable.Rows[0]["ItemSubUnitValue"].ToString();
+                txtSubUnititemName.Text = dtable.Rows[0]["ItemSubUnitName"].ToString();
+                btnadditem.Visible = false;
+                btndeleteitem.Visible = false;
+                btnupdateitem.Visible = true;
+
+
+            }
+            else
+            {
+                XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               
+            }
+        }
+
+        private void btnViewItems_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtCatItemid.Text))
+            {
+                DataTable dtable = s.SelctData("Items", 0, "");
+                int x = dtable.Rows.Count;
+                GridItems.RefreshDataSource();
+                GridItems.DataSource = dtable;
+            }
+            else
+            {
+                DataTable dtable = s.SelctData("Items", 1, " ItemCategoryID=" +  int.Parse(txtCatItemid.Text));
+                int x = dtable.Rows.Count;
+                GridItems.RefreshDataSource();
+                GridItems.DataSource = dtable;
+            }
+        
         }
     }
 }

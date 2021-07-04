@@ -822,5 +822,45 @@ namespace ZYSimpleAcc
                 dev.Show();
             }
         }
+
+        private void mnuinstore_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "سند ادخال")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmStoreIn sin = new frmStoreIn();
+                sin.Show();
+            }
+        }
+
+        private void mnuoutstore_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "سند إخراج")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmStoreOut sout = new frmStoreOut();
+                sout.Show();
+            }
+        }
     }
 }

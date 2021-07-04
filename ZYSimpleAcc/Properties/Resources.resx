@@ -216,4 +216,7 @@
   <data name="updatePrompt" xml:space="preserve">
     <value>سيتم تحديث المعلومات ؟ </value>
   </data>
+  <data name="emptyPrice" xml:space="preserve">
+    <value>يرجى الانتباه ان السعر فارغ </value>
+  </data>
 </root>

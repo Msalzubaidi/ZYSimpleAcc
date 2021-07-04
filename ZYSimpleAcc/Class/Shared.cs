@@ -49,6 +49,10 @@ namespace ZYSimpleAcc.Class
             {
                 qry = "select * from " + table_name + " where CusOrVen='V'";
             }
+            else if (x == 6)
+            {
+                qry = "select ISNULL(Max(ItemID) , 0 ) as ItemID from " + table_name + " where ItemCategoryID="+int.Parse(condition);
+            }
 
 
 

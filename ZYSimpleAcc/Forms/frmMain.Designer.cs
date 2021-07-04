@@ -500,21 +500,23 @@
             // mnuStoreSettings
             // 
             this.mnuStoreSettings.Name = "mnuStoreSettings";
-            this.mnuStoreSettings.Size = new System.Drawing.Size(123, 22);
+            this.mnuStoreSettings.Size = new System.Drawing.Size(152, 22);
             this.mnuStoreSettings.Text = "اعدادات ";
             this.mnuStoreSettings.Click += new System.EventHandler(this.mnuStoreSettings_Click);
             // 
             // mnuinstore
             // 
             this.mnuinstore.Name = "mnuinstore";
-            this.mnuinstore.Size = new System.Drawing.Size(123, 22);
+            this.mnuinstore.Size = new System.Drawing.Size(152, 22);
             this.mnuinstore.Text = "ادخال";
+            this.mnuinstore.Click += new System.EventHandler(this.mnuinstore_Click);
             // 
             // mnuoutstore
             // 
             this.mnuoutstore.Name = "mnuoutstore";
-            this.mnuoutstore.Size = new System.Drawing.Size(123, 22);
+            this.mnuoutstore.Size = new System.Drawing.Size(152, 22);
             this.mnuoutstore.Text = "اخراج";
+            this.mnuoutstore.Click += new System.EventHandler(this.mnuoutstore_Click);
             // 
             // mnuTrans
             // 

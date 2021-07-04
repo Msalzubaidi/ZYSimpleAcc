@@ -160,6 +160,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to يرجى الانتباه ان السعر فارغ .
+        /// </summary>
+        internal static string emptyPrice {
+            get {
+                return ResourceManager.GetString("emptyPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to العنصر موجود مسبقا.
         /// </summary>
         internal static string Exist {

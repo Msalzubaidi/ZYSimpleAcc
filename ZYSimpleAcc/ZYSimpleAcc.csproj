@@ -104,6 +104,18 @@
     <Compile Include="Forms\frmMainAccounts.Designer.cs">
       <DependentUpon>frmMainAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmStoreIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreIn.Designer.cs">
+      <DependentUpon>frmStoreIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmStoreOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoreOut.Designer.cs">
+      <DependentUpon>frmStoreOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmStoreSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +221,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMainAccounts.resx">
       <DependentUpon>frmMainAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreIn.resx">
+      <DependentUpon>frmStoreIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoreOut.resx">
+      <DependentUpon>frmStoreOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStoreSettings.resx">
       <DependentUpon>frmStoreSettings.cs</DependentUpon>

@@ -65,42 +65,50 @@
             this.label22 = new System.Windows.Forms.Label();
             this.txtcatname = new System.Windows.Forms.TextBox();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.btnViewItems = new DevExpress.XtraEditors.SimpleButton();
+            this.GridItems = new DevExpress.XtraGrid.GridControl();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label60 = new System.Windows.Forms.Label();
+            this.txtitemUnitId = new System.Windows.Forms.TextBox();
+            this.label49 = new System.Windows.Forms.Label();
+            this.txtSubUnititemequal = new System.Windows.Forms.TextBox();
+            this.txtMainUnititemequal = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.txtSubUnititemName = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.txtMainUnititemName = new System.Windows.Forms.TextBox();
+            this.cboUnits = new System.Windows.Forms.ComboBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.btnimportitem = new DevExpress.XtraEditors.SimpleButton();
+            this.txtBuyPriceUnit = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.txtSalePriceUnit = new System.Windows.Forms.TextBox();
             this.btnclearitem = new DevExpress.XtraEditors.SimpleButton();
             this.btncloseitem = new DevExpress.XtraEditors.SimpleButton();
             this.btnadditem = new DevExpress.XtraEditors.SimpleButton();
             this.btndeleteitem = new DevExpress.XtraEditors.SimpleButton();
             this.btnupdateitem = new DevExpress.XtraEditors.SimpleButton();
             this.label55 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.cboUnits = new System.Windows.Forms.ComboBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.cbostatus = new System.Windows.Forms.ComboBox();
             this.cboCat = new System.Windows.Forms.ComboBox();
             this.cboSupllier = new System.Windows.Forms.ComboBox();
-            this.cboatxitem = new System.Windows.Forms.ComboBox();
+            this.cbotaxitem = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtSalePriceMian = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBuyPriceMain = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -109,11 +117,11 @@
             this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBarcCode = new System.Windows.Forms.TextBox();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.txtitemID = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtCatItemid = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtsupllierid = new System.Windows.Forms.TextBox();
@@ -198,7 +206,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CatGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UnitsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
@@ -218,7 +227,7 @@
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(666, 314);
+            this.xtraTabControl1.Size = new System.Drawing.Size(666, 479);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -245,7 +254,7 @@
             this.xtraTabPage1.Controls.Add(this.label18);
             this.xtraTabPage1.Controls.Add(this.txtstorename);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage1.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage1.Text = "تعريف المستودعات";
             this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
             // 
@@ -285,11 +294,11 @@
             // StoresGrid
             // 
             this.StoresGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.StoresGrid.Location = new System.Drawing.Point(0, 82);
+            this.StoresGrid.Location = new System.Drawing.Point(0, 77);
             this.StoresGrid.MainView = this.gridView2;
             this.StoresGrid.Name = "StoresGrid";
             this.StoresGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.StoresGrid.Size = new System.Drawing.Size(660, 204);
+            this.StoresGrid.Size = new System.Drawing.Size(660, 374);
             this.StoresGrid.TabIndex = 230;
             this.StoresGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -436,7 +445,7 @@
             this.xtraTabPage2.Controls.Add(this.label22);
             this.xtraTabPage2.Controls.Add(this.txtcatname);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage2.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage2.Text = "تعريف الأصناف";
             // 
             // btncatclear
@@ -475,11 +484,11 @@
             // CatGrid
             // 
             this.CatGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.CatGrid.Location = new System.Drawing.Point(0, 82);
+            this.CatGrid.Location = new System.Drawing.Point(0, 74);
             this.CatGrid.MainView = this.gridView3;
             this.CatGrid.Name = "CatGrid";
             this.CatGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.CatGrid.Size = new System.Drawing.Size(660, 204);
+            this.CatGrid.Size = new System.Drawing.Size(660, 377);
             this.CatGrid.TabIndex = 243;
             this.CatGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -612,42 +621,45 @@
             // 
             // xtraTabPage3
             // 
-            this.xtraTabPage3.Controls.Add(this.textBox13);
+            this.xtraTabPage3.Controls.Add(this.btnViewItems);
+            this.xtraTabPage3.Controls.Add(this.GridItems);
+            this.xtraTabPage3.Controls.Add(this.label60);
+            this.xtraTabPage3.Controls.Add(this.txtitemUnitId);
+            this.xtraTabPage3.Controls.Add(this.label49);
+            this.xtraTabPage3.Controls.Add(this.txtSubUnititemequal);
+            this.xtraTabPage3.Controls.Add(this.txtMainUnititemequal);
+            this.xtraTabPage3.Controls.Add(this.label50);
+            this.xtraTabPage3.Controls.Add(this.label51);
+            this.xtraTabPage3.Controls.Add(this.txtSubUnititemName);
+            this.xtraTabPage3.Controls.Add(this.label52);
+            this.xtraTabPage3.Controls.Add(this.label53);
+            this.xtraTabPage3.Controls.Add(this.label54);
+            this.xtraTabPage3.Controls.Add(this.txtMainUnititemName);
+            this.xtraTabPage3.Controls.Add(this.cboUnits);
+            this.xtraTabPage3.Controls.Add(this.label47);
+            this.xtraTabPage3.Controls.Add(this.label48);
+            this.xtraTabPage3.Controls.Add(this.btnimportitem);
+            this.xtraTabPage3.Controls.Add(this.txtBuyPriceUnit);
             this.xtraTabPage3.Controls.Add(this.label58);
             this.xtraTabPage3.Controls.Add(this.label57);
-            this.xtraTabPage3.Controls.Add(this.textBox12);
-            this.xtraTabPage3.Controls.Add(this.label56);
-            this.xtraTabPage3.Controls.Add(this.pictureEdit1);
+            this.xtraTabPage3.Controls.Add(this.txtSalePriceUnit);
             this.xtraTabPage3.Controls.Add(this.btnclearitem);
             this.xtraTabPage3.Controls.Add(this.btncloseitem);
             this.xtraTabPage3.Controls.Add(this.btnadditem);
             this.xtraTabPage3.Controls.Add(this.btndeleteitem);
             this.xtraTabPage3.Controls.Add(this.btnupdateitem);
             this.xtraTabPage3.Controls.Add(this.label55);
-            this.xtraTabPage3.Controls.Add(this.label49);
-            this.xtraTabPage3.Controls.Add(this.textBox8);
-            this.xtraTabPage3.Controls.Add(this.textBox9);
-            this.xtraTabPage3.Controls.Add(this.label50);
-            this.xtraTabPage3.Controls.Add(this.label51);
-            this.xtraTabPage3.Controls.Add(this.textBox10);
-            this.xtraTabPage3.Controls.Add(this.label52);
-            this.xtraTabPage3.Controls.Add(this.label53);
-            this.xtraTabPage3.Controls.Add(this.label54);
-            this.xtraTabPage3.Controls.Add(this.textBox11);
-            this.xtraTabPage3.Controls.Add(this.cboUnits);
-            this.xtraTabPage3.Controls.Add(this.label47);
-            this.xtraTabPage3.Controls.Add(this.label48);
             this.xtraTabPage3.Controls.Add(this.label46);
             this.xtraTabPage3.Controls.Add(this.cbostatus);
             this.xtraTabPage3.Controls.Add(this.cboCat);
             this.xtraTabPage3.Controls.Add(this.cboSupllier);
-            this.xtraTabPage3.Controls.Add(this.cboatxitem);
+            this.xtraTabPage3.Controls.Add(this.cbotaxitem);
             this.xtraTabPage3.Controls.Add(this.label44);
             this.xtraTabPage3.Controls.Add(this.label45);
-            this.xtraTabPage3.Controls.Add(this.textBox7);
+            this.xtraTabPage3.Controls.Add(this.txtSalePriceMian);
             this.xtraTabPage3.Controls.Add(this.label42);
             this.xtraTabPage3.Controls.Add(this.label43);
-            this.xtraTabPage3.Controls.Add(this.textBox2);
+            this.xtraTabPage3.Controls.Add(this.txtBuyPriceMain);
             this.xtraTabPage3.Controls.Add(this.label10);
             this.xtraTabPage3.Controls.Add(this.label41);
             this.xtraTabPage3.Controls.Add(this.label40);
@@ -656,33 +668,271 @@
             this.xtraTabPage3.Controls.Add(this.label37);
             this.xtraTabPage3.Controls.Add(this.label36);
             this.xtraTabPage3.Controls.Add(this.label14);
-            this.xtraTabPage3.Controls.Add(this.textBox6);
-            this.xtraTabPage3.Controls.Add(this.textBox5);
-            this.xtraTabPage3.Controls.Add(this.textBox4);
+            this.xtraTabPage3.Controls.Add(this.txtBarcCode);
+            this.xtraTabPage3.Controls.Add(this.txtItemName);
+            this.xtraTabPage3.Controls.Add(this.txtitemID);
             this.xtraTabPage3.Controls.Add(this.label13);
-            this.xtraTabPage3.Controls.Add(this.textBox3);
+            this.xtraTabPage3.Controls.Add(this.txtCatItemid);
             this.xtraTabPage3.Controls.Add(this.label12);
             this.xtraTabPage3.Controls.Add(this.label9);
             this.xtraTabPage3.Controls.Add(this.txtsupllierid);
             this.xtraTabPage3.Controls.Add(this.label11);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage3.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage3.Text = "تعريف المواد";
             // 
-            // textBox13
+            // btnViewItems
             // 
-            this.textBox13.Enabled = false;
-            this.textBox13.Location = new System.Drawing.Point(309, 84);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox13.Size = new System.Drawing.Size(66, 20);
-            this.textBox13.TabIndex = 314;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnViewItems.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnViewItems.ImageOptions.Image")));
+            this.btnViewItems.Location = new System.Drawing.Point(239, 191);
+            this.btnViewItems.Name = "btnViewItems";
+            this.btnViewItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnViewItems.Size = new System.Drawing.Size(67, 22);
+            this.btnViewItems.TabIndex = 335;
+            this.btnViewItems.Text = "عرض";
+            this.btnViewItems.Click += new System.EventHandler(this.btnViewItems_Click);
+            // 
+            // GridItems
+            // 
+            this.GridItems.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.GridItems.Location = new System.Drawing.Point(0, 219);
+            this.GridItems.MainView = this.gridView6;
+            this.GridItems.Name = "GridItems";
+            this.GridItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GridItems.Size = new System.Drawing.Size(660, 232);
+            this.GridItems.TabIndex = 334;
+            this.GridItems.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView6});
+            this.GridItems.Click += new System.EventHandler(this.GridItems_Click);
+            // 
+            // gridView6
+            // 
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn16,
+            this.gridColumn17,
+            this.gridColumn18,
+            this.gridColumn19});
+            this.gridView6.GridControl = this.GridItems;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "رمز المادة";
+            this.gridColumn16.FieldName = "ItemID";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
+            this.gridColumn16.OptionsColumn.ReadOnly = true;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 0;
+            this.gridColumn16.Width = 216;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "اسم المادة";
+            this.gridColumn17.FieldName = "ItemName";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
+            this.gridColumn17.OptionsColumn.ReadOnly = true;
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 1;
+            this.gridColumn17.Width = 228;
+            // 
+            // gridColumn18
+            // 
+            this.gridColumn18.Caption = "الصنف";
+            this.gridColumn18.FieldName = "ItemCategoryName";
+            this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.Visible = true;
+            this.gridColumn18.VisibleIndex = 2;
+            this.gridColumn18.Width = 96;
+            // 
+            // gridColumn19
+            // 
+            this.gridColumn19.Caption = "المورد";
+            this.gridColumn19.FieldName = "ItemSupplierName";
+            this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.Visible = true;
+            this.gridColumn19.VisibleIndex = 3;
+            this.gridColumn19.Width = 102;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(34, 41);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(29, 13);
+            this.label60.TabIndex = 333;
+            this.label60.Text = "الرمز";
+            this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtitemUnitId
+            // 
+            this.txtitemUnitId.Enabled = false;
+            this.txtitemUnitId.Location = new System.Drawing.Point(28, 58);
+            this.txtitemUnitId.Name = "txtitemUnitId";
+            this.txtitemUnitId.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtitemUnitId.Size = new System.Drawing.Size(40, 20);
+            this.txtitemUnitId.TabIndex = 332;
+            this.txtitemUnitId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(387, 41);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(36, 13);
+            this.label49.TabIndex = 331;
+            this.label49.Text = "القيمة";
+            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtSubUnititemequal
+            // 
+            this.txtSubUnititemequal.Enabled = false;
+            this.txtSubUnititemequal.Location = new System.Drawing.Point(200, 58);
+            this.txtSubUnititemequal.Name = "txtSubUnititemequal";
+            this.txtSubUnititemequal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSubUnititemequal.Size = new System.Drawing.Size(54, 20);
+            this.txtSubUnititemequal.TabIndex = 330;
+            this.txtSubUnititemequal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtMainUnititemequal
+            // 
+            this.txtMainUnititemequal.Enabled = false;
+            this.txtMainUnititemequal.Location = new System.Drawing.Point(379, 58);
+            this.txtMainUnititemequal.Name = "txtMainUnititemequal";
+            this.txtMainUnititemequal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMainUnititemequal.Size = new System.Drawing.Size(54, 20);
+            this.txtMainUnititemequal.TabIndex = 329;
+            this.txtMainUnititemequal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label50.ForeColor = System.Drawing.Color.Red;
+            this.label50.Location = new System.Drawing.Point(215, 41);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(16, 13);
+            this.label50.TabIndex = 328;
+            this.label50.Text = "=";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label51.ForeColor = System.Drawing.Color.Red;
+            this.label51.Location = new System.Drawing.Point(91, 42);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(14, 13);
+            this.label51.TabIndex = 327;
+            this.label51.Text = "*";
+            // 
+            // txtSubUnititemName
+            // 
+            this.txtSubUnititemName.Enabled = false;
+            this.txtSubUnititemName.Location = new System.Drawing.Point(81, 58);
+            this.txtSubUnititemName.Name = "txtSubUnititemName";
+            this.txtSubUnititemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSubUnititemName.Size = new System.Drawing.Size(113, 20);
+            this.txtSubUnititemName.TabIndex = 326;
+            this.txtSubUnititemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(111, 41);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(73, 13);
+            this.label52.TabIndex = 325;
+            this.label52.Text = "الوحدة الفرعية";
+            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label53.ForeColor = System.Drawing.Color.Red;
+            this.label53.Location = new System.Drawing.Point(265, 44);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(14, 13);
+            this.label53.TabIndex = 324;
+            this.label53.Text = "*";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(285, 41);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(79, 13);
+            this.label54.TabIndex = 323;
+            this.label54.Text = "الوحدة الرئيسية";
+            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMainUnititemName
+            // 
+            this.txtMainUnititemName.Enabled = false;
+            this.txtMainUnititemName.Location = new System.Drawing.Point(260, 58);
+            this.txtMainUnititemName.Name = "txtMainUnititemName";
+            this.txtMainUnititemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMainUnititemName.Size = new System.Drawing.Size(113, 20);
+            this.txtMainUnititemName.TabIndex = 322;
+            this.txtMainUnititemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cboUnits
+            // 
+            this.cboUnits.FormattingEnabled = true;
+            this.cboUnits.Location = new System.Drawing.Point(439, 57);
+            this.cboUnits.Name = "cboUnits";
+            this.cboUnits.Size = new System.Drawing.Size(100, 21);
+            this.cboUnits.TabIndex = 321;
+            this.cboUnits.TextChanged += new System.EventHandler(this.cboUnits_TextChanged);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.label47.ForeColor = System.Drawing.Color.Red;
+            this.label47.Location = new System.Drawing.Point(545, 60);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(14, 13);
+            this.label47.TabIndex = 320;
+            this.label47.Text = "*";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(565, 61);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(65, 13);
+            this.label48.TabIndex = 319;
+            this.label48.Text = "وحدة القياس";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnimportitem
+            // 
+            this.btnimportitem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnimportitem.ImageOptions.Image")));
+            this.btnimportitem.Location = new System.Drawing.Point(35, 191);
+            this.btnimportitem.Name = "btnimportitem";
+            this.btnimportitem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnimportitem.Size = new System.Drawing.Size(99, 22);
+            this.btnimportitem.TabIndex = 317;
+            this.btnimportitem.Text = "استيراد المواد";
+            // 
+            // txtBuyPriceUnit
+            // 
+            this.txtBuyPriceUnit.Enabled = false;
+            this.txtBuyPriceUnit.Location = new System.Drawing.Point(309, 132);
+            this.txtBuyPriceUnit.Name = "txtBuyPriceUnit";
+            this.txtBuyPriceUnit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBuyPriceUnit.Size = new System.Drawing.Size(66, 20);
+            this.txtBuyPriceUnit.TabIndex = 314;
+            this.txtBuyPriceUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(381, 87);
+            this.label58.Location = new System.Drawing.Point(381, 135);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(132, 13);
             this.label58.TabIndex = 313;
@@ -692,45 +942,27 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(391, 116);
+            this.label57.Location = new System.Drawing.Point(391, 164);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(122, 13);
             this.label57.TabIndex = 312;
             this.label57.Text = "سعر البيع للوحدة الفرعية";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox12
+            // txtSalePriceUnit
             // 
-            this.textBox12.Enabled = false;
-            this.textBox12.Location = new System.Drawing.Point(309, 113);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox12.Size = new System.Drawing.Size(66, 20);
-            this.textBox12.TabIndex = 311;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(67, 177);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(59, 13);
-            this.label56.TabIndex = 310;
-            this.label56.Text = "صورة المادة";
-            this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Location = new System.Drawing.Point(11, 192);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(177, 83);
-            this.pictureEdit1.TabIndex = 309;
+            this.txtSalePriceUnit.Enabled = false;
+            this.txtSalePriceUnit.Location = new System.Drawing.Point(309, 161);
+            this.txtSalePriceUnit.Name = "txtSalePriceUnit";
+            this.txtSalePriceUnit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSalePriceUnit.Size = new System.Drawing.Size(66, 20);
+            this.txtSalePriceUnit.TabIndex = 311;
+            this.txtSalePriceUnit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnclearitem
             // 
             this.btnclearitem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclearitem.ImageOptions.Image")));
-            this.btnclearitem.Location = new System.Drawing.Point(292, 213);
+            this.btnclearitem.Location = new System.Drawing.Point(312, 191);
             this.btnclearitem.Name = "btnclearitem";
             this.btnclearitem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclearitem.Size = new System.Drawing.Size(98, 22);
@@ -741,190 +973,62 @@
             // btncloseitem
             // 
             this.btncloseitem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btncloseitem.ImageOptions.Image")));
-            this.btncloseitem.Location = new System.Drawing.Point(218, 213);
+            this.btncloseitem.Location = new System.Drawing.Point(166, 191);
             this.btncloseitem.Name = "btncloseitem";
             this.btncloseitem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btncloseitem.Size = new System.Drawing.Size(67, 22);
             this.btncloseitem.TabIndex = 306;
             this.btncloseitem.Text = "اغلاق";
+            this.btncloseitem.Click += new System.EventHandler(this.btncloseitem_Click);
             // 
             // btnadditem
             // 
             this.btnadditem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnadditem.ImageOptions.Image")));
-            this.btnadditem.Location = new System.Drawing.Point(547, 213);
+            this.btnadditem.Location = new System.Drawing.Point(567, 191);
             this.btnadditem.Name = "btnadditem";
             this.btnadditem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnadditem.Size = new System.Drawing.Size(68, 22);
             this.btnadditem.TabIndex = 304;
             this.btnadditem.Text = "اضافة";
+            this.btnadditem.Click += new System.EventHandler(this.btnadditem_Click);
             // 
             // btndeleteitem
             // 
             this.btndeleteitem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndeleteitem.ImageOptions.Image")));
-            this.btndeleteitem.Location = new System.Drawing.Point(473, 213);
+            this.btndeleteitem.Location = new System.Drawing.Point(493, 191);
             this.btndeleteitem.Name = "btndeleteitem";
             this.btndeleteitem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndeleteitem.Size = new System.Drawing.Size(68, 22);
             this.btndeleteitem.TabIndex = 305;
             this.btndeleteitem.Text = "حذف";
+            this.btndeleteitem.Click += new System.EventHandler(this.btndeleteitem_Click);
             // 
             // btnupdateitem
             // 
             this.btnupdateitem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnupdateitem.ImageOptions.Image")));
-            this.btnupdateitem.Location = new System.Drawing.Point(400, 213);
+            this.btnupdateitem.Location = new System.Drawing.Point(420, 191);
             this.btnupdateitem.Name = "btnupdateitem";
             this.btnupdateitem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnupdateitem.Size = new System.Drawing.Size(67, 22);
             this.btnupdateitem.TabIndex = 303;
             this.btnupdateitem.Text = "تعديل";
+            this.btnupdateitem.Click += new System.EventHandler(this.btnupdateitem_Click);
             // 
             // label55
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label55.ForeColor = System.Drawing.Color.Red;
-            this.label55.Location = new System.Drawing.Point(17, 100);
+            this.label55.Location = new System.Drawing.Point(17, 148);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(14, 13);
             this.label55.TabIndex = 302;
             this.label55.Text = "*";
             // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(391, 136);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(36, 13);
-            this.label49.TabIndex = 301;
-            this.label49.Text = "القيمة";
-            this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(204, 153);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox8.Size = new System.Drawing.Size(54, 20);
-            this.textBox8.TabIndex = 300;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Enabled = false;
-            this.textBox9.Location = new System.Drawing.Point(383, 153);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox9.Size = new System.Drawing.Size(54, 20);
-            this.textBox9.TabIndex = 299;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label50.ForeColor = System.Drawing.Color.Red;
-            this.label50.Location = new System.Drawing.Point(219, 136);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(16, 13);
-            this.label50.TabIndex = 298;
-            this.label50.Text = "=";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label51.ForeColor = System.Drawing.Color.Red;
-            this.label51.Location = new System.Drawing.Point(95, 137);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(14, 13);
-            this.label51.TabIndex = 297;
-            this.label51.Text = "*";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Location = new System.Drawing.Point(85, 153);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox10.Size = new System.Drawing.Size(113, 20);
-            this.textBox10.TabIndex = 296;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(115, 136);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(73, 13);
-            this.label52.TabIndex = 295;
-            this.label52.Text = "الوحدة الفرعية";
-            this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label53.ForeColor = System.Drawing.Color.Red;
-            this.label53.Location = new System.Drawing.Point(269, 139);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(14, 13);
-            this.label53.TabIndex = 294;
-            this.label53.Text = "*";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(289, 136);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(79, 13);
-            this.label54.TabIndex = 293;
-            this.label54.Text = "الوحدة الرئيسية";
-            this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Location = new System.Drawing.Point(264, 153);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox11.Size = new System.Drawing.Size(113, 20);
-            this.textBox11.TabIndex = 292;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cboUnits
-            // 
-            this.cboUnits.FormattingEnabled = true;
-            this.cboUnits.Location = new System.Drawing.Point(443, 152);
-            this.cboUnits.Name = "cboUnits";
-            this.cboUnits.Size = new System.Drawing.Size(100, 21);
-            this.cboUnits.TabIndex = 291;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.label47.ForeColor = System.Drawing.Color.Red;
-            this.label47.Location = new System.Drawing.Point(549, 155);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(14, 13);
-            this.label47.TabIndex = 290;
-            this.label47.Text = "*";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(569, 156);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(65, 13);
-            this.label48.TabIndex = 288;
-            this.label48.Text = "وحدة القياس";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(112, 98);
+            this.label46.Location = new System.Drawing.Point(112, 146);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(55, 13);
             this.label46.TabIndex = 287;
@@ -937,7 +1041,7 @@
             this.cbostatus.Items.AddRange(new object[] {
             "فعالة",
             "غير فعالة"});
-            this.cbostatus.Location = new System.Drawing.Point(35, 95);
+            this.cbostatus.Location = new System.Drawing.Point(35, 143);
             this.cbostatus.Name = "cbostatus";
             this.cbostatus.Size = new System.Drawing.Size(71, 21);
             this.cbostatus.TabIndex = 286;
@@ -945,34 +1049,35 @@
             // cboCat
             // 
             this.cboCat.FormattingEnabled = true;
-            this.cboCat.Location = new System.Drawing.Point(107, 18);
+            this.cboCat.Location = new System.Drawing.Point(107, 14);
             this.cboCat.Name = "cboCat";
             this.cboCat.Size = new System.Drawing.Size(89, 21);
             this.cboCat.TabIndex = 285;
+            this.cboCat.TextChanged += new System.EventHandler(this.cboCat_TextChanged);
             // 
             // cboSupllier
             // 
             this.cboSupllier.FormattingEnabled = true;
-            this.cboSupllier.Location = new System.Drawing.Point(398, 18);
+            this.cboSupllier.Location = new System.Drawing.Point(398, 14);
             this.cboSupllier.Name = "cboSupllier";
             this.cboSupllier.Size = new System.Drawing.Size(199, 21);
             this.cboSupllier.TabIndex = 284;
             this.cboSupllier.TextChanged += new System.EventHandler(this.cboSupllier_TextChanged);
             // 
-            // cboatxitem
+            // cbotaxitem
             // 
-            this.cboatxitem.FormattingEnabled = true;
-            this.cboatxitem.Location = new System.Drawing.Point(196, 94);
-            this.cboatxitem.Name = "cboatxitem";
-            this.cboatxitem.Size = new System.Drawing.Size(47, 21);
-            this.cboatxitem.TabIndex = 283;
+            this.cbotaxitem.FormattingEnabled = true;
+            this.cbotaxitem.Location = new System.Drawing.Point(196, 142);
+            this.cbotaxitem.Name = "cbotaxitem";
+            this.cbotaxitem.Size = new System.Drawing.Size(47, 21);
+            this.cbotaxitem.TabIndex = 283;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label44.ForeColor = System.Drawing.Color.Red;
-            this.label44.Location = new System.Drawing.Point(170, 99);
+            this.label44.Location = new System.Drawing.Point(170, 147);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(20, 13);
             this.label44.TabIndex = 282;
@@ -981,26 +1086,27 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(251, 100);
+            this.label45.Location = new System.Drawing.Point(251, 148);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(40, 13);
             this.label45.TabIndex = 281;
             this.label45.Text = "الضريبة";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox7
+            // txtSalePriceMian
             // 
-            this.textBox7.Location = new System.Drawing.Point(519, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox7.Size = new System.Drawing.Size(46, 20);
-            this.textBox7.TabIndex = 262;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSalePriceMian.Location = new System.Drawing.Point(519, 162);
+            this.txtSalePriceMian.Name = "txtSalePriceMian";
+            this.txtSalePriceMian.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtSalePriceMian.Size = new System.Drawing.Size(46, 20);
+            this.txtSalePriceMian.TabIndex = 262;
+            this.txtSalePriceMian.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSalePriceMian.Leave += new System.EventHandler(this.txtSalePriceMian_Leave);
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(585, 116);
+            this.label42.Location = new System.Drawing.Point(585, 164);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(52, 13);
             this.label42.TabIndex = 261;
@@ -1012,25 +1118,26 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label43.ForeColor = System.Drawing.Color.Red;
-            this.label43.Location = new System.Drawing.Point(565, 120);
+            this.label43.Location = new System.Drawing.Point(565, 152);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(14, 13);
             this.label43.TabIndex = 260;
             this.label43.Text = "*";
             // 
-            // textBox2
+            // txtBuyPriceMain
             // 
-            this.textBox2.Location = new System.Drawing.Point(519, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(46, 20);
-            this.textBox2.TabIndex = 259;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuyPriceMain.Location = new System.Drawing.Point(519, 129);
+            this.txtBuyPriceMain.Name = "txtBuyPriceMain";
+            this.txtBuyPriceMain.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBuyPriceMain.Size = new System.Drawing.Size(46, 20);
+            this.txtBuyPriceMain.TabIndex = 259;
+            this.txtBuyPriceMain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBuyPriceMain.Leave += new System.EventHandler(this.txtBuyPriceMain_Leave);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(581, 88);
+            this.label10.Location = new System.Drawing.Point(581, 136);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(62, 13);
             this.label10.TabIndex = 258;
@@ -1042,7 +1149,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label41.ForeColor = System.Drawing.Color.Red;
-            this.label41.Location = new System.Drawing.Point(570, 91);
+            this.label41.Location = new System.Drawing.Point(570, 139);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(14, 13);
             this.label41.TabIndex = 257;
@@ -1053,7 +1160,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(33, 42);
+            this.label40.Location = new System.Drawing.Point(43, 90);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(14, 13);
             this.label40.TabIndex = 256;
@@ -1064,7 +1171,7 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(200, 21);
+            this.label39.Location = new System.Drawing.Point(200, 17);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(14, 13);
             this.label39.TabIndex = 255;
@@ -1075,7 +1182,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(385, 61);
+            this.label38.Location = new System.Drawing.Point(385, 109);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(14, 13);
             this.label38.TabIndex = 254;
@@ -1086,7 +1193,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label37.ForeColor = System.Drawing.Color.Red;
-            this.label37.Location = new System.Drawing.Point(603, 21);
+            this.label37.Location = new System.Drawing.Point(603, 17);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(14, 13);
             this.label37.TabIndex = 253;
@@ -1096,7 +1203,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(403, 61);
+            this.label36.Location = new System.Drawing.Point(403, 109);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(58, 13);
             this.label36.TabIndex = 252;
@@ -1106,64 +1213,68 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(53, 42);
+            this.label14.Location = new System.Drawing.Point(63, 88);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 13);
             this.label14.TabIndex = 251;
             this.label14.Text = "الباركود";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // txtBarcCode
             // 
-            this.textBox6.Location = new System.Drawing.Point(18, 58);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox6.Size = new System.Drawing.Size(129, 20);
-            this.textBox6.TabIndex = 250;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtBarcCode.Location = new System.Drawing.Point(18, 106);
+            this.txtBarcCode.Name = "txtBarcCode";
+            this.txtBarcCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtBarcCode.Size = new System.Drawing.Size(129, 20);
+            this.txtBarcCode.TabIndex = 250;
+            this.txtBarcCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox5
+            // txtItemName
             // 
-            this.textBox5.Location = new System.Drawing.Point(153, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox5.Size = new System.Drawing.Size(230, 20);
-            this.textBox5.TabIndex = 249;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtItemName.Location = new System.Drawing.Point(153, 106);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtItemName.Size = new System.Drawing.Size(230, 20);
+            this.txtItemName.TabIndex = 249;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemName.Leave += new System.EventHandler(this.txtItemName_Leave);
             // 
-            // textBox4
+            // txtitemID
             // 
-            this.textBox4.Location = new System.Drawing.Point(466, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox4.Size = new System.Drawing.Size(102, 20);
-            this.textBox4.TabIndex = 248;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtitemID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtitemID.Location = new System.Drawing.Point(466, 106);
+            this.txtitemID.Name = "txtitemID";
+            this.txtitemID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtitemID.Size = new System.Drawing.Size(102, 20);
+            this.txtitemID.TabIndex = 248;
+            this.txtitemID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtitemID.Leave += new System.EventHandler(this.txtitemID_Leave);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(592, 61);
+            this.label13.Location = new System.Drawing.Point(592, 109);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 13);
             this.label13.TabIndex = 247;
             this.label13.Text = "رمز المادة";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // txtCatItemid
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(16, 18);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox3.Size = new System.Drawing.Size(88, 20);
-            this.textBox3.TabIndex = 246;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCatItemid.Enabled = false;
+            this.txtCatItemid.Location = new System.Drawing.Point(16, 14);
+            this.txtCatItemid.Name = "txtCatItemid";
+            this.txtCatItemid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtCatItemid.Size = new System.Drawing.Size(88, 20);
+            this.txtCatItemid.TabIndex = 246;
+            this.txtCatItemid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(213, 21);
+            this.label12.Location = new System.Drawing.Point(213, 17);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(80, 13);
             this.label12.TabIndex = 245;
@@ -1175,7 +1286,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(572, 65);
+            this.label9.Location = new System.Drawing.Point(572, 113);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 244;
@@ -1184,7 +1295,7 @@
             // txtsupllierid
             // 
             this.txtsupllierid.Enabled = false;
-            this.txtsupllierid.Location = new System.Drawing.Point(294, 19);
+            this.txtsupllierid.Location = new System.Drawing.Point(294, 15);
             this.txtsupllierid.Name = "txtsupllierid";
             this.txtsupllierid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtsupllierid.Size = new System.Drawing.Size(102, 20);
@@ -1194,7 +1305,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(623, 22);
+            this.label11.Location = new System.Drawing.Point(623, 18);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 241;
@@ -1225,7 +1336,7 @@
             this.xtraTabPage4.Controls.Add(this.label26);
             this.xtraTabPage4.Controls.Add(this.txtMainUnitName);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage4.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage4.Text = "وحدات القياس";
             // 
             // label31
@@ -1346,11 +1457,11 @@
             // UnitsGrid
             // 
             this.UnitsGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.UnitsGrid.Location = new System.Drawing.Point(0, 82);
+            this.UnitsGrid.Location = new System.Drawing.Point(0, 79);
             this.UnitsGrid.MainView = this.gridView4;
             this.UnitsGrid.Name = "UnitsGrid";
             this.UnitsGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.UnitsGrid.Size = new System.Drawing.Size(660, 204);
+            this.UnitsGrid.Size = new System.Drawing.Size(660, 372);
             this.UnitsGrid.TabIndex = 256;
             this.UnitsGrid.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -1528,7 +1639,7 @@
             this.xtraTabPage5.Controls.Add(this.label34);
             this.xtraTabPage5.Controls.Add(this.txtTaxCatValue);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage5.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage5.Text = "فئات الضريبة";
             // 
             // label35
@@ -1578,11 +1689,11 @@
             // GridTax
             // 
             this.GridTax.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridTax.Location = new System.Drawing.Point(0, 82);
+            this.GridTax.Location = new System.Drawing.Point(0, 72);
             this.GridTax.MainView = this.gridView5;
             this.GridTax.Name = "GridTax";
             this.GridTax.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GridTax.Size = new System.Drawing.Size(660, 204);
+            this.GridTax.Size = new System.Drawing.Size(660, 379);
             this.GridTax.TabIndex = 256;
             this.GridTax.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -1735,7 +1846,7 @@
             this.xtraTabPage6.Controls.Add(this.label5);
             this.xtraTabPage6.Controls.Add(this.txtservicevalue);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(660, 286);
+            this.xtraTabPage6.Size = new System.Drawing.Size(660, 451);
             this.xtraTabPage6.Text = "تعريف الخدمات";
             // 
             // cboservicetax
@@ -1833,11 +1944,11 @@
             // GridServices
             // 
             this.GridServices.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridServices.Location = new System.Drawing.Point(0, 82);
+            this.GridServices.Location = new System.Drawing.Point(0, 76);
             this.GridServices.MainView = this.gridView1;
             this.GridServices.Name = "GridServices";
             this.GridServices.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GridServices.Size = new System.Drawing.Size(660, 204);
+            this.GridServices.Size = new System.Drawing.Size(660, 375);
             this.GridServices.TabIndex = 270;
             this.GridServices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1992,7 +2103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 314);
+            this.ClientSize = new System.Drawing.Size(666, 479);
             this.Controls.Add(this.xtraTabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2014,7 +2125,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
             this.xtraTabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             this.xtraTabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UnitsGrid)).EndInit();
@@ -2146,11 +2258,11 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBarcCode;
+        private System.Windows.Forms.TextBox txtItemName;
+        private System.Windows.Forms.TextBox txtitemID;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtCatItemid;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtsupllierid;
@@ -2159,39 +2271,47 @@
         private System.Windows.Forms.ComboBox cbostatus;
         private System.Windows.Forms.ComboBox cboCat;
         private System.Windows.Forms.ComboBox cboSupllier;
-        private System.Windows.Forms.ComboBox cboatxitem;
+        private System.Windows.Forms.ComboBox cbotaxitem;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtSalePriceMian;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBuyPriceMain;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtBuyPriceUnit;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label56;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private System.Windows.Forms.TextBox txtSalePriceUnit;
         private DevExpress.XtraEditors.SimpleButton btnclearitem;
         private DevExpress.XtraEditors.SimpleButton btncloseitem;
         private DevExpress.XtraEditors.SimpleButton btnadditem;
         private DevExpress.XtraEditors.SimpleButton btndeleteitem;
         private DevExpress.XtraEditors.SimpleButton btnupdateitem;
         private System.Windows.Forms.Label label55;
+        private DevExpress.XtraEditors.SimpleButton btnimportitem;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox txtitemUnitId;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtSubUnititemequal;
+        private System.Windows.Forms.TextBox txtMainUnititemequal;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtSubUnititemName;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtMainUnititemName;
         private System.Windows.Forms.ComboBox cboUnits;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
+        private DevExpress.XtraEditors.SimpleButton btnViewItems;
+        private DevExpress.XtraGrid.GridControl GridItems;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
     }
 }

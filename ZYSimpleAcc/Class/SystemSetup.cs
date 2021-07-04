@@ -292,6 +292,26 @@ namespace ZYSimpleAcc.Class
 
         }
 
+        public int checkitemexist(string itemID, string ItemName)
+        {
+            SqlConnection con = new SqlConnection(DataBase.connstring);
+
+            SqlCommand cmd = new SqlCommand("select * from Items where itemID=@itemID or ItemName=@ItemName ", con); // sql command to so get data from data base
+
+
+            cmd.Parameters.AddWithValue("@itemID", itemID);
+            cmd.Parameters.AddWithValue("@ItemName", ItemName);
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+            System.Data.DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+
+            con.Open();
+            return dt.Rows.Count;
+
+        }
+
 
 
         public int checkexistcusven(string id, string name , int operation)
@@ -657,6 +677,101 @@ namespace ZYSimpleAcc.Class
 
             return 0;
         }
+
+        public int AddNewItem(string ItemID, string ItemName, int ItemCategoryID, string ItemCategoryName,
+            int ItemSupplierID, string ItemSupplierName, string ItemBarCode, float ItemBuyPriceMainUnit,
+            float ItemBuyPriceSubUnit, float ItemSellPriceMainUnit, float ItemSellPriceSubUnit, 
+            float ItemTaxPercentValue, int ItemStatus, int ItemUnitID, int ItemMainUnitValue, string ItemMainUnitName,
+            int ItemSubUnitValue, string ItemSubUnitName )
+        {
+            string qry = "INSERT INTO Items ( ItemID,  ItemName,  ItemCategoryID,  ItemCategoryName,ItemSupplierID,  ItemSupplierName,  ItemBarCode,  ItemBuyPriceMainUnit,  ItemBuyPriceSubUnit,  ItemSellPriceMainUnit,  ItemSellPriceSubUnit,  ItemTaxPercentValue,  ItemStatus,  ItemUnitID,  ItemMainUnitValue,  ItemMainUnitName, ItemSubUnitValue ,ItemSubUnitName) VALUES(@ItemID,@ItemName,@ItemCategoryID,@ItemCategoryName,@ItemSupplierID,@ItemSupplierName,@ItemBarCode,@ItemBuyPriceMainUnit,@ItemBuyPriceSubUnit,@ItemSellPriceMainUnit,@ItemSellPriceSubUnit,@ItemTaxPercentValue,@ItemStatus,@ItemUnitID,@ItemMainUnitValue,@ItemMainUnitName,@ItemSubUnitValue,@ItemSubUnitName)";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+         
+            cmd.Parameters.Add(new SqlParameter("@ItemID", ItemID));
+            cmd.Parameters.Add(new SqlParameter("@ItemName", ItemName));
+            cmd.Parameters.Add(new SqlParameter("@ItemCategoryID", ItemCategoryID));
+            cmd.Parameters.Add(new SqlParameter("@ItemCategoryName", ItemCategoryName));
+            cmd.Parameters.Add(new SqlParameter("@ItemSupplierID", ItemSupplierID));
+            cmd.Parameters.Add(new SqlParameter("@ItemSupplierName", ItemSupplierName));
+            cmd.Parameters.Add(new SqlParameter("@ItemBarCode", ItemBarCode));
+            cmd.Parameters.Add(new SqlParameter("@ItemBuyPriceMainUnit", ItemBuyPriceMainUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemBuyPriceSubUnit", ItemBuyPriceSubUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemSellPriceMainUnit", ItemSellPriceMainUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemSellPriceSubUnit", ItemSellPriceSubUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemTaxPercentValue", ItemTaxPercentValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemStatus", ItemStatus));
+            cmd.Parameters.Add(new SqlParameter("@ItemUnitID", ItemUnitID));
+            cmd.Parameters.Add(new SqlParameter("@ItemMainUnitValue", ItemMainUnitValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemMainUnitName", ItemMainUnitName));
+            cmd.Parameters.Add(new SqlParameter("@ItemSubUnitValue", ItemSubUnitValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemSubUnitName", ItemSubUnitName));
+
+
+
+            SystemSetup ss = new SystemSetup();
+            con.Open();
+
+            int x = ss.checkitemexist(ItemID, ItemName);
+
+            if (x > 0)
+            {
+                return -150;
+            }
+            else
+                return cmd.ExecuteNonQuery();
+
+
+        }
+
+        public int UpdateOrDeleteItem(string ItemID, string ItemName, int ItemCategoryID, string ItemCategoryName,
+            int ItemSupplierID, string ItemSupplierName, string ItemBarCode, float ItemBuyPriceMainUnit,
+            float ItemBuyPriceSubUnit, float ItemSellPriceMainUnit, float ItemSellPriceSubUnit,
+            float ItemTaxPercentValue, int ItemStatus, int ItemUnitID, int ItemMainUnitValue, string ItemMainUnitName,
+            int ItemSubUnitValue, string ItemSubUnitName , int operation)
+        {
+            string qry = "";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            if (operation == 0)
+                qry = "update Items set  ItemName=@ItemName,  ItemCategoryID=@ItemCategoryID,  ItemCategoryName=@ItemCategoryName ,ItemSupplierID=@ItemSupplierID, ItemSupplierName=@ItemSupplierName,  ItemBarCode=@ItemBarCode,  ItemBuyPriceMainUnit=@ItemBuyPriceMainUnit,  ItemBuyPriceSubUnit=@ItemBuyPriceSubUnit,  ItemSellPriceMainUnit=@ItemSellPriceMainUnit,  ItemSellPriceSubUnit=@ItemSellPriceSubUnit,  ItemTaxPercentValue=@ItemTaxPercentValue,  ItemStatus=@ItemStatus,  ItemUnitID=@ItemUnitID,  ItemMainUnitValue=@ItemMainUnitValue,  ItemMainUnitName=@ItemMainUnitName, ItemSubUnitValue=@ItemSubUnitValue ,ItemSubUnitName=@ItemSubUnitName  where itemID=@itemID";
+            if (operation == 1)
+                qry = "Delete from  Items  where itemID=@itemID";
+
+
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@ItemID", ItemID));
+            cmd.Parameters.Add(new SqlParameter("@ItemName", ItemName));
+            cmd.Parameters.Add(new SqlParameter("@ItemCategoryID", ItemCategoryID));
+            cmd.Parameters.Add(new SqlParameter("@ItemCategoryName", ItemCategoryName));
+            cmd.Parameters.Add(new SqlParameter("@ItemSupplierID", ItemSupplierID));
+            cmd.Parameters.Add(new SqlParameter("@ItemSupplierName", ItemSupplierName));
+            cmd.Parameters.Add(new SqlParameter("@ItemBarCode", ItemBarCode));
+            cmd.Parameters.Add(new SqlParameter("@ItemBuyPriceMainUnit", ItemBuyPriceMainUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemBuyPriceSubUnit", ItemBuyPriceSubUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemSellPriceMainUnit", ItemSellPriceMainUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemSellPriceSubUnit", ItemSellPriceSubUnit));
+            cmd.Parameters.Add(new SqlParameter("@ItemTaxPercentValue", ItemTaxPercentValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemStatus", ItemStatus));
+            cmd.Parameters.Add(new SqlParameter("@ItemUnitID", ItemUnitID));
+            cmd.Parameters.Add(new SqlParameter("@ItemMainUnitValue", ItemMainUnitValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemMainUnitName", ItemMainUnitName));
+            cmd.Parameters.Add(new SqlParameter("@ItemSubUnitValue", ItemSubUnitValue));
+            cmd.Parameters.Add(new SqlParameter("@ItemSubUnitName", ItemSubUnitName));
+
+
+
+            SystemSetup ss = new SystemSetup();
+            con.Open();
+            return cmd.ExecuteNonQuery();
+
+
+
+        }
+
 
 
     }
