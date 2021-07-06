@@ -109,6 +109,15 @@
             this.mnuholidaysandleaves = new System.Windows.Forms.ToolStripMenuItem();
             this.devmode = new System.Windows.Forms.ToolStripMenuItem();
             this.lic = new DevExpress.XtraEditors.LabelControl();
+            this.updatecancelin = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelout = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelvchr = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelrecv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelpay = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelsalesinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelretsalesinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelbuyinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelretbuyinv = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mnuSubmenu)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -491,7 +500,9 @@
             this.mnuStores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuStoreSettings,
             this.mnuinstore,
-            this.mnuoutstore});
+            this.mnuoutstore,
+            this.updatecancelin,
+            this.updatecancelout});
             this.mnuStores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mnuStores.Name = "mnuStores";
             this.mnuStores.Size = new System.Drawing.Size(87, 21);
@@ -500,21 +511,21 @@
             // mnuStoreSettings
             // 
             this.mnuStoreSettings.Name = "mnuStoreSettings";
-            this.mnuStoreSettings.Size = new System.Drawing.Size(152, 22);
+            this.mnuStoreSettings.Size = new System.Drawing.Size(183, 22);
             this.mnuStoreSettings.Text = "اعدادات ";
             this.mnuStoreSettings.Click += new System.EventHandler(this.mnuStoreSettings_Click);
             // 
             // mnuinstore
             // 
             this.mnuinstore.Name = "mnuinstore";
-            this.mnuinstore.Size = new System.Drawing.Size(152, 22);
+            this.mnuinstore.Size = new System.Drawing.Size(183, 22);
             this.mnuinstore.Text = "ادخال";
             this.mnuinstore.Click += new System.EventHandler(this.mnuinstore_Click);
             // 
             // mnuoutstore
             // 
             this.mnuoutstore.Name = "mnuoutstore";
-            this.mnuoutstore.Size = new System.Drawing.Size(152, 22);
+            this.mnuoutstore.Size = new System.Drawing.Size(183, 22);
             this.mnuoutstore.Text = "اخراج";
             this.mnuoutstore.Click += new System.EventHandler(this.mnuoutstore_Click);
             // 
@@ -523,7 +534,10 @@
             this.mnuTrans.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuvoucher,
             this.mnurecive,
-            this.mnupayment});
+            this.mnupayment,
+            this.updatecancelvchr,
+            this.updatecancelrecv,
+            this.updatecancelpay});
             this.mnuTrans.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mnuTrans.Name = "mnuTrans";
             this.mnuTrans.Size = new System.Drawing.Size(117, 21);
@@ -532,26 +546,28 @@
             // mnuvoucher
             // 
             this.mnuvoucher.Name = "mnuvoucher";
-            this.mnuvoucher.Size = new System.Drawing.Size(108, 22);
+            this.mnuvoucher.Size = new System.Drawing.Size(175, 22);
             this.mnuvoucher.Text = "قيد";
             // 
             // mnurecive
             // 
             this.mnurecive.Name = "mnurecive";
-            this.mnurecive.Size = new System.Drawing.Size(108, 22);
+            this.mnurecive.Size = new System.Drawing.Size(175, 22);
             this.mnurecive.Text = "قبض ";
             // 
             // mnupayment
             // 
             this.mnupayment.Name = "mnupayment";
-            this.mnupayment.Size = new System.Drawing.Size(108, 22);
+            this.mnupayment.Size = new System.Drawing.Size(175, 22);
             this.mnupayment.Text = "صرف";
             // 
             // mnuSales
             // 
             this.mnuSales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnusalesinv,
-            this.mnuretsalesinv});
+            this.mnuretsalesinv,
+            this.updatecancelsalesinv,
+            this.updatecancelretsalesinv});
             this.mnuSales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mnuSales.Name = "mnuSales";
             this.mnuSales.Size = new System.Drawing.Size(66, 21);
@@ -560,20 +576,22 @@
             // mnusalesinv
             // 
             this.mnusalesinv.Name = "mnusalesinv";
-            this.mnusalesinv.Size = new System.Drawing.Size(128, 22);
+            this.mnusalesinv.Size = new System.Drawing.Size(205, 22);
             this.mnusalesinv.Text = "فاتورة بيع";
             // 
             // mnuretsalesinv
             // 
             this.mnuretsalesinv.Name = "mnuretsalesinv";
-            this.mnuretsalesinv.Size = new System.Drawing.Size(128, 22);
+            this.mnuretsalesinv.Size = new System.Drawing.Size(205, 22);
             this.mnuretsalesinv.Text = "مرتجع بيع";
             // 
             // mnuBuy
             // 
             this.mnuBuy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuBuyinv,
-            this.mnuretBuyinv});
+            this.mnuretBuyinv,
+            this.updatecancelbuyinv,
+            this.updatecancelretbuyinv});
             this.mnuBuy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mnuBuy.Name = "mnuBuy";
             this.mnuBuy.Size = new System.Drawing.Size(75, 21);
@@ -582,13 +600,13 @@
             // mnuBuyinv
             // 
             this.mnuBuyinv.Name = "mnuBuyinv";
-            this.mnuBuyinv.Size = new System.Drawing.Size(134, 22);
+            this.mnuBuyinv.Size = new System.Drawing.Size(211, 22);
             this.mnuBuyinv.Text = "فاتورة شراء";
             // 
             // mnuretBuyinv
             // 
             this.mnuretBuyinv.Name = "mnuretBuyinv";
-            this.mnuretBuyinv.Size = new System.Drawing.Size(134, 22);
+            this.mnuretBuyinv.Size = new System.Drawing.Size(211, 22);
             this.mnuretBuyinv.Text = "مرتجع شراء";
             // 
             // mnuReports
@@ -741,6 +759,60 @@
             this.lic.Text = "License info ...";
             this.lic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lic_MouseDoubleClick);
             // 
+            // updatecancelin
+            // 
+            this.updatecancelin.Name = "updatecancelin";
+            this.updatecancelin.Size = new System.Drawing.Size(183, 22);
+            this.updatecancelin.Text = "تعديل والغاء الادخال";
+            // 
+            // updatecancelout
+            // 
+            this.updatecancelout.Name = "updatecancelout";
+            this.updatecancelout.Size = new System.Drawing.Size(183, 22);
+            this.updatecancelout.Text = "تعديل والغاء الاخراج";
+            // 
+            // updatecancelvchr
+            // 
+            this.updatecancelvchr.Name = "updatecancelvchr";
+            this.updatecancelvchr.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelvchr.Text = "تعديل والغاء قيد";
+            // 
+            // updatecancelrecv
+            // 
+            this.updatecancelrecv.Name = "updatecancelrecv";
+            this.updatecancelrecv.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelrecv.Text = "تعديل الغاء قبض";
+            // 
+            // updatecancelpay
+            // 
+            this.updatecancelpay.Name = "updatecancelpay";
+            this.updatecancelpay.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelpay.Text = "تعديل والغاء صرف";
+            // 
+            // updatecancelsalesinv
+            // 
+            this.updatecancelsalesinv.Name = "updatecancelsalesinv";
+            this.updatecancelsalesinv.Size = new System.Drawing.Size(205, 22);
+            this.updatecancelsalesinv.Text = "تعديل والغاء فاتورة البيع";
+            // 
+            // updatecancelretsalesinv
+            // 
+            this.updatecancelretsalesinv.Name = "updatecancelretsalesinv";
+            this.updatecancelretsalesinv.Size = new System.Drawing.Size(205, 22);
+            this.updatecancelretsalesinv.Text = "تعديل والغاء مرتجع البيع";
+            // 
+            // updatecancelbuyinv
+            // 
+            this.updatecancelbuyinv.Name = "updatecancelbuyinv";
+            this.updatecancelbuyinv.Size = new System.Drawing.Size(211, 22);
+            this.updatecancelbuyinv.Text = "تعديل والغاء فاتورة الشراء";
+            // 
+            // updatecancelretbuyinv
+            // 
+            this.updatecancelretbuyinv.Name = "updatecancelretbuyinv";
+            this.updatecancelretbuyinv.Size = new System.Drawing.Size(211, 22);
+            this.updatecancelretbuyinv.Text = "تعديل والغاء مرتجع الشراء";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,6 +918,15 @@
         private System.Windows.Forms.ToolStripMenuItem mnuStoreSettings;
         private System.Windows.Forms.ToolStripMenuItem mnuGeneralAcc;
         private System.Windows.Forms.ToolStripMenuItem devmode;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelin;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelout;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelvchr;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelrecv;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelpay;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelsalesinv;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelretsalesinv;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelbuyinv;
+        private System.Windows.Forms.ToolStripMenuItem updatecancelretbuyinv;
     }
 }
 

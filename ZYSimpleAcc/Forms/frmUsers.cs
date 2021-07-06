@@ -114,19 +114,24 @@ namespace ZYSimpleAcc.Forms
                     int setupstores = int.Parse(userPermission.Rows[0]["setupstores"].ToString());
                     int instore = int.Parse(userPermission.Rows[0]["instore"].ToString());
                     int outstore = int.Parse(userPermission.Rows[0]["outstore"].ToString());
+                    int updatecancelstores = int.Parse(userPermission.Rows[0]["updatecancelstores"].ToString());
                     ////////Acc trans Permissions -------
                     int acctrans = int.Parse(userPermission.Rows[0]["acctrans"].ToString());
                     int voucher = int.Parse(userPermission.Rows[0]["voucher"].ToString());
                     int recive = int.Parse(userPermission.Rows[0]["recive"].ToString());
                     int payment = int.Parse(userPermission.Rows[0]["payment"].ToString());
+                    int updatecanceltrans = int.Parse(userPermission.Rows[0]["updatecanceltrans"].ToString());
                     ////////Sales Permissions -------
                     int sales = int.Parse(userPermission.Rows[0]["sales"].ToString());
                     int salesinv = int.Parse(userPermission.Rows[0]["salesinv"].ToString());
                     int retsaleinv = int.Parse(userPermission.Rows[0]["retsaleinv"].ToString());
+                    int updatecancelsales = int.Parse(userPermission.Rows[0]["updatecancelsales"].ToString());
                     ////////Buy  Permissions -------
                     int buy = int.Parse(userPermission.Rows[0]["buy"].ToString());
                     int buyinv = int.Parse(userPermission.Rows[0]["buyinv"].ToString());
                     int retbuyinv = int.Parse(userPermission.Rows[0]["retbuyinv"].ToString());
+                    int updatecancelbuy = int.Parse(userPermission.Rows[0]["updatecancelbuy"].ToString());
+
                     ////////HR Permissions -------
                     int hr = int.Parse(userPermission.Rows[0]["hr"].ToString());
                     int hrsetup = int.Parse(userPermission.Rows[0]["hrsetup"].ToString());
@@ -405,6 +410,35 @@ namespace ZYSimpleAcc.Forms
                    
 
                     }
+                   
+                    if (updatecancelstores == 1)
+                    {
+                        chkupdatecancelstores.Checked = true;
+
+
+                    }
+                    if (updatecanceltrans == 1)
+                    {
+                        chkupdatecanceltrans.Checked = true;
+
+
+                    }
+                    if (updatecancelsales == 1)
+                    {
+                        chkupdatecancelsales.Checked = true;
+
+
+                    }
+
+                    if (updatecancelbuy == 1)
+                    {
+                        chkupdatecancelbuy.Checked = true;
+
+
+                    }
+
+
+
 
 
                 }
@@ -490,6 +524,10 @@ namespace ZYSimpleAcc.Forms
             int accbalance = 0;
             int IsDeleted = 0;
             int admin = 0;
+            int updatecancelstores = 0;
+            int updatecanceltrans = 0;
+            int updatecancelsales = 0;
+            int updatecancelbuy = 0;
 
             if (chkadmin.Checked == true)
             {
@@ -542,6 +580,10 @@ namespace ZYSimpleAcc.Forms
                  accbalance = 1;
                  IsDeleted = 1;
                  admin = 1;
+                 updatecancelstores = 1;
+                 updatecanceltrans = 1;
+                 updatecancelsales = 1;
+                 updatecancelbuy = 1;
 
             }
 
@@ -551,6 +593,7 @@ namespace ZYSimpleAcc.Forms
                 sysinfo = 1;
 
             }
+
             if (chkinvsetup.Checked == true)
             {
                 syssetup = 1;
@@ -630,7 +673,14 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-          
+            if (chkupdatecancelstores.Checked == true)
+            {
+                setupstores = 1;
+                updatecancelstores = 1;
+
+            }
+
+
 
             if (chkvoucher.Checked == true)
             {
@@ -651,6 +701,15 @@ namespace ZYSimpleAcc.Forms
 
             }
 
+            if (chkupdatecanceltrans.Checked == true)
+            {
+                payment = 1;
+                updatecanceltrans = 1;
+
+            }
+
+
+
             if (chksalesinv.Checked == true)
             {
                 salesinv = 1;
@@ -660,6 +719,13 @@ namespace ZYSimpleAcc.Forms
             if (chkretsalesinv.Checked == true)
             {
                 retsaleinv = 1;
+                sales = 1;
+
+            }
+
+            if (chkupdatecancelsales.Checked == true)
+            {
+              updatecancelsales = 1;
                 sales = 1;
 
             }
@@ -677,7 +743,14 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-          
+            if (chkupdatecancelbuy.Checked == true)
+            {
+                updatecancelbuy = 1;
+                buy = 1;
+
+            }
+
+
             if (chkhrsettings.Checked == true)
             {
                 hrsetup = 1;
@@ -776,7 +849,7 @@ namespace ZYSimpleAcc.Forms
            , subacc   , cusven, linkacc  , Stores     , setupstores  , instore , outstore   , acctrans  , voucher , recive   , payment    , sales
            , salesinv , retsaleinv
            , buy, buyinv , retbuyinv   , hr , hrsetup , empfiles  , salaries , holidaysandleaves, reports , generalreports ,
-           statmentaccount , storesreports , hrreports  , salesreports  , buyreports  , acctransreports , accbalance, 0 , admin);
+           statmentaccount , storesreports , hrreports  , salesreports  , buyreports  , acctransreports , accbalance, 0 , admin , updatecancelstores , updatecanceltrans , updatecancelsales , updatecancelbuy);
                     btnclear.PerformClick();
                     db.UserLogTransactions(DataBase.Username.ToString(), " اضافة مستخدم جديد" + "("+ username.ToString() +")", DateTime.Now, Environment.MachineName);
 
@@ -798,8 +871,9 @@ namespace ZYSimpleAcc.Forms
             {
 
                 int num = int.Parse(txt_userid.Text);
+                string un = txt_username.Text; 
 
-                int rest = db.ActivateOrDeactivate(num, 20);
+                int rest = db.ActivateOrDeactivate(num, un,  20);
                 if (string.IsNullOrEmpty(txt_userid.Text))
                     XtraMessageBox.Show(Resources.invalidData, Resources.MessageTitle, 0, MessageBoxIcon.Warning);
 
@@ -837,8 +911,9 @@ namespace ZYSimpleAcc.Forms
             {
 
                 int num = int.Parse(txt_userid.Text);
+                string un = txt_username.Text;
 
-                int rest = db.ActivateOrDeactivate(num, 10);
+                int rest = db.ActivateOrDeactivate(num, un,  10);
                 if (string.IsNullOrEmpty(txt_userid.Text))
                     XtraMessageBox.Show(Resources.invalidData , Resources.MessageTitle, 0, MessageBoxIcon.Warning);
 
@@ -893,14 +968,20 @@ namespace ZYSimpleAcc.Forms
                     XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, 0, MessageBoxIcon.Information);
                     XtraMessageBox.Show("يرجى العلم بأن التعديل يشمل فقط معلومات المستخدم بدون الصلاحيات ", Resources.MessageTitle, 0, MessageBoxIcon.Exclamation);
                     db.UserLogTransactions(DataBase.Username.ToString(), " تحديث بيانات المستخدم " + "(" + username.ToString() + ")", DateTime.Now, Environment.MachineName);
+                    db.UpdateUserinfoadminper(userid , username );
                     btnclear.PerformClick();
 
 
                 }
-                else if (add <= 0)
+                else if (add ==-150)
                 {
                     XtraMessageBox.Show(Resources.Exist , Resources.MessageTitle, 0, MessageBoxIcon.Hand);
                     btnclear.PerformClick();
+                }
+                else
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, 0, MessageBoxIcon.Hand);
+                    
                 }
 
             }
@@ -1005,6 +1086,7 @@ namespace ZYSimpleAcc.Forms
                 chkStoresSettings.Checked = true;
                 chkstorein.Checked = true;
                 chkstoreout.Checked = true;
+                chkupdatecancelstores.Checked = true;
          
 
 
@@ -1014,6 +1096,7 @@ namespace ZYSimpleAcc.Forms
                 chkStoresSettings.Checked = false;
                 chkstorein.Checked = false;
                 chkstoreout.Checked = false;
+                chkupdatecancelstores.Checked = false;
 
 
 
@@ -1027,6 +1110,7 @@ namespace ZYSimpleAcc.Forms
                 chkvoucher.Checked = true;
                 chkrecive.Checked = true;
                 chkpayment.Checked = true;
+                chkupdatecanceltrans.Checked = true; 
 
 
 
@@ -1036,6 +1120,7 @@ namespace ZYSimpleAcc.Forms
                 chkvoucher.Checked = false;
                 chkrecive.Checked = false;
                 chkpayment.Checked = false;
+                chkupdatecanceltrans.Checked = false;
 
 
 
@@ -1048,6 +1133,7 @@ namespace ZYSimpleAcc.Forms
             {
                 chksalesinv.Checked = true;
                 chkretsalesinv.Checked = true;
+                chkupdatecancelsales.Checked = true; 
              
 
 
@@ -1058,6 +1144,7 @@ namespace ZYSimpleAcc.Forms
 
                 chksalesinv.Checked = false;
                 chkretsalesinv.Checked = false;
+                chkupdatecancelsales.Checked = false;
 
             }
         }
@@ -1068,6 +1155,7 @@ namespace ZYSimpleAcc.Forms
             {
                 chkbuyinv.Checked = true;
                 chkretbuyinv.Checked = true;
+                chkupdatecancelbuy.Checked = true;
 
 
 
@@ -1078,6 +1166,7 @@ namespace ZYSimpleAcc.Forms
 
                 chkbuyinv.Checked = false;
                 chkretbuyinv.Checked = false;
+                chkupdatecancelbuy.Checked = false;
 
 
             }

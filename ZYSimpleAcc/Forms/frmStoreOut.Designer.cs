@@ -163,7 +163,7 @@
             // 
             // btnsave
             // 
-            this.btnsave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnadd.ImageOptions.Image")));
+            this.btnsave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.ImageOptions.Image")));
             this.btnsave.Location = new System.Drawing.Point(599, 61);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -312,11 +312,11 @@
             this.txttransType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txttransType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txttransType.Enabled = false;
-            this.txttransType.Location = new System.Drawing.Point(556, 9);
+            this.txttransType.Location = new System.Drawing.Point(552, 9);
             this.txttransType.Name = "txttransType";
-            this.txttransType.Size = new System.Drawing.Size(36, 20);
+            this.txttransType.Size = new System.Drawing.Size(40, 20);
             this.txttransType.TabIndex = 354;
-            this.txttransType.Text = "OUT";
+            this.txttransType.Text = "SOUT";
             this.txttransType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3

@@ -62,6 +62,7 @@
     <Compile Include="Class\DataBase.cs" />
     <Compile Include="Class\Shared.cs" />
     <Compile Include="Class\SystemSetup.cs" />
+    <Compile Include="Class\Transactions.cs" />
     <Compile Include="Forms\frmAboutWhatsNew.cs">
       <SubType>Form</SubType>
     </Compile>

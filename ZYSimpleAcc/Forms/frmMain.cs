@@ -66,19 +66,26 @@ namespace ZYSimpleAcc
                 int setupstores = int.Parse(userPermission.Rows[0]["setupstores"].ToString());
                 int instore = int.Parse(userPermission.Rows[0]["instore"].ToString());
                 int outstore = int.Parse(userPermission.Rows[0]["outstore"].ToString());
+                int updatecancelstores = int.Parse(userPermission.Rows[0]["updatecancelstores"].ToString());
                 ////////Acc trans Permissions -------
                 int acctrans = int.Parse(userPermission.Rows[0]["acctrans"].ToString());
                 int voucher = int.Parse(userPermission.Rows[0]["voucher"].ToString());
                 int recive = int.Parse(userPermission.Rows[0]["recive"].ToString());
                 int payment = int.Parse(userPermission.Rows[0]["payment"].ToString());
+
+                int updatecanceltrans = int.Parse(userPermission.Rows[0]["updatecanceltrans"].ToString());
                 ////////Sales Permissions -------
                 int sales = int.Parse(userPermission.Rows[0]["sales"].ToString());
                 int salesinv = int.Parse(userPermission.Rows[0]["salesinv"].ToString());
                 int retsaleinv = int.Parse(userPermission.Rows[0]["retsaleinv"].ToString());
+
+                int updatecancelsales = int.Parse(userPermission.Rows[0]["updatecancelsales"].ToString());
                 ////////Buy  Permissions -------
                 int buy = int.Parse(userPermission.Rows[0]["buy"].ToString());
                 int buyinv = int.Parse(userPermission.Rows[0]["buyinv"].ToString());
                 int retbuyinv = int.Parse(userPermission.Rows[0]["retbuyinv"].ToString());
+
+                int updatecancelbuy = int.Parse(userPermission.Rows[0]["updatecancelbuy"].ToString());
                 ////////HR Permissions -------
                 int hr = int.Parse(userPermission.Rows[0]["hr"].ToString());
                 int hrsetup = int.Parse(userPermission.Rows[0]["hrsetup"].ToString());
@@ -190,6 +197,14 @@ namespace ZYSimpleAcc
 
                 }
 
+                if (updatecancelstores == 0)
+                {
+                   
+                    updatecancelin.Visible = false;
+                    updatecancelout.Visible = false;
+
+                }
+
                 if (acctrans == 0)
                 {
                     mnuTrans.Visible = false;
@@ -217,6 +232,15 @@ namespace ZYSimpleAcc
 
                 }
 
+                if (updatecanceltrans == 0)
+                {
+
+                    updatecancelvchr.Visible = false;
+                    updatecancelpay.Visible = false;
+                    updatecancelrecv.Visible = false;
+
+                }
+
                 if (sales == 0)
                 {
                     mnuSales.Visible = false;
@@ -236,6 +260,13 @@ namespace ZYSimpleAcc
                     submnuretsalesinv.Visible = false;
                 }
 
+                if (updatecancelsales == 0)
+                {
+                    
+                    updatecancelsalesinv.Visible = false;
+                    updatecancelretsalesinv.Visible = false;
+                }
+
                 if (buy == 0)
                 {
                     mnuBuy.Visible = false;
@@ -253,6 +284,13 @@ namespace ZYSimpleAcc
                 {
                     mnuretBuyinv.Visible = false;
                     mnuSubretBuyinv.Visible = false;
+                }
+
+                if (updatecancelbuy == 0)
+                {
+
+                    updatecancelbuyinv.Visible = false;
+                    updatecancelretbuyinv.Visible = false;
                 }
 
 

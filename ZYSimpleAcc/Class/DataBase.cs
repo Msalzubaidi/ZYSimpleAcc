@@ -253,14 +253,16 @@ namespace ZYSimpleAcc.Class
         }
 
 
-        public int checkexist(int unum)
+        public int checkexist(int unum , string user_name )
         {
             SqlConnection con = new SqlConnection(connstring);
 
-            SqlCommand cmd = new SqlCommand("select * from users where user_id=@unum", con); // sql command to so get data from data base
+            SqlCommand cmd = new SqlCommand("select * from users where user_id=@unum or user_name=@user_name ", con); // sql command to so get data from data base
 
 
             cmd.Parameters.AddWithValue("@unum", unum);
+            cmd.Parameters.AddWithValue("@user_name", user_name);
+
 
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
@@ -293,7 +295,7 @@ namespace ZYSimpleAcc.Class
 
             con.Open();
 
-            int y = this.checkexist(unum);
+            int y = this.checkexist(unum , username);
             if (y <= 0)
                 return cmd.ExecuteNonQuery();
 
@@ -304,7 +306,7 @@ namespace ZYSimpleAcc.Class
 
 
 
-        public int ActivateOrDeactivate(int unum, int trans)
+        public int ActivateOrDeactivate(int unum , string username,  int trans)
         {
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
@@ -329,7 +331,7 @@ namespace ZYSimpleAcc.Class
             con.Open();
 
 
-            int y = this.checkexist(unum);
+            int y = this.checkexist(unum , username);
             if (y > 0)
                 return cmd.ExecuteNonQuery();
 
@@ -427,7 +429,7 @@ namespace ZYSimpleAcc.Class
         }
 
 
-        string adduserperqry = " INSERT INTO UsersPermissions (user_id, user_name ,  syssetup , sysinfo, users, invsetup, userslog , newyear, sendsmsemail , AccTree, mainacc , subacc , cusven, linkacc, Stores  , setupstores,instore , outstore ,  acctrans , voucher , recive, payment, sales, salesinv, retsaleinv, buy , buyinv  , retbuyinv , hr  , hrsetup  , empfiles   , salaries , holidaysandleaves , reports , generalreports , statmentaccount  , storesreports , hrreports  , salesreports   , buyreports , acctransreports , accbalance , IsDeleted , admin ) VALUES (@user_id , @user_name ,@syssetup , @sysinfo   , @users  , @invsetup , @userslog   , @newyear   , @sendsmsemail    , @AccTree      , @mainacc      , @subacc   , @cusven , @linkacc , @Stores , @setupstores  , @instore , @outstore  , @acctrans   , @voucher   , @recive   , @payment  , @sales  , @salesinv   , @retsaleinv  , @buy , @buyinv , @retbuyinv  , @hr  , @hrsetup , @empfiles  , @salaries  , @holidaysandleaves     , @reports   , @generalreports   , @statmentaccount   , @storesreports     , @hrreports , @salesreports   , @buyreports , @acctransreports , @accbalance , @IsDeleted , @admin)";
+        string adduserperqry = " INSERT INTO UsersPermissions (user_id, user_name ,  syssetup , sysinfo, users, invsetup, userslog , newyear, sendsmsemail , AccTree, mainacc , subacc , cusven, linkacc, Stores  , setupstores,instore , outstore ,  acctrans , voucher , recive, payment, sales, salesinv, retsaleinv, buy , buyinv  , retbuyinv , hr  , hrsetup  , empfiles   , salaries , holidaysandleaves , reports , generalreports , statmentaccount  , storesreports , hrreports  , salesreports   , buyreports , acctransreports , accbalance , IsDeleted , admin , updatecancelstores ,updatecanceltrans, updatecancelsales ,  updatecancelbuy ) VALUES (@user_id , @user_name ,@syssetup , @sysinfo   , @users  , @invsetup , @userslog   , @newyear   , @sendsmsemail    , @AccTree      , @mainacc      , @subacc   , @cusven , @linkacc , @Stores , @setupstores  , @instore , @outstore  , @acctrans   , @voucher   , @recive   , @payment  , @sales  , @salesinv   , @retsaleinv  , @buy , @buyinv , @retbuyinv  , @hr  , @hrsetup , @empfiles  , @salaries  , @holidaysandleaves     , @reports   , @generalreports   , @statmentaccount   , @storesreports     , @hrreports , @salesreports   , @buyreports , @acctransreports , @accbalance , @IsDeleted , @admin , @updatecancelstores ,@updatecanceltrans, @updatecancelsales ,  @updatecancelbuy)";
 
         
         public int AddUserPer(int user_id  , string user_name, int syssetup, int sysinfo, int users, int invsetup, int userslog, int newyear, int sendsmsemail, int AccTree , int mainacc
@@ -460,7 +462,7 @@ int instore , int outstore
            , int salesreports
            , int buyreports
            , int acctransreports
-           , int accbalance , int IsDeleted , int admin )
+           , int accbalance , int IsDeleted , int admin , int updatecancelstores , int updatecanceltrans , int updatecancelsales , int updatecancelbuy )
         {
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
@@ -511,7 +513,12 @@ int instore , int outstore
             cmd.Parameters.Add(new SqlParameter("@accbalance", accbalance));
             cmd.Parameters.Add(new SqlParameter("@IsDeleted", IsDeleted)); 
                      cmd.Parameters.Add(new SqlParameter("@admin", admin)); 
-                  cmd.Parameters.Add(new SqlParameter("@user_name", user_name)); 
+                  cmd.Parameters.Add(new SqlParameter("@user_name", user_name));
+
+            cmd.Parameters.Add(new SqlParameter("@updatecancelstores", updatecancelstores));
+            cmd.Parameters.Add(new SqlParameter("@updatecanceltrans", updatecanceltrans));
+            cmd.Parameters.Add(new SqlParameter("@updatecancelsales", updatecancelsales));
+            cmd.Parameters.Add(new SqlParameter("@updatecancelbuy", updatecancelbuy));
 
 
 
@@ -537,6 +544,33 @@ int instore , int outstore
             cmd.Parameters.Add(new SqlParameter("@email", email));
 
             
+
+            con.Open();
+
+            DataBase db = new DataBase();
+           int rest =  db.checkexist(user_id , username);
+            if (rest > 0)
+                return -150; 
+            else
+                
+            return cmd.ExecuteNonQuery();
+        }
+
+
+        public int UpdateUserinfoadminper(int user_id, string username)
+        {
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand("UPDATE UsersPermissions set  user_name=@uname   where user_id=@user_id ", con); ; // sql command to so get data from data base
+
+
+
+            cmd.Parameters.Add(new SqlParameter("@uname", username));
+      
+            cmd.Parameters.Add(new SqlParameter("@user_id", user_id));
+            
+
+
 
             con.Open();
 

@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStoreIn));
             this.txtTransID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.transnotes = new System.Windows.Forms.TextBox();
+            this.txtTransnotes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.datetransdate = new DevExpress.XtraEditors.DateEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTranstype = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboStore = new System.Windows.Forms.ComboBox();
             this.btnViewItems = new DevExpress.XtraEditors.SimpleButton();
@@ -51,7 +51,7 @@
             this.addnewrow = new DevExpress.XtraEditors.SimpleButton();
             this.txtstoreid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboitemsids = new System.Windows.Forms.ComboBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -72,7 +72,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbonames = new System.Windows.Forms.ComboBox();
+            this.txtTotalIN = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtrowsCount = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stroeinGrid)).BeginInit();
@@ -99,15 +103,15 @@
             this.label2.TabIndex = 59;
             this.label2.Text = "رقم السند";
             // 
-            // transnotes
+            // txtTransnotes
             // 
-            this.transnotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.transnotes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.transnotes.Location = new System.Drawing.Point(159, 40);
-            this.transnotes.Name = "transnotes";
-            this.transnotes.Size = new System.Drawing.Size(531, 20);
-            this.transnotes.TabIndex = 60;
-            this.transnotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTransnotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTransnotes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtTransnotes.Location = new System.Drawing.Point(159, 40);
+            this.txtTransnotes.Name = "txtTransnotes";
+            this.txtTransnotes.Size = new System.Drawing.Size(531, 20);
+            this.txtTransnotes.TabIndex = 60;
+            this.txtTransnotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -139,17 +143,17 @@
             this.label3.TabIndex = 63;
             this.label3.Text = "التاريخ";
             // 
-            // textBox2
+            // txtTranstype
             // 
-            this.textBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.textBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(558, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(36, 20);
-            this.textBox2.TabIndex = 64;
-            this.textBox2.Text = "IN";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTranstype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTranstype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtTranstype.Enabled = false;
+            this.txtTranstype.Location = new System.Drawing.Point(558, 11);
+            this.txtTranstype.Name = "txtTranstype";
+            this.txtTranstype.Size = new System.Drawing.Size(36, 20);
+            this.txtTranstype.TabIndex = 64;
+            this.txtTranstype.Text = "SIN";
+            this.txtTranstype.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -167,6 +171,7 @@
             this.cboStore.Name = "cboStore";
             this.cboStore.Size = new System.Drawing.Size(100, 21);
             this.cboStore.TabIndex = 322;
+            this.cboStore.TextChanged += new System.EventHandler(this.cboStore_TextChanged);
             // 
             // btnViewItems
             // 
@@ -209,6 +214,7 @@
             this.btnsave.Size = new System.Drawing.Size(68, 22);
             this.btnsave.TabIndex = 337;
             this.btnsave.Text = "حفظ";
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // btndelete
             // 
@@ -302,13 +308,13 @@
             this.label7.TabIndex = 350;
             this.label7.Text = "الادخال يكون على اصغر وحدة قياس";
             // 
-            // comboBox1
+            // cboitemsids
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(641, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 21);
-            this.comboBox1.TabIndex = 351;
+            this.cboitemsids.FormattingEnabled = true;
+            this.cboitemsids.Location = new System.Drawing.Point(641, 112);
+            this.cboitemsids.Name = "cboitemsids";
+            this.cboitemsids.Size = new System.Drawing.Size(110, 21);
+            this.cboitemsids.TabIndex = 351;
             // 
             // textBox3
             // 
@@ -502,13 +508,55 @@
             this.label13.TabIndex = 366;
             this.label13.Text = "رمز المادة";
             // 
-            // comboBox2
+            // cbonames
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(361, 112);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(167, 21);
-            this.comboBox2.TabIndex = 367;
+            this.cbonames.FormattingEnabled = true;
+            this.cbonames.Location = new System.Drawing.Point(361, 112);
+            this.cbonames.Name = "cbonames";
+            this.cbonames.Size = new System.Drawing.Size(167, 21);
+            this.cbonames.TabIndex = 367;
+            // 
+            // txtTotalIN
+            // 
+            this.txtTotalIN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTotalIN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtTotalIN.Location = new System.Drawing.Point(29, 324);
+            this.txtTotalIN.Name = "txtTotalIN";
+            this.txtTotalIN.Size = new System.Drawing.Size(149, 20);
+            this.txtTotalIN.TabIndex = 368;
+            this.txtTotalIN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(184, 328);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(46, 13);
+            this.label14.TabIndex = 370;
+            this.label14.Text = "المجموع";
+            // 
+            // txtrowsCount
+            // 
+            this.txtrowsCount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtrowsCount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtrowsCount.Location = new System.Drawing.Point(631, 324);
+            this.txtrowsCount.Name = "txtrowsCount";
+            this.txtrowsCount.Size = new System.Drawing.Size(48, 20);
+            this.txtrowsCount.TabIndex = 371;
+            this.txtrowsCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(685, 327);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 13);
+            this.label15.TabIndex = 372;
+            this.label15.Text = "عدد الأسطر";
             // 
             // frmStoreIn
             // 
@@ -516,7 +564,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(759, 350);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtrowsCount);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtTotalIN);
+            this.Controls.Add(this.cbonames);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.textBox7);
@@ -530,7 +582,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboitemsids);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtstoreid);
             this.Controls.Add(this.addnewrow);
@@ -546,10 +598,10 @@
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.cboStore);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTranstype);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.datetransdate);
-            this.Controls.Add(this.transnotes);
+            this.Controls.Add(this.txtTransnotes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTransID);
             this.Controls.Add(this.label2);
@@ -574,11 +626,11 @@
 
         private System.Windows.Forms.TextBox txtTransID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox transnotes;
+        private System.Windows.Forms.TextBox txtTransnotes;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.DateEdit datetransdate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTranstype;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboStore;
         private DevExpress.XtraEditors.SimpleButton btnViewItems;
@@ -594,7 +646,7 @@
         private DevExpress.XtraEditors.SimpleButton addnewrow;
         private System.Windows.Forms.TextBox txtstoreid;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboitemsids;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
@@ -615,6 +667,10 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbonames;
+        private System.Windows.Forms.TextBox txtTotalIN;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtrowsCount;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -98,6 +98,10 @@
             this.chkstoreout = new System.Windows.Forms.CheckBox();
             this.userStatus = new System.Windows.Forms.TextBox();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.chkupdatecancelstores = new System.Windows.Forms.CheckBox();
+            this.chkupdatecanceltrans = new System.Windows.Forms.CheckBox();
+            this.chkupdatecancelsales = new System.Windows.Forms.CheckBox();
+            this.chkupdatecancelbuy = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_userid.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -831,12 +835,60 @@
             this.labelControl12.TabIndex = 143;
             this.labelControl12.Text = "حالة المستخدم";
             // 
+            // chkupdatecancelstores
+            // 
+            this.chkupdatecancelstores.AutoSize = true;
+            this.chkupdatecancelstores.Location = new System.Drawing.Point(405, 88);
+            this.chkupdatecancelstores.Name = "chkupdatecancelstores";
+            this.chkupdatecancelstores.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkupdatecancelstores.Size = new System.Drawing.Size(79, 17);
+            this.chkupdatecancelstores.TabIndex = 144;
+            this.chkupdatecancelstores.Text = "تعديل والغاء";
+            this.chkupdatecancelstores.UseVisualStyleBackColor = true;
+            // 
+            // chkupdatecanceltrans
+            // 
+            this.chkupdatecanceltrans.AutoSize = true;
+            this.chkupdatecanceltrans.Location = new System.Drawing.Point(249, 88);
+            this.chkupdatecanceltrans.Name = "chkupdatecanceltrans";
+            this.chkupdatecanceltrans.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkupdatecanceltrans.Size = new System.Drawing.Size(79, 17);
+            this.chkupdatecanceltrans.TabIndex = 145;
+            this.chkupdatecanceltrans.Text = "تعديل والغاء";
+            this.chkupdatecanceltrans.UseVisualStyleBackColor = true;
+            // 
+            // chkupdatecancelsales
+            // 
+            this.chkupdatecancelsales.AutoSize = true;
+            this.chkupdatecancelsales.Location = new System.Drawing.Point(96, 66);
+            this.chkupdatecancelsales.Name = "chkupdatecancelsales";
+            this.chkupdatecancelsales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkupdatecancelsales.Size = new System.Drawing.Size(79, 17);
+            this.chkupdatecancelsales.TabIndex = 146;
+            this.chkupdatecancelsales.Text = "تعديل والغاء";
+            this.chkupdatecancelsales.UseVisualStyleBackColor = true;
+            // 
+            // chkupdatecancelbuy
+            // 
+            this.chkupdatecancelbuy.AutoSize = true;
+            this.chkupdatecancelbuy.Location = new System.Drawing.Point(19, 68);
+            this.chkupdatecancelbuy.Name = "chkupdatecancelbuy";
+            this.chkupdatecancelbuy.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.chkupdatecancelbuy.Size = new System.Drawing.Size(79, 17);
+            this.chkupdatecancelbuy.TabIndex = 147;
+            this.chkupdatecancelbuy.Text = "تعديل والغاء";
+            this.chkupdatecancelbuy.UseVisualStyleBackColor = true;
+            // 
             // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1027, 391);
+            this.Controls.Add(this.chkupdatecancelbuy);
+            this.Controls.Add(this.chkupdatecancelsales);
+            this.Controls.Add(this.chkupdatecanceltrans);
+            this.Controls.Add(this.chkupdatecancelstores);
             this.Controls.Add(this.labelControl12);
             this.Controls.Add(this.userStatus);
             this.Controls.Add(this.chkStoresSettings);
@@ -988,5 +1040,9 @@
         private System.Windows.Forms.CheckBox chkstoreout;
         private System.Windows.Forms.TextBox userStatus;
         private DevExpress.XtraEditors.LabelControl labelControl12;
+        private System.Windows.Forms.CheckBox chkupdatecancelstores;
+        private System.Windows.Forms.CheckBox chkupdatecanceltrans;
+        private System.Windows.Forms.CheckBox chkupdatecancelsales;
+        private System.Windows.Forms.CheckBox chkupdatecancelbuy;
     }
 }
