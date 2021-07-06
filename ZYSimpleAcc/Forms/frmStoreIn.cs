@@ -208,5 +208,53 @@ namespace ZYSimpleAcc.Forms
 
             }
         }
+
+        private void cboitemsids_TextChanged(object sender, EventArgs e)
+        {
+            string itemid = cboitemsids.Text.ToString();
+
+
+            string condition = "ItemID=" + "'" + itemid.ToString() + "'";
+
+
+            DataTable dtable = s.SelctData("Items", 1, condition);
+            int x = dtable.Rows.Count;
+
+            if (dtable != null && dtable.Rows.Count > 0)
+            {
+
+                txtItemID.Text = dtable.Rows[0]["ItemID"].ToString();
+                cbonames.Text = dtable.Rows[0]["ItemName"].ToString();
+                txtUnit.Text = dtable.Rows[0]["ItemMainUnitName"].ToString();
+                txtUnitPrice.Text = dtable.Rows[0]["ItemBuyPriceMainUnit"].ToString();
+                txtTax.Text = dtable.Rows[0]["ItemTaxPercentValue"].ToString();
+                cbonames.Enabled = false; 
+
+                
+            }
+            else
+            {
+                XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        private void txtQty_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtQty.Text))
+                {
+                XtraMessageBox.Show(Resources.qtyRequired, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQty.Focus();
+            }
+            else
+            {
+                float total =float.Parse(txtQty.Text) * float.Parse(txtUnitPrice.Text);
+                float tax = total * (float.Parse(txtTax.Text) / 100);
+                total = total + tax; 
+                txtTotal.Text = total.ToString();
+                txtTax.Text = tax.ToString();
+
+            }
+        }
     }
 }

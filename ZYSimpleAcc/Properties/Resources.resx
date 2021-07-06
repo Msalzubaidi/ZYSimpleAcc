@@ -219,4 +219,7 @@
   <data name="emptyPrice" xml:space="preserve">
     <value>يرجى الانتباه ان السعر فارغ </value>
   </data>
+  <data name="qtyRequired" xml:space="preserve">
+    <value>الرجاء إدخال الكمية</value>
+  </data>
 </root>

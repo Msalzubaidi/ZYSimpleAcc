@@ -313,6 +313,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to الرجاء إدخال الكمية.
+        /// </summary>
+        internal static string qtyRequired {
+            get {
+                return ResourceManager.GetString("qtyRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MZUBAIDI.
         /// </summary>
         internal static string servercon {
