@@ -54,6 +54,11 @@ namespace ZYSimpleAcc.Class
                 qry = "select ISNULL(Max(ItemID) , 0 ) as ItemID from " + table_name + " where ItemCategoryID="+int.Parse(condition);
             }
 
+            else if (x == 7)
+            {
+                qry = "select ISNULL(Max(TransID) , 0 ) as TransID from " + table_name ;
+            }
+
 
 
 
@@ -108,7 +113,12 @@ namespace ZYSimpleAcc.Class
             {
                 qry = "select * from " + table_name + " where IsDeleted=1";
             }
-         
+            if (d == 3)
+            {
+                qry = "select max(TransID) from " + table_name;
+            }
+
+
 
 
 

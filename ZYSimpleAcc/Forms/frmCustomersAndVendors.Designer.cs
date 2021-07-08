@@ -38,10 +38,8 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
-            this.searchControl1 = new DevExpress.XtraEditors.SearchControl();
             this.btnadd = new DevExpress.XtraEditors.SimpleButton();
             this.btnupdate = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -78,10 +76,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtTaxNo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.schControl = new System.Windows.Forms.TextBox();
+            this.schlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MyGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManfu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,15 +183,6 @@
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 6;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(878, 149);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
-            this.label9.TabIndex = 217;
-            this.label9.Text = "بحث";
-            // 
             // txtType
             // 
             this.txtType.Enabled = false;
@@ -210,16 +201,6 @@
             this.toggleSwitch1.Size = new System.Drawing.Size(95, 23);
             this.toggleSwitch1.TabIndex = 215;
             this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled_1);
-            // 
-            // searchControl1
-            // 
-            this.searchControl1.Location = new System.Drawing.Point(586, 165);
-            this.searchControl1.Name = "searchControl1";
-            this.searchControl1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Repository.ClearButton(),
-            new DevExpress.XtraEditors.Repository.SearchButton()});
-            this.searchControl1.Size = new System.Drawing.Size(319, 20);
-            this.searchControl1.TabIndex = 214;
             // 
             // btnadd
             // 
@@ -583,12 +564,47 @@
             this.label20.TabIndex = 229;
             this.label20.Text = "الرقم الضريبي";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
+            this.btnSearch.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(579, 162);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnSearch.Size = new System.Drawing.Size(30, 27);
+            this.btnSearch.TabIndex = 232;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // schControl
+            // 
+            this.schControl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schControl.Location = new System.Drawing.Point(611, 162);
+            this.schControl.Multiline = true;
+            this.schControl.Name = "schControl";
+            this.schControl.Size = new System.Drawing.Size(302, 27);
+            this.schControl.TabIndex = 233;
+            // 
+            // schlabel
+            // 
+            this.schlabel.AutoSize = true;
+            this.schlabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schlabel.ForeColor = System.Drawing.Color.Black;
+            this.schlabel.Location = new System.Drawing.Point(798, 143);
+            this.schlabel.Name = "schlabel";
+            this.schlabel.Size = new System.Drawing.Size(115, 16);
+            this.schlabel.TabIndex = 234;
+            this.schlabel.Text = "أدخل كلمة للبحث";
+            this.schlabel.Click += new System.EventHandler(this.schlabel_Click);
+            // 
             // frmCustomersAndVendors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(917, 489);
+            this.Controls.Add(this.schlabel);
+            this.Controls.Add(this.schControl);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTaxNo);
             this.Controls.Add(this.label20);
@@ -602,10 +618,8 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtType);
             this.Controls.Add(this.toggleSwitch1);
-            this.Controls.Add(this.searchControl1);
             this.Controls.Add(this.btnadd);
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.simpleButton1);
@@ -643,7 +657,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.MyGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtManfu.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -659,10 +672,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtType;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
-        private DevExpress.XtraEditors.SearchControl searchControl1;
         private DevExpress.XtraEditors.SimpleButton btnadd;
         private DevExpress.XtraEditors.SimpleButton btnupdate;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
@@ -700,5 +711,8 @@
         private System.Windows.Forms.TextBox txtTaxNo;
         private System.Windows.Forms.Label label20;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.SimpleButton btnSearch;
+        private System.Windows.Forms.TextBox schControl;
+        private System.Windows.Forms.Label schlabel;
     }
 }

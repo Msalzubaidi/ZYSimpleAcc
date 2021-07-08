@@ -43,9 +43,24 @@ namespace ZYSimpleAcc.Forms
         private void btnclear_Click(object sender, EventArgs e)
         {
 
-            
-            int y = s.FindMax(masterstoretable, 0);
-            txtTransID.Text = y.ToString();
+            DataTable dtable1 = s.SelctData(masterstoretable, 7, "");
+
+            int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
+
+
+            if (max1 == 0)
+            {
+                txtTransID.Clear();
+                txtTransID.Text = "1";
+
+
+            }
+            else
+            {
+                txtTransID.Text = (max1 + 1).ToString();
+                txtTransID.Enabled = false;
+
+            }
             datetransdate.DateTime = DateTime.Now; 
             txtTransnotes.Text = "سند إدخال ";
             cboStore.ResetText();
@@ -122,6 +137,9 @@ namespace ZYSimpleAcc.Forms
                 cbonames.Items.Add(dr23.GetValue(1).ToString());
 
             }
+
+
+         
 
 
         }

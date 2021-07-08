@@ -508,5 +508,41 @@ namespace ZYSimpleAcc.Forms
                 SendKeys.Send("{TAB}");
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            if (string.IsNullOrWhiteSpace(schControl.Text.ToString()))
+            {
+                XtraMessageBox.Show(Resources.emptyFields, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DataTable dtable = new DataTable();
+
+                string keyword = schControl.Text.ToString();
+                dtable = ss.SerachCusVen(keyword);
+
+                int count = dtable.Rows.Count;
+                if(count > 0)
+                { 
+                MyGrid.RefreshDataSource();
+                MyGrid.DataSource = dtable;
+                }
+                else
+                {
+                    MyGrid.RefreshDataSource();
+                    schControl.Clear();
+                    schControl.Focus();
+                    XtraMessageBox.Show(Resources.NoData, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            
+        }
+
+        private void schlabel_Click(object sender, EventArgs e)
+        {
+            XtraMessageBox.Show("يمكن البحث من خلال كتابة جزء من الاسم او رقم الحساب او رقم الهاتف او البريد الالكتروني او الرقم الضريبي او العنوان او سقف الرصيد ", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -770,6 +771,27 @@ namespace ZYSimpleAcc.Class
 
 
 
+        }
+
+
+
+        public DataTable SerachCusVen(string keyword)
+        {
+          
+            SqlConnection con = new SqlConnection(DataBase.connstring);
+            string qry = "Select * from CustomersAndVendors where [CusVenName] + [CusVenID] + [CusVenMobile] +[CusVenEmail] + [CusVenDetailedAddress] + [CusVenMaxBalance] + [CusVenTaxNo] like '%' + " + "'" +  keyword  + "'"+ "+'%'";
+
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@keyword", keyword));
+            
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.SelectCommand = cmd;
+            DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+
+            con.Open();
+            return dt;
         }
 
 

@@ -81,16 +81,25 @@
             this.mnuStoreSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuinstore = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuoutstore = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelin = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTrans = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuvoucher = new System.Windows.Forms.ToolStripMenuItem();
             this.mnurecive = new System.Windows.Forms.ToolStripMenuItem();
             this.mnupayment = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelvchr = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelrecv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelpay = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSales = new System.Windows.Forms.ToolStripMenuItem();
             this.mnusalesinv = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuretsalesinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelsalesinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelretsalesinv = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBuy = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBuyinv = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuretBuyinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelbuyinv = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatecancelretbuyinv = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnustatofacc = new System.Windows.Forms.ToolStripMenuItem();
             this.mnugeneralreport = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,15 +118,6 @@
             this.mnuholidaysandleaves = new System.Windows.Forms.ToolStripMenuItem();
             this.devmode = new System.Windows.Forms.ToolStripMenuItem();
             this.lic = new DevExpress.XtraEditors.LabelControl();
-            this.updatecancelin = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelout = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelvchr = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelrecv = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelpay = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelsalesinv = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelretsalesinv = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelbuyinv = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatecancelretbuyinv = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mnuSubmenu)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -529,6 +529,18 @@
             this.mnuoutstore.Text = "اخراج";
             this.mnuoutstore.Click += new System.EventHandler(this.mnuoutstore_Click);
             // 
+            // updatecancelin
+            // 
+            this.updatecancelin.Name = "updatecancelin";
+            this.updatecancelin.Size = new System.Drawing.Size(183, 22);
+            this.updatecancelin.Text = "تعديل والغاء الادخال";
+            // 
+            // updatecancelout
+            // 
+            this.updatecancelout.Name = "updatecancelout";
+            this.updatecancelout.Size = new System.Drawing.Size(183, 22);
+            this.updatecancelout.Text = "تعديل والغاء الاخراج";
+            // 
             // mnuTrans
             // 
             this.mnuTrans.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -561,6 +573,24 @@
             this.mnupayment.Size = new System.Drawing.Size(175, 22);
             this.mnupayment.Text = "صرف";
             // 
+            // updatecancelvchr
+            // 
+            this.updatecancelvchr.Name = "updatecancelvchr";
+            this.updatecancelvchr.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelvchr.Text = "تعديل والغاء قيد";
+            // 
+            // updatecancelrecv
+            // 
+            this.updatecancelrecv.Name = "updatecancelrecv";
+            this.updatecancelrecv.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelrecv.Text = "تعديل الغاء قبض";
+            // 
+            // updatecancelpay
+            // 
+            this.updatecancelpay.Name = "updatecancelpay";
+            this.updatecancelpay.Size = new System.Drawing.Size(175, 22);
+            this.updatecancelpay.Text = "تعديل والغاء صرف";
+            // 
             // mnuSales
             // 
             this.mnuSales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -585,6 +615,18 @@
             this.mnuretsalesinv.Size = new System.Drawing.Size(205, 22);
             this.mnuretsalesinv.Text = "مرتجع بيع";
             // 
+            // updatecancelsalesinv
+            // 
+            this.updatecancelsalesinv.Name = "updatecancelsalesinv";
+            this.updatecancelsalesinv.Size = new System.Drawing.Size(205, 22);
+            this.updatecancelsalesinv.Text = "تعديل والغاء فاتورة البيع";
+            // 
+            // updatecancelretsalesinv
+            // 
+            this.updatecancelretsalesinv.Name = "updatecancelretsalesinv";
+            this.updatecancelretsalesinv.Size = new System.Drawing.Size(205, 22);
+            this.updatecancelretsalesinv.Text = "تعديل والغاء مرتجع البيع";
+            // 
             // mnuBuy
             // 
             this.mnuBuy.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -608,6 +650,18 @@
             this.mnuretBuyinv.Name = "mnuretBuyinv";
             this.mnuretBuyinv.Size = new System.Drawing.Size(211, 22);
             this.mnuretBuyinv.Text = "مرتجع شراء";
+            // 
+            // updatecancelbuyinv
+            // 
+            this.updatecancelbuyinv.Name = "updatecancelbuyinv";
+            this.updatecancelbuyinv.Size = new System.Drawing.Size(211, 22);
+            this.updatecancelbuyinv.Text = "تعديل والغاء فاتورة الشراء";
+            // 
+            // updatecancelretbuyinv
+            // 
+            this.updatecancelretbuyinv.Name = "updatecancelretbuyinv";
+            this.updatecancelretbuyinv.Size = new System.Drawing.Size(211, 22);
+            this.updatecancelretbuyinv.Text = "تعديل والغاء مرتجع الشراء";
             // 
             // mnuReports
             // 
@@ -758,60 +812,6 @@
             this.lic.TabIndex = 4;
             this.lic.Text = "License info ...";
             this.lic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lic_MouseDoubleClick);
-            // 
-            // updatecancelin
-            // 
-            this.updatecancelin.Name = "updatecancelin";
-            this.updatecancelin.Size = new System.Drawing.Size(183, 22);
-            this.updatecancelin.Text = "تعديل والغاء الادخال";
-            // 
-            // updatecancelout
-            // 
-            this.updatecancelout.Name = "updatecancelout";
-            this.updatecancelout.Size = new System.Drawing.Size(183, 22);
-            this.updatecancelout.Text = "تعديل والغاء الاخراج";
-            // 
-            // updatecancelvchr
-            // 
-            this.updatecancelvchr.Name = "updatecancelvchr";
-            this.updatecancelvchr.Size = new System.Drawing.Size(175, 22);
-            this.updatecancelvchr.Text = "تعديل والغاء قيد";
-            // 
-            // updatecancelrecv
-            // 
-            this.updatecancelrecv.Name = "updatecancelrecv";
-            this.updatecancelrecv.Size = new System.Drawing.Size(175, 22);
-            this.updatecancelrecv.Text = "تعديل الغاء قبض";
-            // 
-            // updatecancelpay
-            // 
-            this.updatecancelpay.Name = "updatecancelpay";
-            this.updatecancelpay.Size = new System.Drawing.Size(175, 22);
-            this.updatecancelpay.Text = "تعديل والغاء صرف";
-            // 
-            // updatecancelsalesinv
-            // 
-            this.updatecancelsalesinv.Name = "updatecancelsalesinv";
-            this.updatecancelsalesinv.Size = new System.Drawing.Size(205, 22);
-            this.updatecancelsalesinv.Text = "تعديل والغاء فاتورة البيع";
-            // 
-            // updatecancelretsalesinv
-            // 
-            this.updatecancelretsalesinv.Name = "updatecancelretsalesinv";
-            this.updatecancelretsalesinv.Size = new System.Drawing.Size(205, 22);
-            this.updatecancelretsalesinv.Text = "تعديل والغاء مرتجع البيع";
-            // 
-            // updatecancelbuyinv
-            // 
-            this.updatecancelbuyinv.Name = "updatecancelbuyinv";
-            this.updatecancelbuyinv.Size = new System.Drawing.Size(211, 22);
-            this.updatecancelbuyinv.Text = "تعديل والغاء فاتورة الشراء";
-            // 
-            // updatecancelretbuyinv
-            // 
-            this.updatecancelretbuyinv.Name = "updatecancelretbuyinv";
-            this.updatecancelretbuyinv.Size = new System.Drawing.Size(211, 22);
-            this.updatecancelretbuyinv.Text = "تعديل والغاء مرتجع الشراء";
             // 
             // frmMain
             // 

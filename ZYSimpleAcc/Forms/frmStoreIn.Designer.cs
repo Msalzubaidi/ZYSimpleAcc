@@ -87,6 +87,7 @@
             // 
             this.txtTransID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTransID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtTransID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTransID.Enabled = false;
             this.txtTransID.Location = new System.Drawing.Point(619, 16);
             this.txtTransID.Name = "txtTransID";
@@ -289,6 +290,7 @@
             // 
             this.txtstoreid.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtstoreid.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtstoreid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtstoreid.Enabled = false;
             this.txtstoreid.Location = new System.Drawing.Point(370, 16);
             this.txtstoreid.Name = "txtstoreid";
