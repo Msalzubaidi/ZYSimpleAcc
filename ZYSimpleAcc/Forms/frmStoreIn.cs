@@ -40,6 +40,20 @@ namespace ZYSimpleAcc.Forms
             btnclear.PerformClick();
         }
 
+
+        private void ResizeGrid()
+
+        {
+            this.StoreInDetailsGrid.RowHeadersWidth = 50;
+            this.StoreInDetailsGrid.Columns[0].Width = 100;
+            this.StoreInDetailsGrid.Columns[1].Width = 194;
+            this.StoreInDetailsGrid.Columns[2].Width = 90;
+            this.StoreInDetailsGrid.Columns[3].Width = 90;
+            this.StoreInDetailsGrid.Columns[4].Width = 65;
+            this.StoreInDetailsGrid.Columns[5].Width = 65;
+            this.StoreInDetailsGrid.Columns[6].Width = 118;
+        }
+
         private void btnclear_Click(object sender, EventArgs e)
         {
 
@@ -70,6 +84,13 @@ namespace ZYSimpleAcc.Forms
             btnsave.Visible = true;
             btnupdate.Visible = false;
             btndelete.Visible = false;
+            this.ResizeGrid();
+            //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+            //btn.HeaderText = "الغاء";
+            //btn.Text = "الغاء السطر";
+            //btn.UseColumnTextForButtonValue = true;
+            //StoreInDetailsGrid.Columns.Insert(0, btn); 
+
 
             string connstring = @"Data Source=" + Resources.servercon + ";Initial Catalog=" + Resources.dbnamecon + ";User ID=" + Resources.usernamecon + ";Password=" + Resources.passwordcon;
 
@@ -116,28 +137,7 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-            SqlConnection con23 = new SqlConnection(connstring);
-            SqlCommand cmd23;
-            SqlDataReader dr23;
-
-            string qry23 = "select * from Items";
-
-            cboitemsids.Items.Clear();
-            cbonames.Items.Clear();
-            con23.Open();
-            //XtraMessageBox.Show("Connected ... ");
-
-            cmd23 = new SqlCommand(qry23, con23);
-            dr23 = cmd23.ExecuteReader();
-
-            while (dr23.Read())
-            {
-
-                cboitemsids.Items.Add(dr23.GetValue(0).ToString());
-                cbonames.Items.Add(dr23.GetValue(1).ToString());
-
-            }
-
+          
 
          
 
@@ -229,32 +229,7 @@ namespace ZYSimpleAcc.Forms
 
         private void cboitemsids_TextChanged(object sender, EventArgs e)
         {
-            string itemid = cboitemsids.Text.ToString();
-
-
-            string condition = "ItemID=" + "'" + itemid.ToString() + "'";
-
-
-            DataTable dtable = s.SelctData("Items", 1, condition);
-            int x = dtable.Rows.Count;
-
-            if (dtable != null && dtable.Rows.Count > 0)
-            {
-
-                txtItemID.Text = dtable.Rows[0]["ItemID"].ToString();
-                cbonames.Text = dtable.Rows[0]["ItemName"].ToString();
-                txtUnit.Text = dtable.Rows[0]["ItemMainUnitName"].ToString();
-                txtUnitPrice.Text = dtable.Rows[0]["ItemBuyPriceMainUnit"].ToString();
-                txtTax.Text = dtable.Rows[0]["ItemTaxPercentValue"].ToString();
-                cbonames.Enabled = false; 
-
-                
-            }
-            else
-            {
-                XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-            }
+            
         }
 
         private void txtQty_Leave(object sender, EventArgs e)
@@ -273,6 +248,18 @@ namespace ZYSimpleAcc.Forms
                 txtTax.Text = tax.ToString();
 
             }
+        }
+
+        private void simpleButton2_Click_1(object sender, EventArgs e)
+        {
+            
+            frmViewItems vi = new frmViewItems();
+            vi.ShowDialog();
+            txtItemID.Text = vi.ItemsGrid.CurrentRow.Cells[0].Value.ToString();
+            txtItemName.Text = vi.ItemsGrid.CurrentRow.Cells[1].Value.ToString();
+            txtTax.Text = vi.ItemsGrid.CurrentRow.Cells[5].Value.ToString();
+            txtUnit.Text = vi.ItemsGrid.CurrentRow.Cells[6].Value.ToString();
+            txtUnitPrice.Text = vi.ItemsGrid.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }

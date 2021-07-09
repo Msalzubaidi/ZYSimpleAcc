@@ -795,6 +795,31 @@ namespace ZYSimpleAcc.Class
         }
 
 
+        public DataTable SerachItems(string keyword , int operation )
+        {
+            SqlConnection con = new SqlConnection(DataBase.connstring);
+            string qry = "";
+            if (operation == 0 )
+           qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode  , ItemTaxPercentValue , ItemMainUnitName , ItemMainUnitValue   from Items where [ItemID] + [ItemName] + [ItemCategoryName] +[ItemSupplierName] + [ItemBarCode]  like '%' + " + "'" + keyword + "'" + "+'%'  and ItemStatus = 1";
+
+            else if (operation == 1 )
+                qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode , ItemTaxPercentValue , ItemMainUnitName , ItemMainUnitValue   from Items  where ItemStatus = 1";
+
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@keyword", keyword));
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.SelectCommand = cmd;
+            DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+
+            con.Open();
+            return dt;
+        }
+
+
+
 
     }
 }

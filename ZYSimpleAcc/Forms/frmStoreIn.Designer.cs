@@ -50,12 +50,10 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.addnewrow = new DevExpress.XtraEditors.SimpleButton();
             this.txtstoreid = new System.Windows.Forms.TextBox();
-            this.cboitemsids = new System.Windows.Forms.ComboBox();
             this.txtUnit = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtItemID = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtQty = new System.Windows.Forms.TextBox();
@@ -63,14 +61,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.cbonames = new System.Windows.Forms.ComboBox();
             this.txtTotalIN = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtrowsCount = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtTax = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.StoreInDetailsGrid = new System.Windows.Forms.DataGridView();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,9 +75,11 @@
             this.itemQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtItemName = new System.Windows.Forms.TextBox();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTransID
@@ -186,7 +185,7 @@
             // btnclear
             // 
             this.btnclear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclear.ImageOptions.Image")));
-            this.btnclear.Location = new System.Drawing.Point(3, 234);
+            this.btnclear.Location = new System.Drawing.Point(223, 334);
             this.btnclear.Name = "btnclear";
             this.btnclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclear.Size = new System.Drawing.Size(63, 22);
@@ -197,7 +196,7 @@
             // btnclose
             // 
             this.btnclose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.ImageOptions.Image")));
-            this.btnclose.Location = new System.Drawing.Point(3, 206);
+            this.btnclose.Location = new System.Drawing.Point(292, 334);
             this.btnclose.Name = "btnclose";
             this.btnclose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclose.Size = new System.Drawing.Size(63, 22);
@@ -208,7 +207,7 @@
             // btnsave
             // 
             this.btnsave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.ImageOptions.Image")));
-            this.btnsave.Location = new System.Drawing.Point(3, 122);
+            this.btnsave.Location = new System.Drawing.Point(499, 334);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnsave.Size = new System.Drawing.Size(63, 22);
@@ -219,7 +218,7 @@
             // btndelete
             // 
             this.btndelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.ImageOptions.Image")));
-            this.btndelete.Location = new System.Drawing.Point(3, 150);
+            this.btndelete.Location = new System.Drawing.Point(430, 334);
             this.btndelete.Name = "btndelete";
             this.btndelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndelete.Size = new System.Drawing.Size(63, 22);
@@ -229,7 +228,7 @@
             // btnupdate
             // 
             this.btnupdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.ImageOptions.Image")));
-            this.btnupdate.Location = new System.Drawing.Point(3, 178);
+            this.btnupdate.Location = new System.Drawing.Point(361, 334);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnupdate.Size = new System.Drawing.Size(63, 22);
@@ -268,18 +267,18 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(10, 272);
+            this.simpleButton1.Location = new System.Drawing.Point(656, 314);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton1.Size = new System.Drawing.Size(24, 22);
+            this.simpleButton1.Size = new System.Drawing.Size(131, 25);
             this.simpleButton1.TabIndex = 345;
-            this.simpleButton1.Text = "اغلاق";
+            this.simpleButton1.Text = "الغاء السطر المحدد";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // addnewrow
             // 
             this.addnewrow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("addnewrow.ImageOptions.Image")));
-            this.addnewrow.Location = new System.Drawing.Point(38, 272);
+            this.addnewrow.Location = new System.Drawing.Point(16, 112);
             this.addnewrow.Name = "addnewrow";
             this.addnewrow.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.addnewrow.Size = new System.Drawing.Size(24, 22);
@@ -298,21 +297,11 @@
             this.txtstoreid.TabIndex = 348;
             this.txtstoreid.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cboitemsids
-            // 
-            this.cboitemsids.FormattingEnabled = true;
-            this.cboitemsids.Location = new System.Drawing.Point(677, 112);
-            this.cboitemsids.Name = "cboitemsids";
-            this.cboitemsids.Size = new System.Drawing.Size(110, 21);
-            this.cboitemsids.TabIndex = 351;
-            this.cboitemsids.TextChanged += new System.EventHandler(this.cboitemsids_TextChanged);
-            // 
             // txtUnit
             // 
             this.txtUnit.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtUnit.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtUnit.Enabled = false;
-            this.txtUnit.Location = new System.Drawing.Point(334, 113);
+            this.txtUnit.Location = new System.Drawing.Point(308, 113);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.Size = new System.Drawing.Size(57, 20);
             this.txtUnit.TabIndex = 354;
@@ -322,8 +311,7 @@
             // 
             this.txtUnitPrice.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtUnitPrice.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtUnitPrice.Enabled = false;
-            this.txtUnitPrice.Location = new System.Drawing.Point(266, 113);
+            this.txtUnitPrice.Location = new System.Drawing.Point(240, 113);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(66, 20);
             this.txtUnitPrice.TabIndex = 355;
@@ -332,7 +320,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 95);
+            this.label8.Location = new System.Drawing.Point(447, 97);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 356;
@@ -342,26 +330,16 @@
             // 
             this.txtItemID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtItemID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtItemID.Enabled = false;
-            this.txtItemID.Location = new System.Drawing.Point(570, 113);
+            this.txtItemID.Location = new System.Drawing.Point(588, 113);
             this.txtItemID.Name = "txtItemID";
-            this.txtItemID.Size = new System.Drawing.Size(105, 20);
+            this.txtItemID.Size = new System.Drawing.Size(97, 20);
             this.txtItemID.TabIndex = 357;
             this.txtItemID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(603, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 358;
-            this.label9.Text = "رمز المادة";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(264, 95);
+            this.label10.Location = new System.Drawing.Point(238, 97);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(61, 13);
             this.label10.TabIndex = 359;
@@ -370,7 +348,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(328, 95);
+            this.label11.Location = new System.Drawing.Point(302, 97);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 360;
@@ -380,7 +358,7 @@
             // 
             this.txtQty.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtQty.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtQty.Location = new System.Drawing.Point(198, 113);
+            this.txtQty.Location = new System.Drawing.Point(172, 113);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(66, 20);
             this.txtQty.TabIndex = 361;
@@ -390,7 +368,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(212, 95);
+            this.label6.Location = new System.Drawing.Point(186, 97);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(36, 13);
             this.label6.TabIndex = 363;
@@ -399,7 +377,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(85, 97);
+            this.label12.Location = new System.Drawing.Point(59, 97);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 13);
             this.label12.TabIndex = 365;
@@ -409,7 +387,7 @@
             // 
             this.txtTotal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTotal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtTotal.Location = new System.Drawing.Point(71, 113);
+            this.txtTotal.Location = new System.Drawing.Point(45, 113);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(66, 20);
             this.txtTotal.TabIndex = 364;
@@ -418,25 +396,17 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(703, 94);
+            this.label13.Location = new System.Drawing.Point(618, 97);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(51, 13);
             this.label13.TabIndex = 366;
             this.label13.Text = "رمز المادة";
             // 
-            // cbonames
-            // 
-            this.cbonames.FormattingEnabled = true;
-            this.cbonames.Location = new System.Drawing.Point(397, 112);
-            this.cbonames.Name = "cbonames";
-            this.cbonames.Size = new System.Drawing.Size(167, 21);
-            this.cbonames.TabIndex = 367;
-            // 
             // txtTotalIN
             // 
             this.txtTotalIN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTotalIN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtTotalIN.Location = new System.Drawing.Point(6, 354);
+            this.txtTotalIN.Location = new System.Drawing.Point(12, 347);
             this.txtTotalIN.Name = "txtTotalIN";
             this.txtTotalIN.Size = new System.Drawing.Size(56, 20);
             this.txtTotalIN.TabIndex = 368;
@@ -447,7 +417,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(12, 338);
+            this.label14.Location = new System.Drawing.Point(84, 352);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 13);
             this.label14.TabIndex = 370;
@@ -457,7 +427,7 @@
             // 
             this.txtrowsCount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtrowsCount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtrowsCount.Location = new System.Drawing.Point(6, 315);
+            this.txtrowsCount.Location = new System.Drawing.Point(12, 319);
             this.txtrowsCount.Name = "txtrowsCount";
             this.txtrowsCount.Size = new System.Drawing.Size(56, 20);
             this.txtrowsCount.TabIndex = 371;
@@ -468,7 +438,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(3, 297);
+            this.label15.Location = new System.Drawing.Point(74, 322);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(62, 13);
             this.label15.TabIndex = 372;
@@ -477,7 +447,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(146, 97);
+            this.label16.Location = new System.Drawing.Point(120, 97);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(40, 13);
             this.label16.TabIndex = 374;
@@ -487,16 +457,16 @@
             // 
             this.txtTax.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTax.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.txtTax.Location = new System.Drawing.Point(143, 113);
+            this.txtTax.Location = new System.Drawing.Point(117, 113);
             this.txtTax.Name = "txtTax";
             this.txtTax.Size = new System.Drawing.Size(49, 20);
             this.txtTax.TabIndex = 373;
             this.txtTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dataGridView1
+            // StoreInDetailsGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StoreInDetailsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StoreInDetailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ItemID,
             this.ItemName,
             this.ItemUnit,
@@ -504,61 +474,92 @@
             this.itemQty,
             this.itemTax,
             this.itemTotal});
-            this.dataGridView1.Location = new System.Drawing.Point(71, 139);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView1.Size = new System.Drawing.Size(724, 238);
-            this.dataGridView1.TabIndex = 375;
+            this.StoreInDetailsGrid.Location = new System.Drawing.Point(12, 139);
+            this.StoreInDetailsGrid.MultiSelect = false;
+            this.StoreInDetailsGrid.Name = "StoreInDetailsGrid";
+            this.StoreInDetailsGrid.ReadOnly = true;
+            this.StoreInDetailsGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.StoreInDetailsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.StoreInDetailsGrid.Size = new System.Drawing.Size(775, 171);
+            this.StoreInDetailsGrid.TabIndex = 375;
             // 
             // ItemID
             // 
             this.ItemID.HeaderText = "رمز المادة";
             this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
             // 
             // ItemName
             // 
             this.ItemName.HeaderText = "إسم المادة";
             this.ItemName.Name = "ItemName";
+            this.ItemName.ReadOnly = true;
             // 
             // ItemUnit
             // 
             this.ItemUnit.HeaderText = "وحدة القياس";
             this.ItemUnit.Name = "ItemUnit";
+            this.ItemUnit.ReadOnly = true;
             // 
             // ItemUnitPrice
             // 
             this.ItemUnitPrice.HeaderText = "سعر الوحدة";
             this.ItemUnitPrice.Name = "ItemUnitPrice";
+            this.ItemUnitPrice.ReadOnly = true;
             // 
             // itemQty
             // 
             this.itemQty.HeaderText = "الكمية";
             this.itemQty.Name = "itemQty";
+            this.itemQty.ReadOnly = true;
             // 
             // itemTax
             // 
             this.itemTax.HeaderText = "الضريبة";
             this.itemTax.Name = "itemTax";
+            this.itemTax.ReadOnly = true;
             // 
             // itemTotal
             // 
             this.itemTotal.HeaderText = "المجموع";
             this.itemTotal.Name = "itemTotal";
+            this.itemTotal.ReadOnly = true;
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtItemName.Location = new System.Drawing.Point(371, 113);
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.Size = new System.Drawing.Size(211, 20);
+            this.txtItemName.TabIndex = 376;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Location = new System.Drawing.Point(691, 111);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton2.Size = new System.Drawing.Size(94, 22);
+            this.simpleButton2.TabIndex = 377;
+            this.simpleButton2.Text = "اختيار مادة";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click_1);
             // 
             // frmStoreIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(795, 379);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(796, 379);
+            this.Controls.Add(this.simpleButton2);
+            this.Controls.Add(this.txtItemName);
+            this.Controls.Add(this.StoreInDetailsGrid);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtTax);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtrowsCount);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtTotalIN);
-            this.Controls.Add(this.cbonames);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtTotal);
@@ -566,12 +567,10 @@
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtItemID);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtUnitPrice);
             this.Controls.Add(this.txtUnit);
-            this.Controls.Add(this.cboitemsids);
             this.Controls.Add(this.txtstoreid);
             this.Controls.Add(this.addnewrow);
             this.Controls.Add(this.simpleButton1);
@@ -603,7 +602,7 @@
             this.Load += new System.EventHandler(this.frmStoreIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,12 +631,10 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton addnewrow;
         private System.Windows.Forms.TextBox txtstoreid;
-        private System.Windows.Forms.ComboBox cboitemsids;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtItemID;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtQty;
@@ -645,14 +642,13 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cbonames;
         private System.Windows.Forms.TextBox txtTotalIN;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtrowsCount;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtTax;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView StoreInDetailsGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemUnit;
@@ -660,5 +656,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTotal;
+        private System.Windows.Forms.TextBox txtItemName;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }
