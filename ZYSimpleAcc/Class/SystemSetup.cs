@@ -800,10 +800,16 @@ namespace ZYSimpleAcc.Class
             SqlConnection con = new SqlConnection(DataBase.connstring);
             string qry = "";
             if (operation == 0 )
-           qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode  , ItemTaxPercentValue , ItemMainUnitName , ItemMainUnitValue   from Items where [ItemID] + [ItemName] + [ItemCategoryName] +[ItemSupplierName] + [ItemBarCode]  like '%' + " + "'" + keyword + "'" + "+'%'  and ItemStatus = 1";
+           qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode  , ItemTaxPercentValue , ItemMainUnitName , ItemBuyPriceMainUnit   from Items where [ItemID] + [ItemName] + [ItemCategoryName] +[ItemSupplierName] + [ItemBarCode]  like '%' + " + "'" + keyword + "'" + "+'%'  and ItemStatus = 1";
 
             else if (operation == 1 )
-                qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode , ItemTaxPercentValue , ItemMainUnitName , ItemMainUnitValue   from Items  where ItemStatus = 1";
+                qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode , ItemTaxPercentValue , ItemMainUnitName , ItemBuyPriceMainUnit   from Items  where ItemStatus = 1";
+
+            if (operation == 2)
+                qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode  , ItemTaxPercentValue , ItemSubUnitName , ItemBuyPriceSubUnit   from Items where [ItemID] + [ItemName] + [ItemCategoryName] +[ItemSupplierName] + [ItemBarCode]  like '%' + " + "'" + keyword + "'" + "+'%'  and ItemStatus = 1";
+
+            else if (operation == 3)
+                qry = "Select ItemID , ItemName , ItemCategoryName ,ItemSupplierName , ItemBarCode , ItemTaxPercentValue , ItemSubUnitName , ItemBuyPriceSubUnit   from Items  where ItemStatus = 1";
 
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
 

@@ -231,4 +231,10 @@
   <data name="norowstodelete" xml:space="preserve">
     <value>لا يوجد بيانات للحذف</value>
   </data>
+  <data name="noDataEnterinGrid" xml:space="preserve">
+    <value>بيانات الجدول غير مكتملة</value>
+  </data>
+  <data name="InfoOfStoreinnotEntered" xml:space="preserve">
+    <value>معلومات السند غير مكتملة</value>
+  </data>
 </root>

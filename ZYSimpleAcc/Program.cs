@@ -35,7 +35,7 @@ namespace ZYSimpleAcc
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmStoreIn());
+                Application.Run(new frmLogin());
 
 
 

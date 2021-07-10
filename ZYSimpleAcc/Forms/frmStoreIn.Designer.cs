@@ -67,8 +67,6 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.txtTaxPercent = new System.Windows.Forms.TextBox();
             this.StoreInDetailsGrid = new System.Windows.Forms.DataGridView();
-            this.btnsaveandprint = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,9 +75,13 @@
             this.taxpercent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnsaveandprint = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTransID
@@ -88,7 +90,7 @@
             this.txtTransID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtTransID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTransID.Enabled = false;
-            this.txtTransID.Location = new System.Drawing.Point(542, 10);
+            this.txtTransID.Location = new System.Drawing.Point(630, 10);
             this.txtTransID.Name = "txtTransID";
             this.txtTransID.Size = new System.Drawing.Size(90, 20);
             this.txtTransID.TabIndex = 58;
@@ -97,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(638, 13);
+            this.label2.Location = new System.Drawing.Point(726, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 59;
@@ -106,16 +108,16 @@
             // txtTransnotes
             // 
             this.txtTransnotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtTransnotes.Location = new System.Drawing.Point(101, 39);
+            this.txtTransnotes.Location = new System.Drawing.Point(196, 39);
             this.txtTransnotes.Name = "txtTransnotes";
-            this.txtTransnotes.Size = new System.Drawing.Size(531, 20);
+            this.txtTransnotes.Size = new System.Drawing.Size(524, 20);
             this.txtTransnotes.TabIndex = 2;
             this.txtTransnotes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(638, 42);
+            this.label1.Location = new System.Drawing.Point(726, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 61;
@@ -124,19 +126,19 @@
             // datetransdate
             // 
             this.datetransdate.EditValue = null;
-            this.datetransdate.Location = new System.Drawing.Point(101, 10);
+            this.datetransdate.Location = new System.Drawing.Point(196, 10);
             this.datetransdate.Name = "datetransdate";
             this.datetransdate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.datetransdate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.datetransdate.Size = new System.Drawing.Size(127, 20);
+            this.datetransdate.Size = new System.Drawing.Size(132, 20);
             this.datetransdate.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(234, 13);
+            this.label3.Location = new System.Drawing.Point(334, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 63;
@@ -147,7 +149,7 @@
             this.txtTranstype.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTranstype.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtTranstype.Enabled = false;
-            this.txtTranstype.Location = new System.Drawing.Point(500, 10);
+            this.txtTranstype.Location = new System.Drawing.Point(588, 10);
             this.txtTranstype.Name = "txtTranstype";
             this.txtTranstype.Size = new System.Drawing.Size(36, 20);
             this.txtTranstype.TabIndex = 64;
@@ -157,7 +159,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(441, 13);
+            this.label4.Location = new System.Drawing.Point(529, 13);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 66;
@@ -166,7 +168,7 @@
             // cboStore
             // 
             this.cboStore.FormattingEnabled = true;
-            this.cboStore.Location = new System.Drawing.Point(335, 9);
+            this.cboStore.Location = new System.Drawing.Point(423, 9);
             this.cboStore.Name = "cboStore";
             this.cboStore.Size = new System.Drawing.Size(100, 21);
             this.cboStore.TabIndex = 0;
@@ -175,7 +177,7 @@
             // btnclear
             // 
             this.btnclear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclear.ImageOptions.Image")));
-            this.btnclear.Location = new System.Drawing.Point(191, 350);
+            this.btnclear.Location = new System.Drawing.Point(211, 350);
             this.btnclear.Name = "btnclear";
             this.btnclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclear.Size = new System.Drawing.Size(135, 22);
@@ -186,7 +188,7 @@
             // btnclose
             // 
             this.btnclose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.ImageOptions.Image")));
-            this.btnclose.Location = new System.Drawing.Point(332, 350);
+            this.btnclose.Location = new System.Drawing.Point(352, 350);
             this.btnclose.Name = "btnclose";
             this.btnclose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclose.Size = new System.Drawing.Size(63, 22);
@@ -197,7 +199,7 @@
             // btnsave
             // 
             this.btnsave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.ImageOptions.Image")));
-            this.btnsave.Location = new System.Drawing.Point(632, 350);
+            this.btnsave.Location = new System.Drawing.Point(652, 350);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnsave.Size = new System.Drawing.Size(63, 22);
@@ -208,7 +210,7 @@
             // btndelete
             // 
             this.btndelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.ImageOptions.Image")));
-            this.btndelete.Location = new System.Drawing.Point(470, 350);
+            this.btndelete.Location = new System.Drawing.Point(490, 350);
             this.btndelete.Name = "btndelete";
             this.btndelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndelete.Size = new System.Drawing.Size(63, 22);
@@ -218,7 +220,7 @@
             // btnupdate
             // 
             this.btnupdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.ImageOptions.Image")));
-            this.btnupdate.Location = new System.Drawing.Point(401, 350);
+            this.btnupdate.Location = new System.Drawing.Point(421, 350);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnupdate.Size = new System.Drawing.Size(63, 22);
@@ -253,7 +255,7 @@
             this.txtstoreid.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtstoreid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtstoreid.Enabled = false;
-            this.txtstoreid.Location = new System.Drawing.Point(293, 10);
+            this.txtstoreid.Location = new System.Drawing.Point(381, 10);
             this.txtstoreid.Name = "txtstoreid";
             this.txtstoreid.Size = new System.Drawing.Size(36, 20);
             this.txtstoreid.TabIndex = 348;
@@ -323,7 +325,7 @@
             this.txtTotalIN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTotalIN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtTotalIN.Enabled = false;
-            this.txtTotalIN.Location = new System.Drawing.Point(11, 347);
+            this.txtTotalIN.Location = new System.Drawing.Point(13, 347);
             this.txtTotalIN.Name = "txtTotalIN";
             this.txtTotalIN.Size = new System.Drawing.Size(100, 20);
             this.txtTotalIN.TabIndex = 368;
@@ -334,7 +336,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(120, 354);
+            this.label14.Location = new System.Drawing.Point(120, 352);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(46, 13);
             this.label14.TabIndex = 370;
@@ -522,28 +524,6 @@
             this.StoreInDetailsGrid.TabIndex = 375;
             this.StoreInDetailsGrid.DoubleClick += new System.EventHandler(this.StoreInDetailsGrid_DoubleClick);
             // 
-            // btnsaveandprint
-            // 
-            this.btnsaveandprint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.btnsaveandprint.Location = new System.Drawing.Point(540, 350);
-            this.btnsaveandprint.Name = "btnsaveandprint";
-            this.btnsaveandprint.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnsaveandprint.Size = new System.Drawing.Size(86, 22);
-            this.btnsaveandprint.TabIndex = 388;
-            this.btnsaveandprint.Text = "حفظ وطباعة";
-            this.btnsaveandprint.Click += new System.EventHandler(this.btnsaveandprint_Click);
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image1")));
-            this.simpleButton3.Location = new System.Drawing.Point(117, 113);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.simpleButton3.Size = new System.Drawing.Size(168, 22);
-            this.simpleButton3.TabIndex = 389;
-            this.simpleButton3.Text = "الغاء جميع السطور";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_2);
-            // 
             // ItemID
             // 
             this.ItemID.HeaderText = "رمز المادة";
@@ -592,12 +572,45 @@
             this.itemTotal.Name = "itemTotal";
             this.itemTotal.ReadOnly = true;
             // 
+            // btnsaveandprint
+            // 
+            this.btnsaveandprint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsaveandprint.ImageOptions.Image")));
+            this.btnsaveandprint.Location = new System.Drawing.Point(560, 350);
+            this.btnsaveandprint.Name = "btnsaveandprint";
+            this.btnsaveandprint.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnsaveandprint.Size = new System.Drawing.Size(86, 22);
+            this.btnsaveandprint.TabIndex = 388;
+            this.btnsaveandprint.Text = "حفظ وطباعة";
+            this.btnsaveandprint.Click += new System.EventHandler(this.btnsaveandprint_Click);
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.Location = new System.Drawing.Point(117, 113);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.simpleButton3.Size = new System.Drawing.Size(168, 22);
+            this.simpleButton3.TabIndex = 389;
+            this.simpleButton3.Text = "الغاء جميع السطور";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click_2);
+            // 
+            // toggleSwitch1
+            // 
+            this.toggleSwitch1.Location = new System.Drawing.Point(15, 22);
+            this.toggleSwitch1.Name = "toggleSwitch1";
+            this.toggleSwitch1.Properties.OffText = "وحدة القياس الرئيسية";
+            this.toggleSwitch1.Properties.OnText = "وحدة القياس الفرعية";
+            this.toggleSwitch1.Size = new System.Drawing.Size(169, 23);
+            this.toggleSwitch1.TabIndex = 390;
+            this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled_1);
+            // 
             // frmStoreIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(796, 379);
+            this.Controls.Add(this.toggleSwitch1);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.btnsaveandprint);
             this.Controls.Add(this.textBox9);
@@ -650,6 +663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,5 +719,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn taxpercent;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTotal;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
     }
 }

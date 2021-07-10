@@ -196,6 +196,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to معلومات السند غير مكتملة.
+        /// </summary>
+        internal static string InfoOfStoreinnotEntered {
+            get {
+                return ResourceManager.GetString("InfoOfStoreinnotEntered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to الرجاء إخال المعلومات بشكل صحيح.
         /// </summary>
         internal static string invalidData {
@@ -273,6 +282,15 @@ namespace ZYSimpleAcc.Properties {
         internal static string NoData {
             get {
                 return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to بيانات الجدول غير مكتملة.
+        /// </summary>
+        internal static string noDataEnterinGrid {
+            get {
+                return ResourceManager.GetString("noDataEnterinGrid", resourceCulture);
             }
         }
         

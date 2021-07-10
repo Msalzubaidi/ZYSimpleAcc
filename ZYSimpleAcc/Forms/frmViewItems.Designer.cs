@@ -56,7 +56,7 @@
             this.schlabel.AutoSize = true;
             this.schlabel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.schlabel.ForeColor = System.Drawing.Color.Black;
-            this.schlabel.Location = new System.Drawing.Point(513, 19);
+            this.schlabel.Location = new System.Drawing.Point(530, 19);
             this.schlabel.Name = "schlabel";
             this.schlabel.Size = new System.Drawing.Size(115, 16);
             this.schlabel.TabIndex = 237;
@@ -65,7 +65,7 @@
             // schControl
             // 
             this.schControl.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schControl.Location = new System.Drawing.Point(205, 14);
+            this.schControl.Location = new System.Drawing.Point(222, 14);
             this.schControl.Name = "schControl";
             this.schControl.Size = new System.Drawing.Size(302, 23);
             this.schControl.TabIndex = 0;
@@ -74,7 +74,7 @@
             // 
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
             this.btnSearch.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnSearch.Location = new System.Drawing.Point(153, 12);
+            this.btnSearch.Location = new System.Drawing.Point(170, 12);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnSearch.Size = new System.Drawing.Size(46, 27);

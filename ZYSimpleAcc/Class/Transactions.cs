@@ -44,35 +44,33 @@ namespace ZYSimpleAcc.Class
 
         }
 
-        public int NewStoreTransDetails(int id, DateTime date, string notes, float value, int storeid, string type)
+        public int NewStoreTransDetails(int TransID , int TransStoreID,  string TransType, DateTime TransDate , string ItemID , string ItemName , float ItemQty ,  float ItemEnteredUnitPrice , string ItemEnteredUnitName , float taxpercent, float taxvalue, float transValue)
         {
-            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType  )";
+            string qry = "INSERT INTO StoreTransDetails (  TransID ,  TransStoreID  ,  TransType ,  TransDate  , ItemID , ItemName , ItemQty , ItemEnteredUnitPrice , ItemEnteredUnitName , taxpercent, taxvalue , transValue ) VALUES(  @TransID ,  @TransStoreID  ,  @TransType ,  @TransDate  , @ItemID , @ItemName , @ItemQty , @ItemEnteredUnitPrice , @ItemEnteredUnitName  ,  @taxpercent, @taxvalue , @transValue )";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
 
 
-            cmd.Parameters.Add(new SqlParameter("@TransID", id));//
-            cmd.Parameters.Add(new SqlParameter("@TransDate", date));
-            cmd.Parameters.Add(new SqlParameter("@TransNotes", notes));
-            cmd.Parameters.Add(new SqlParameter("@TransValue", value));
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));//
+            cmd.Parameters.Add(new SqlParameter("@TransDate", TransDate));//
+            cmd.Parameters.Add(new SqlParameter("@TransType", TransType));
+            cmd.Parameters.Add(new SqlParameter("@ItemName", ItemName));
+            cmd.Parameters.Add(new SqlParameter("@ItemID", ItemID));
+            cmd.Parameters.Add(new SqlParameter("@TransStoreID", TransStoreID));
+            cmd.Parameters.Add(new SqlParameter("@ItemQty", ItemQty));
+            cmd.Parameters.Add(new SqlParameter("@ItemEnteredUnitPrice", ItemEnteredUnitPrice));
+            cmd.Parameters.Add(new SqlParameter("@ItemEnteredUnitName", ItemEnteredUnitName));
+            cmd.Parameters.Add(new SqlParameter("@taxpercent", taxpercent));
+            cmd.Parameters.Add(new SqlParameter("@taxvalue", taxvalue));
+            cmd.Parameters.Add(new SqlParameter("@transValue", transValue));
+            
 
-            cmd.Parameters.Add(new SqlParameter("@TransStoreID", storeid));
-            cmd.Parameters.Add(new SqlParameter("@TransType", type));
 
 
 
-            Transactions t = new Transactions();
             con.Open();
-
-            int x = t.checkexist(id, type);
-
-            if (x > 0)
-            {
-                return -150;
-            }
-            else
-                return cmd.ExecuteNonQuery();
+            return cmd.ExecuteNonQuery();
 
 
         }

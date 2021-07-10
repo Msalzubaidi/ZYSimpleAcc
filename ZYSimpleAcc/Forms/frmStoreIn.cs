@@ -22,13 +22,13 @@ namespace ZYSimpleAcc.Forms
 
         }
 
+
         string masterstoretable = "StoreTransMaster";
         Shared s = new Shared();
         Transactions t = new Transactions();
-
         float TotalofIN = 0;
-
         DataTable dt = new DataTable();
+        public static int UnitEnteringValue = 0;  
 
 
         void CalculateTotlaOfLine()
@@ -126,22 +126,16 @@ namespace ZYSimpleAcc.Forms
         {
 
             TotalofIN = 0;
-
             DataTable dtable1 = s.SelctData(masterstoretable, 7, "");
-
-
             int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
-
-
             if (max1 == 0)
             {
                 txtTransID.Clear();
                 txtTransID.Text = "1";
-
-
             }
-            else
+            else if(max1 > 0)
             {
+                txtTransID.Clear();
                 txtTransID.Text = (max1 + 1).ToString();
                 txtTransID.Enabled = false;
 
@@ -149,29 +143,19 @@ namespace ZYSimpleAcc.Forms
             datetransdate.DateTime = DateTime.Now;
             txtTransnotes.Text = "سند إدخال ";
             cboStore.ResetText();
-       
             txtstoreid.Clear();
-
             btnsave.Visible = true;
             btnsaveandprint.Visible = true;
             btnupdate.Visible = false;
             btndelete.Visible = false;
             this.ResizeGrid();
-
-
             string connstring = @"Data Source=" + Resources.servercon + ";Initial Catalog=" + Resources.dbnamecon + ";User ID=" + Resources.usernamecon + ";Password=" + Resources.passwordcon;
-
-
             SqlConnection con = new SqlConnection(connstring);
             SqlCommand cmd;
             SqlDataReader dr;
-
             string qry = "select * from Stores";
-
             cboStore.Items.Clear();
             con.Open();
-            //XtraMessageBox.Show("Connected ... ");
-
             cmd = new SqlCommand(qry, con);
             dr = cmd.ExecuteReader();
 
@@ -181,15 +165,7 @@ namespace ZYSimpleAcc.Forms
                 cboStore.Items.Add(dr.GetValue(1).ToString());
 
             }
-
-           
-
-          
-
-
             this.claerTextItems();
-
-
             simpleButton3.PerformClick();
 
         }
@@ -301,7 +277,7 @@ namespace ZYSimpleAcc.Forms
         {
             if(string.IsNullOrWhiteSpace(txtTransID.Text) || s.isDigitsOnly(txtTransID.Text)==false || string.IsNullOrWhiteSpace(cboStore.Text.ToString()) || string.IsNullOrWhiteSpace(txtstoreid.Text) || s.isDigitsOnly(txtstoreid.Text)==false ||string.IsNullOrWhiteSpace(txtTransnotes.Text) || string.IsNullOrWhiteSpace(txtTotalIN.Text))
             {
-                XtraMessageBox.Show(Resources.missingTextboxes, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show(Resources.InfoOfStoreinnotEntered, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -314,25 +290,55 @@ namespace ZYSimpleAcc.Forms
                 int storeid = int.Parse(txtstoreid.Text);
                 string transtype = txtTranstype.Text;
 
-
-                int rest = t.NewStoreTransMaster(transid , date , notes , total  , storeid , transtype);
-
-                if (rest > 0)
+                if(StoreInDetailsGrid.Rows.Count - 1 > 0)
                 {
-                    XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // db.UserLogTransactions(DataBase.Username.ToString(), "   سند ادحال جديد" + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
-                    btnclear.PerformClick();
-                }
-             
-                else if (rest == -150)
-                {
-                    XtraMessageBox.Show(Resources.Exist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
 
+                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid, transtype);
+
+                    if (rest > 0)
+                    {
+                        
+                        // db.UserLogTransactions(DataBase.Username.ToString(), "   سند ادحال جديد" + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
+                        //Enter data of Grid
+                        for(int i = 0; i < StoreInDetailsGrid.Rows.Count -1 ; i++ )
+                        {
+                            int id = int.Parse(txtTransID.Text);
+                            int StoreID = int.Parse(txtstoreid.Text);
+                            string ttype = txtTranstype.Text;
+                            string itemid = StoreInDetailsGrid.Rows[i].Cells[0].Value.ToString();
+                            string itemname = StoreInDetailsGrid.Rows[i].Cells[1].Value.ToString();
+                            float qty =float.Parse( StoreInDetailsGrid.Rows[i].Cells[4].Value.ToString());
+                            float unitprice = float.Parse( StoreInDetailsGrid.Rows[i].Cells[3].Value.ToString());
+                            float taxperc = float.Parse(StoreInDetailsGrid.Rows[i].Cells[5].Value.ToString());
+                            float taxval = float.Parse(StoreInDetailsGrid.Rows[i].Cells[6].Value.ToString());
+                            string unitname = StoreInDetailsGrid.Rows[i].Cells[2].Value.ToString();
+                            float linevalue = float.Parse(StoreInDetailsGrid.Rows[i].Cells[7].Value.ToString());
+
+
+
+
+
+                            t.NewStoreTransDetails(id ,StoreID  , ttype  , date , itemid , itemname , qty , unitprice , unitname , taxperc , taxval , linevalue);
+                        }
+                        XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnclear.PerformClick();
+                    }
+
+                    else if (rest == -150)
+                    {
+                        XtraMessageBox.Show(Resources.Exist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    else
+                    {
+                        XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
                 else
                 {
-                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    XtraMessageBox.Show(Resources.noDataEnterinGrid, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
 
             }
         }
@@ -459,6 +465,43 @@ namespace ZYSimpleAcc.Forms
             catch
             {
                 XtraMessageBox.Show(Resources.norowstodelete, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void chkmainunit_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void radmainunit_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void chksubunit_CheckedChanged(object sender, EventArgs e)
+        {
+     
+        }
+
+        private void radsubnunit_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toggleSwitch1_Toggled(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toggleSwitch1_Toggled_1(object sender, EventArgs e)
+        {
+            if(toggleSwitch1.IsOn)
+            {
+                UnitEnteringValue = 55; 
+            }
+            if (toggleSwitch1.IsOn==false)
+            {
+                UnitEnteringValue = 0;
             }
         }
     }
