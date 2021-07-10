@@ -78,6 +78,9 @@
             this.btnsaveandprint = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.toggleSwitch1 = new DevExpress.XtraEditors.ToggleSwitch();
+            this.btnView = new DevExpress.XtraEditors.SimpleButton();
+            this.txtLastNum = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).BeginInit();
@@ -95,6 +98,8 @@
             this.txtTransID.Size = new System.Drawing.Size(90, 20);
             this.txtTransID.TabIndex = 58;
             this.txtTransID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTransID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransID_KeyPress);
+            this.txtTransID.Leave += new System.EventHandler(this.txtTransID_Leave);
             // 
             // label2
             // 
@@ -177,7 +182,7 @@
             // btnclear
             // 
             this.btnclear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclear.ImageOptions.Image")));
-            this.btnclear.Location = new System.Drawing.Point(211, 350);
+            this.btnclear.Location = new System.Drawing.Point(180, 350);
             this.btnclear.Name = "btnclear";
             this.btnclear.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclear.Size = new System.Drawing.Size(135, 22);
@@ -188,7 +193,7 @@
             // btnclose
             // 
             this.btnclose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnclose.ImageOptions.Image")));
-            this.btnclose.Location = new System.Drawing.Point(352, 350);
+            this.btnclose.Location = new System.Drawing.Point(394, 350);
             this.btnclose.Name = "btnclose";
             this.btnclose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnclose.Size = new System.Drawing.Size(63, 22);
@@ -199,7 +204,7 @@
             // btnsave
             // 
             this.btnsave.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsave.ImageOptions.Image")));
-            this.btnsave.Location = new System.Drawing.Point(652, 350);
+            this.btnsave.Location = new System.Drawing.Point(694, 350);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnsave.Size = new System.Drawing.Size(63, 22);
@@ -210,22 +215,24 @@
             // btndelete
             // 
             this.btndelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.ImageOptions.Image")));
-            this.btndelete.Location = new System.Drawing.Point(490, 350);
+            this.btndelete.Location = new System.Drawing.Point(532, 350);
             this.btndelete.Name = "btndelete";
             this.btndelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndelete.Size = new System.Drawing.Size(63, 22);
             this.btndelete.TabIndex = 338;
             this.btndelete.Text = "إلغاء";
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // btnupdate
             // 
             this.btnupdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.ImageOptions.Image")));
-            this.btnupdate.Location = new System.Drawing.Point(421, 350);
+            this.btnupdate.Location = new System.Drawing.Point(463, 350);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnupdate.Size = new System.Drawing.Size(63, 22);
             this.btnupdate.TabIndex = 336;
             this.btnupdate.Text = "تعديل";
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // simpleButton1
             // 
@@ -575,7 +582,7 @@
             // btnsaveandprint
             // 
             this.btnsaveandprint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsaveandprint.ImageOptions.Image")));
-            this.btnsaveandprint.Location = new System.Drawing.Point(560, 350);
+            this.btnsaveandprint.Location = new System.Drawing.Point(602, 350);
             this.btnsaveandprint.Name = "btnsaveandprint";
             this.btnsaveandprint.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnsaveandprint.Size = new System.Drawing.Size(86, 22);
@@ -596,7 +603,7 @@
             // 
             // toggleSwitch1
             // 
-            this.toggleSwitch1.Location = new System.Drawing.Point(15, 22);
+            this.toggleSwitch1.Location = new System.Drawing.Point(15, 12);
             this.toggleSwitch1.Name = "toggleSwitch1";
             this.toggleSwitch1.Properties.OffText = "وحدة القياس الرئيسية";
             this.toggleSwitch1.Properties.OnText = "وحدة القياس الفرعية";
@@ -604,12 +611,47 @@
             this.toggleSwitch1.TabIndex = 390;
             this.toggleSwitch1.Toggled += new System.EventHandler(this.toggleSwitch1_Toggled_1);
             // 
+            // btnView
+            // 
+            this.btnView.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.btnView.Location = new System.Drawing.Point(325, 350);
+            this.btnView.Name = "btnView";
+            this.btnView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnView.Size = new System.Drawing.Size(63, 22);
+            this.btnView.TabIndex = 391;
+            this.btnView.Text = "عرض";
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // txtLastNum
+            // 
+            this.txtLastNum.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtLastNum.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtLastNum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLastNum.Enabled = false;
+            this.txtLastNum.Location = new System.Drawing.Point(15, 39);
+            this.txtLastNum.Name = "txtLastNum";
+            this.txtLastNum.Size = new System.Drawing.Size(90, 20);
+            this.txtLastNum.TabIndex = 392;
+            this.txtLastNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(109, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 393;
+            this.label5.Text = "رقم اخر سند";
+            // 
             // frmStoreIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(796, 379);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtLastNum);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.toggleSwitch1);
             this.Controls.Add(this.simpleButton3);
             this.Controls.Add(this.btnsaveandprint);
@@ -720,5 +762,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemTotal;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch1;
+        private DevExpress.XtraEditors.SimpleButton btnView;
+        private System.Windows.Forms.TextBox txtLastNum;
+        private System.Windows.Forms.Label label5;
     }
 }

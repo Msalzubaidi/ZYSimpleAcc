@@ -24,7 +24,7 @@ namespace ZYSimpleAcc.Forms
 
         private void frmViewItems_Load(object sender, EventArgs e)
         {
-            if (frmStoreIn.UnitEnteringValue == 55 )
+            if (frmStoreIn.UnitEnteringValue == 55 || frmStoreOut.UnitEnteroutgValue == 55  )
             {
                 DataTable dt = new DataTable();
                 dt = ss.SerachItems("", 3);
@@ -54,7 +54,7 @@ namespace ZYSimpleAcc.Forms
                 string keyword = schControl.Text.ToString();
                 DataTable dtable = new DataTable();
 
-                if (frmStoreIn.UnitEnteringValue == 55)
+                if (frmStoreIn.UnitEnteringValue == 55  || frmStoreOut.UnitEnteroutgValue == 55 )
                 {
 
                

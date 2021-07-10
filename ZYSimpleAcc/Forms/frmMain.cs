@@ -26,6 +26,10 @@ namespace ZYSimpleAcc
 
         string systeminfotable = "SystemInfo";
 
+        public static int instate = 0;
+        public static int outstate = 0;
+
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             DataTable datatable = s.SelctData(systeminfotable, 0, "");
@@ -863,6 +867,7 @@ namespace ZYSimpleAcc
 
         private void mnuinstore_Click(object sender, EventArgs e)
         {
+            frmMain.instate = 0; 
             bool isopen = false;
             foreach (Form f in Application.OpenForms)
             {
@@ -883,6 +888,7 @@ namespace ZYSimpleAcc
 
         private void mnuoutstore_Click(object sender, EventArgs e)
         {
+            frmMain.outstate = 0;
             bool isopen = false;
             foreach (Form f in Application.OpenForms)
             {
@@ -898,6 +904,51 @@ namespace ZYSimpleAcc
             {
                 frmStoreOut sout = new frmStoreOut();
                 sout.Show();
+            }
+        }
+
+        private void updatecancelin_Click(object sender, EventArgs e)
+        {
+            frmMain.instate = 10;
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "سند ادخال")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+
+                frmStoreIn sin = new frmStoreIn();
+                sin.Show();
+             
+            }
+        }
+
+        private void updatecancelout_Click(object sender, EventArgs e)
+        {
+            frmMain.outstate = 20;
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "سند إخراج")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmStoreOut sout = new frmStoreOut();
+                sout.Show();
+              
             }
         }
     }

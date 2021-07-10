@@ -24,6 +24,7 @@ namespace ZYSimpleAcc.Forms
 
 
         string masterstoretable = "StoreTransMaster";
+        string detailsstoretable = "StoreTransDetails";
         Shared s = new Shared();
         Transactions t = new Transactions();
         float TotalofIN = 0;
@@ -71,7 +72,6 @@ namespace ZYSimpleAcc.Forms
 
         }
         private void ResizeGrid()
-
         {
             this.StoreInDetailsGrid.RowHeadersWidth = 50;
             this.StoreInDetailsGrid.Columns[0].Width = 100;
@@ -124,7 +124,10 @@ namespace ZYSimpleAcc.Forms
 
         private void btnclear_Click(object sender, EventArgs e)
         {
-
+           
+           
+            
+           
             TotalofIN = 0;
             DataTable dtable1 = s.SelctData(masterstoretable, 7, "");
             int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
@@ -137,18 +140,20 @@ namespace ZYSimpleAcc.Forms
             {
                 txtTransID.Clear();
                 txtTransID.Text = (max1 + 1).ToString();
-                txtTransID.Enabled = false;
+                txtLastNum.Text = max1.ToString();
+            
+
+
 
             }
             datetransdate.DateTime = DateTime.Now;
             txtTransnotes.Text = "سند إدخال ";
             cboStore.ResetText();
             txtstoreid.Clear();
-            btnsave.Visible = true;
-            btnsaveandprint.Visible = true;
-            btnupdate.Visible = false;
-            btndelete.Visible = false;
-            this.ResizeGrid();
+      
+
+
+
             string connstring = @"Data Source=" + Resources.servercon + ";Initial Catalog=" + Resources.dbnamecon + ";User ID=" + Resources.usernamecon + ";Password=" + Resources.passwordcon;
             SqlConnection con = new SqlConnection(connstring);
             SqlCommand cmd;
@@ -165,9 +170,33 @@ namespace ZYSimpleAcc.Forms
                 cboStore.Items.Add(dr.GetValue(1).ToString());
 
             }
+            this.ResizeGrid();
             this.claerTextItems();
             simpleButton3.PerformClick();
+            UnitEnteringValue = 0;
 
+            if (frmMain.instate == 10)
+            {
+                btnsave.Visible = false;
+                btnsaveandprint.Visible = true;
+                btnupdate.Visible = true;
+                btndelete.Visible = true;
+                txtTransID.Clear();
+                txtTransID.Enabled = true;
+                btnView.Visible = true;
+                txtLastNum.Enabled = false;
+            }
+            else
+            {
+                btnsave.Visible = true;
+                btnsaveandprint.Visible = true;
+                btnupdate.Visible = false;
+                btndelete.Visible = false;
+                txtTransID.Enabled = false;
+                btnView.Visible = false;
+                txtLastNum.Enabled = false;
+            }
+            txtLastNum.Enabled = false;
         }
 
 
@@ -216,9 +245,7 @@ namespace ZYSimpleAcc.Forms
                 this.claerTextItems();
                 simpleButton2.Focus();
 
-                //txtTotalIN.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
-                //                   where row.Cells[6].FormattedValue.ToString() != string.Empty
-                //                   select Convert.ToDecimal(row.Cells[6].FormattedValue)).Sum().ToString();
+             
                  this.CalculateTotalOfin();
           
          
@@ -293,7 +320,7 @@ namespace ZYSimpleAcc.Forms
                 if(StoreInDetailsGrid.Rows.Count - 1 > 0)
                 {
 
-                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid, transtype);
+                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid, transtype , 0);
 
                     if (rest > 0)
                     {
@@ -503,6 +530,95 @@ namespace ZYSimpleAcc.Forms
             {
                 UnitEnteringValue = 0;
             }
+        }
+
+        private void btnupdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtTransID.Text))
+            {
+                XtraMessageBox.Show(Resources.emptyFields, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int id = int.Parse(txtTransID.Text);
+                int rest = t.CancelStoreMasterTransaction(id); 
+
+                if(rest > 0 )
+                {
+                    XtraMessageBox.Show(Resources.cancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnclear.PerformClick();
+                }
+                else if (rest == -150 )
+                {
+                    XtraMessageBox.Show(Resources.AlreadyCancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnclear.PerformClick();
+                }
+                else if(rest == -250 )
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   
+                }
+                else 
+                {
+                    XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
+            }
+        }
+
+        private void txtTransID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void txtTransID_Leave(object sender, EventArgs e)
+        {
+            btnView.PerformClick();
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(txtTransID.Text))
+            {
+                XtraMessageBox.Show(Resources.emptyFields, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DataTable dtMaster = new DataTable();
+                DataTable dtDetails = new DataTable();
+                dtMaster = s.SelctData(masterstoretable , 0 , "" );
+                dtDetails = s.SelctData(detailsstoretable , 0, "");
+                int state = int.Parse(dtMaster.Rows[0]["IsCancelled"].ToString());
+
+                if (state == 1 )
+                {
+                    txtTransnotes.Enabled = false;
+                    txtTransnotes.Text = "هذا السند ملغى سابقا";
+                   XtraMessageBox.Show(Resources.AlreadyCancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                  
+                    
+                }
+
+                if (state == 0)
+                {
+                  
+                }
+            }
+
+      
         }
     }
 }

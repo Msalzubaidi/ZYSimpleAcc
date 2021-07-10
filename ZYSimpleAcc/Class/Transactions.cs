@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,9 @@ namespace ZYSimpleAcc.Class
     {
 
 
-        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int storeid , string type)
+        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int storeid , string type , int IsCancelled )
         {
-            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType  )";
+            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType , IsCancelled  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType , @IsCancelled )";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
@@ -26,6 +27,7 @@ namespace ZYSimpleAcc.Class
            
             cmd.Parameters.Add(new SqlParameter("@TransStoreID", storeid));
             cmd.Parameters.Add(new SqlParameter("@TransType", type));
+            cmd.Parameters.Add(new SqlParameter("@IsCancelled", IsCancelled));
 
 
 
@@ -75,6 +77,58 @@ namespace ZYSimpleAcc.Class
 
         }
 
+        public int CancelStoreDetailsTransaction(int TransID)
+        {
+            string qry = "Delete from  StoreTransDetails where TransID=@TransID ";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
+
+            Transactions t = new Transactions();
+
+            con.Open();
+            return cmd.ExecuteNonQuery(); 
+
+
+
+        }
+
+
+
+        public int CancelStoreMasterTransaction(int TransID)
+        {
+            string qry = "Update StoreTransMaster set IsCancelled=1 where TransID=@TransID";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+            
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
+
+            Transactions t = new Transactions();
+            DataTable dt  = t.checkState(TransID);
+            int state  = int.Parse(dt.Rows[0]["IsCancelled"].ToString());
+
+
+            con.Open();
+            if (state == 0 )
+            {
+                t.CancelStoreDetailsTransaction(TransID);
+                return cmd.ExecuteNonQuery(); 
+            }
+            else if(state == 1)
+            {
+                return -150; // AlreadCancelled or NOt Exist 
+            }
+            else
+            {
+                return - 250; 
+            }
+            
+          
+        }
+
 
         public int checkexist(int TransID, string TransType)
         {
@@ -96,6 +150,26 @@ namespace ZYSimpleAcc.Class
 
         }
 
+        public DataTable checkState(int TransID )
+        {
+            SqlConnection con = new SqlConnection(DataBase.connstring);
+
+            SqlCommand cmd = new SqlCommand("select *  from StoreTransMaster where TransID=@TransID", con); // sql command to so get data from data base
+
+
+            cmd.Parameters.AddWithValue("@TransID", TransID);
+           
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+            System.Data.DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+
+            con.Open();
+            return dt;
+
+        }
+       
+        
 
     }
 }

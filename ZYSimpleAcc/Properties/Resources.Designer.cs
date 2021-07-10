@@ -79,6 +79,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to هذا السند ملغى سابقا.
+        /// </summary>
+        internal static string AlreadyCancelled {
+            get {
+                return ResourceManager.GetString("AlreadyCancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ZY Accounting System.
         /// </summary>
         internal static string AppName {
@@ -111,6 +120,15 @@ namespace ZYSimpleAcc.Properties {
         internal static string CancelByUser {
             get {
                 return ResourceManager.GetString("CancelByUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تم الغاء السند بنجاح.
+        /// </summary>
+        internal static string cancelled {
+            get {
+                return ResourceManager.GetString("cancelled", resourceCulture);
             }
         }
         

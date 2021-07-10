@@ -237,4 +237,10 @@
   <data name="InfoOfStoreinnotEntered" xml:space="preserve">
     <value>معلومات السند غير مكتملة</value>
   </data>
+  <data name="cancelled" xml:space="preserve">
+    <value>تم الغاء السند بنجاح</value>
+  </data>
+  <data name="AlreadyCancelled" xml:space="preserve">
+    <value>هذا السند ملغى سابقا</value>
+  </data>
 </root>

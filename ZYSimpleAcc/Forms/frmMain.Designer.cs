@@ -534,12 +534,14 @@
             this.updatecancelin.Name = "updatecancelin";
             this.updatecancelin.Size = new System.Drawing.Size(183, 22);
             this.updatecancelin.Text = "تعديل والغاء الادخال";
+            this.updatecancelin.Click += new System.EventHandler(this.updatecancelin_Click);
             // 
             // updatecancelout
             // 
             this.updatecancelout.Name = "updatecancelout";
             this.updatecancelout.Size = new System.Drawing.Size(183, 22);
             this.updatecancelout.Text = "تعديل والغاء الاخراج";
+            this.updatecancelout.Click += new System.EventHandler(this.updatecancelout_Click);
             // 
             // mnuTrans
             // 
