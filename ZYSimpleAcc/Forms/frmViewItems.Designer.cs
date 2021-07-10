@@ -48,7 +48,7 @@
             this.ItemsGrid.Name = "ItemsGrid";
             this.ItemsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ItemsGrid.Size = new System.Drawing.Size(813, 317);
-            this.ItemsGrid.TabIndex = 0;
+            this.ItemsGrid.TabIndex = 2;
             this.ItemsGrid.DoubleClick += new System.EventHandler(this.ItemsGrid_DoubleClick);
             // 
             // schlabel
@@ -68,7 +68,7 @@
             this.schControl.Location = new System.Drawing.Point(205, 14);
             this.schControl.Name = "schControl";
             this.schControl.Size = new System.Drawing.Size(302, 23);
-            this.schControl.TabIndex = 236;
+            this.schControl.TabIndex = 0;
             // 
             // btnSearch
             // 
@@ -78,7 +78,7 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnSearch.Size = new System.Drawing.Size(46, 27);
-            this.btnSearch.TabIndex = 235;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmViewItems
@@ -92,11 +92,13 @@
             this.Controls.Add(this.ItemsGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmViewItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "اختيار المادة";
             this.Load += new System.EventHandler(this.frmViewItems_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmViewItems_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.ItemsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

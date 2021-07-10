@@ -11,9 +11,9 @@ namespace ZYSimpleAcc.Class
     {
 
 
-        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int rowscount , int storeid , string type)
+        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int storeid , string type)
         {
-            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue ,  TransRowCount , TransStoreID , TransType  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue ,  @TransRowCount , @TransStoreID , @TransType  )";
+            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType  )";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
@@ -23,7 +23,7 @@ namespace ZYSimpleAcc.Class
             cmd.Parameters.Add(new SqlParameter("@TransDate", date));
             cmd.Parameters.Add(new SqlParameter("@TransNotes", notes));
             cmd.Parameters.Add(new SqlParameter("@TransValue", value));
-            cmd.Parameters.Add(new SqlParameter("@TransRowCount", rowscount));
+           
             cmd.Parameters.Add(new SqlParameter("@TransStoreID", storeid));
             cmd.Parameters.Add(new SqlParameter("@TransType", type));
 
@@ -33,6 +33,39 @@ namespace ZYSimpleAcc.Class
             con.Open();
 
             int x = t.checkexist(id , type);
+
+            if (x > 0)
+            {
+                return -150;
+            }
+            else
+                return cmd.ExecuteNonQuery();
+
+
+        }
+
+        public int NewStoreTransDetails(int id, DateTime date, string notes, float value, int storeid, string type)
+        {
+            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType  )";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+
+            cmd.Parameters.Add(new SqlParameter("@TransID", id));//
+            cmd.Parameters.Add(new SqlParameter("@TransDate", date));
+            cmd.Parameters.Add(new SqlParameter("@TransNotes", notes));
+            cmd.Parameters.Add(new SqlParameter("@TransValue", value));
+
+            cmd.Parameters.Add(new SqlParameter("@TransStoreID", storeid));
+            cmd.Parameters.Add(new SqlParameter("@TransType", type));
+
+
+
+            Transactions t = new Transactions();
+            con.Open();
+
+            int x = t.checkexist(id, type);
 
             if (x > 0)
             {

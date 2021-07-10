@@ -71,5 +71,13 @@ namespace ZYSimpleAcc.Forms
         {
             this.Close();
         }
+
+        private void frmViewItems_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
     }
 }

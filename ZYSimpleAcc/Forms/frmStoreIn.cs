@@ -19,15 +19,92 @@ namespace ZYSimpleAcc.Forms
         public frmStoreIn()
         {
             InitializeComponent();
+
         }
 
         string masterstoretable = "StoreTransMaster";
         Shared s = new Shared();
         Transactions t = new Transactions();
 
+        float TotalofIN = 0;
+
+        DataTable dt = new DataTable();
+
+
+        void CalculateTotlaOfLine()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtQty.Text))
+            {
+                XtraMessageBox.Show(Resources.qtyRequired, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtQty.Focus();
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(txtUnitPrice.Text))
+                {
+                    XtraMessageBox.Show(Resources.emptyPrice, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    float total = float.Parse(txtQty.Text) * float.Parse(txtUnitPrice.Text);
+                    float tax = total * (float.Parse(txtTaxPercent.Text) / 100);
+                    total = total + tax;
+                    txtTotal.Text = total.ToString();
+                    txtTaxValue.Text = tax.ToString();
+                }
+
+
+            }
+
+        }
+
+
+
+        void CalculateTotalOfin()
+        {
+
+            txtTotalIN.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
+                               where row.Cells[7].FormattedValue.ToString() != string.Empty
+                               select Convert.ToDecimal(row.Cells[7].FormattedValue)).Sum().ToString();
+
+        }
+        private void ResizeGrid()
+
+        {
+            this.StoreInDetailsGrid.RowHeadersWidth = 50;
+            this.StoreInDetailsGrid.Columns[0].Width = 100;
+            this.StoreInDetailsGrid.Columns[1].Width = 183;
+            this.StoreInDetailsGrid.Columns[2].Width = 90;
+            this.StoreInDetailsGrid.Columns[3].Width = 90;
+            this.StoreInDetailsGrid.Columns[4].Width = 65;
+            this.StoreInDetailsGrid.Columns[5].Width = 55;
+            this.StoreInDetailsGrid.Columns[6].Width = 65;
+            this.StoreInDetailsGrid.Columns[7].Width = 75;
+
+        }
+
+
+        void claerTextItems()
+        {
+            txtItemID.Clear();
+            txtItemName.Clear();
+            txtQty.Clear();
+            txtTaxValue.Text = "0";
+            txtTaxPercent.Text = "0";
+            txtUnit.Clear();
+            txtUnitPrice.Clear();
+            txtTotal.Clear();
+         
+
+        }
+
+
+
+
         private void label37_Click(object sender, EventArgs e)
         {
-            XtraMessageBox.Show("لعرض مواد صنف معين اختر الصنف واضغط على عرض", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnclose_Click(object sender, EventArgs e)
@@ -38,26 +115,20 @@ namespace ZYSimpleAcc.Forms
         private void frmStoreIn_Load(object sender, EventArgs e)
         {
             btnclear.PerformClick();
+
+
         }
 
 
-        private void ResizeGrid()
 
-        {
-            this.StoreInDetailsGrid.RowHeadersWidth = 50;
-            this.StoreInDetailsGrid.Columns[0].Width = 100;
-            this.StoreInDetailsGrid.Columns[1].Width = 194;
-            this.StoreInDetailsGrid.Columns[2].Width = 90;
-            this.StoreInDetailsGrid.Columns[3].Width = 90;
-            this.StoreInDetailsGrid.Columns[4].Width = 65;
-            this.StoreInDetailsGrid.Columns[5].Width = 65;
-            this.StoreInDetailsGrid.Columns[6].Width = 118;
-        }
 
         private void btnclear_Click(object sender, EventArgs e)
         {
 
+            TotalofIN = 0;
+
             DataTable dtable1 = s.SelctData(masterstoretable, 7, "");
+
 
             int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
 
@@ -75,21 +146,17 @@ namespace ZYSimpleAcc.Forms
                 txtTransID.Enabled = false;
 
             }
-            datetransdate.DateTime = DateTime.Now; 
+            datetransdate.DateTime = DateTime.Now;
             txtTransnotes.Text = "سند إدخال ";
             cboStore.ResetText();
-            cboCat.ResetText();
+       
             txtstoreid.Clear();
 
             btnsave.Visible = true;
+            btnsaveandprint.Visible = true;
             btnupdate.Visible = false;
             btndelete.Visible = false;
             this.ResizeGrid();
-            //DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-            //btn.HeaderText = "الغاء";
-            //btn.Text = "الغاء السطر";
-            //btn.UseColumnTextForButtonValue = true;
-            //StoreInDetailsGrid.Columns.Insert(0, btn); 
 
 
             string connstring = @"Data Source=" + Resources.servercon + ";Initial Catalog=" + Resources.dbnamecon + ";User ID=" + Resources.usernamecon + ";Password=" + Resources.passwordcon;
@@ -115,43 +182,86 @@ namespace ZYSimpleAcc.Forms
 
             }
 
-            ///////////////
-
-            SqlConnection con2 = new SqlConnection(connstring);
-            SqlCommand cmd2;
-            SqlDataReader dr2;
-
-            string qry2 = "select * from Items";
-
-            cboCat.Items.Clear();
-            con2.Open();
-            //XtraMessageBox.Show("Connected ... ");
-
-            cmd2 = new SqlCommand(qry2, con2);
-            dr2 = cmd2.ExecuteReader();
-
-            while (dr2.Read())
-            {
-
-                cboCat.Items.Add(dr2.GetValue(3).ToString());
-
-            }
+           
 
           
 
-         
 
+            this.claerTextItems();
+
+
+            simpleButton3.PerformClick();
 
         }
 
+
+    
+
+       
+        
+
         private void simpleButton2_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrWhiteSpace( txtItemID.Text) || string.IsNullOrWhiteSpace(txtItemName.Text) || string.IsNullOrWhiteSpace(txtQty.Text)
+                || string.IsNullOrWhiteSpace(txtUnitPrice.Text) || string.IsNullOrWhiteSpace(txtUnit.Text) || string.IsNullOrWhiteSpace(txtTotal.Text)
+                || string.IsNullOrWhiteSpace(txtTaxValue.Text))
+
+            {
+                XtraMessageBox.Show(Resources.noDatatoEnterToGrid, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              
+            }
+            else
+            {
+               
+            for(int i = 0; i < StoreInDetailsGrid.Rows.Count - 1; i++ )
+            {
+                if (StoreInDetailsGrid.Rows[i].Cells[0].Value.ToString() == txtItemID.Text)
+                {
+                    XtraMessageBox.Show(Resources.itemInEnteredGrid, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        this.claerTextItems();
+                       
+                        return;
+                    }
+             
+            }
+
+                DataGridViewRow rowi = (DataGridViewRow)StoreInDetailsGrid.Rows[0].Clone();
+             
+                rowi.Cells[0].Value = txtItemID.Text;
+                rowi.Cells[1].Value = txtItemName.Text;
+                rowi.Cells[2].Value = txtUnit.Text;
+                rowi.Cells[3].Value = txtUnitPrice.Text;
+                rowi.Cells[4].Value = txtQty.Text;
+                rowi.Cells[5].Value = txtTaxPercent.Text;
+                rowi.Cells[6].Value = txtTaxValue.Text;
+                rowi.Cells[7].Value = txtTotal.Text;
+
+                StoreInDetailsGrid.Rows.Add(rowi);
+                this.claerTextItems();
+                simpleButton2.Focus();
+
+                //txtTotalIN.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
+                //                   where row.Cells[6].FormattedValue.ToString() != string.Empty
+                //                   select Convert.ToDecimal(row.Cells[6].FormattedValue)).Sum().ToString();
+                 this.CalculateTotalOfin();
+          
          
+            }
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                StoreInDetailsGrid.Rows.RemoveAt(StoreInDetailsGrid.CurrentRow.Index);
+                this.CalculateTotalOfin();
+            }
+            catch
+            {
+                XtraMessageBox.Show(Resources.norowstodelete, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
+          
         }
 
         private void cboStore_TextChanged(object sender, EventArgs e)
@@ -200,12 +310,12 @@ namespace ZYSimpleAcc.Forms
                 DateTime date = DateTime.Parse(datetransdate.EditValue.ToString());
                 string notes = txtTransnotes.Text; 
                 float total = float.Parse(txtTotalIN.Text);
-                int rowsnum = int.Parse(txtrowsCount.Text);
+             
                 int storeid = int.Parse(txtstoreid.Text);
                 string transtype = txtTranstype.Text;
 
 
-                int rest = t.NewStoreTransMaster(transid , date , notes , total , rowsnum , storeid , transtype);
+                int rest = t.NewStoreTransMaster(transid , date , notes , total  , storeid , transtype);
 
                 if (rest > 0)
                 {
@@ -227,27 +337,12 @@ namespace ZYSimpleAcc.Forms
             }
         }
 
-        private void cboitemsids_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+      
+
 
         private void txtQty_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtQty.Text))
-                {
-                XtraMessageBox.Show(Resources.qtyRequired, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtQty.Focus();
-            }
-            else
-            {
-                float total =float.Parse(txtQty.Text) * float.Parse(txtUnitPrice.Text);
-                float tax = total * (float.Parse(txtTax.Text) / 100);
-                total = total + tax; 
-                txtTotal.Text = total.ToString();
-                txtTax.Text = tax.ToString();
-
-            }
+            this.CalculateTotlaOfLine();
         }
 
         private void simpleButton2_Click_1(object sender, EventArgs e)
@@ -257,9 +352,114 @@ namespace ZYSimpleAcc.Forms
             vi.ShowDialog();
             txtItemID.Text = vi.ItemsGrid.CurrentRow.Cells[0].Value.ToString();
             txtItemName.Text = vi.ItemsGrid.CurrentRow.Cells[1].Value.ToString();
-            txtTax.Text = vi.ItemsGrid.CurrentRow.Cells[5].Value.ToString();
+            txtTaxPercent.Text = vi.ItemsGrid.CurrentRow.Cells[5].Value.ToString();
             txtUnit.Text = vi.ItemsGrid.CurrentRow.Cells[6].Value.ToString();
             txtUnitPrice.Text = vi.ItemsGrid.CurrentRow.Cells[7].Value.ToString();
+            txtQty.Focus();
+        }
+
+        private void frmStoreIn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void StoreInDetailsGrid_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            { 
+            txtItemID.Text = this.StoreInDetailsGrid.CurrentRow.Cells[0].Value.ToString();
+            txtItemName.Text = this.StoreInDetailsGrid.CurrentRow.Cells[1].Value.ToString();
+            txtUnit.Text = this.StoreInDetailsGrid.CurrentRow.Cells[2].Value.ToString();
+            txtUnitPrice.Text = this.StoreInDetailsGrid.CurrentRow.Cells[3].Value.ToString();
+            txtQty.Text = this.StoreInDetailsGrid.CurrentRow.Cells[4].Value.ToString();
+            txtTaxPercent.Text = this.StoreInDetailsGrid.CurrentRow.Cells[5].Value.ToString();
+                txtTaxValue.Text = this.StoreInDetailsGrid.CurrentRow.Cells[6].Value.ToString();
+                txtTotal.Text = this.StoreInDetailsGrid.CurrentRow.Cells[7].Value.ToString();
+            StoreInDetailsGrid.Rows.RemoveAt(StoreInDetailsGrid.CurrentRow.Index);
+             this.CalculateTotalOfin();
+             txtQty.Focus();
+            }
+
+            catch
+            {
+                return; 
+            }
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && e.KeyChar !=8 && (e.KeyChar != '.'))
+            {
+                e.Handled = true; 
+            }
+            else
+            {
+
+            }
+        }
+
+        private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            else
+            {
+
+            }
+        }
+
+        private void txtUnitPrice_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUnitPrice.Text))
+            {
+                XtraMessageBox.Show(Resources.emptyPrice, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+            else
+            {
+                txtQty.Focus();
+            }
+        }
+
+        private void simpleButton3_Click_1(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void btnsaveandprint_Click(object sender, EventArgs e)
+        {
+            btnsave.PerformClick();
+            //print
+
+        }
+
+        private void simpleButton3_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                StoreInDetailsGrid.Rows.Clear();
+                this.CalculateTotalOfin();
+
+            }
+            catch
+            {
+                XtraMessageBox.Show(Resources.norowstodelete, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

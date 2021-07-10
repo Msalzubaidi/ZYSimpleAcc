@@ -214,6 +214,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to المادة مدخلة من قبل.
+        /// </summary>
+        internal static string itemInEnteredGrid {
+            get {
+                return ResourceManager.GetString("itemInEnteredGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 20.
         /// </summary>
         internal static string JordanCleaningVersion {
@@ -264,6 +273,24 @@ namespace ZYSimpleAcc.Properties {
         internal static string NoData {
             get {
                 return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لا يوجد بيانات للإدخال.
+        /// </summary>
+        internal static string noDatatoEnterToGrid {
+            get {
+                return ResourceManager.GetString("noDatatoEnterToGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to لا يوجد بيانات للحذف.
+        /// </summary>
+        internal static string norowstodelete {
+            get {
+                return ResourceManager.GetString("norowstodelete", resourceCulture);
             }
         }
         

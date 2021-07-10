@@ -222,4 +222,13 @@
   <data name="qtyRequired" xml:space="preserve">
     <value>الرجاء إدخال الكمية</value>
   </data>
+  <data name="itemInEnteredGrid" xml:space="preserve">
+    <value>المادة مدخلة من قبل</value>
+  </data>
+  <data name="noDatatoEnterToGrid" xml:space="preserve">
+    <value>لا يوجد بيانات للإدخال</value>
+  </data>
+  <data name="norowstodelete" xml:space="preserve">
+    <value>لا يوجد بيانات للحذف</value>
+  </data>
 </root>
