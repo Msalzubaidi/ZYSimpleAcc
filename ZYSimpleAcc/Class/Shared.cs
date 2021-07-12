@@ -56,8 +56,9 @@ namespace ZYSimpleAcc.Class
 
             else if (x == 7)
             {
-                qry = "select ISNULL(Max(TransID) , 0 ) as TransID from " + table_name ;
+                qry = "select ISNULL(Max(TransID) , 0 ) as TransID from " + table_name + qrycondition ;
             }
+          
 
 
 

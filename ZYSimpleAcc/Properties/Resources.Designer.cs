@@ -115,6 +115,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to تم إنشاء النسخة الإحتياطية.
+        /// </summary>
+        internal static string BackUpCreated {
+            get {
+                return ResourceManager.GetString("BackUpCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تم الغاء العملية الاخيرة من قبل المستخدم.
         /// </summary>
         internal static string CancelByUser {

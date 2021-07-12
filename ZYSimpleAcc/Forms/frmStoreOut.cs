@@ -104,7 +104,7 @@ namespace ZYSimpleAcc.Forms
 
 
             Totalofout = 0;
-            DataTable dtable1 = s.SelctData(masterstoretable, 7 , "");//Customer
+            DataTable dtable1 = s.SelctData(masterstoretable, 7 , " where TransType="+"'"+txttransType.Text+"'");//Customer
 
             int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
 

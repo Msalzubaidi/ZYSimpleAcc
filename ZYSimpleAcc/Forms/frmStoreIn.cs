@@ -129,7 +129,7 @@ namespace ZYSimpleAcc.Forms
             
            
             TotalofIN = 0;
-            DataTable dtable1 = s.SelctData(masterstoretable, 7, "");
+            DataTable dtable1 = s.SelctData(masterstoretable, 7, " where TransType=" + "'" + txtTranstype.Text + "'");
             int max1 = int.Parse(dtable1.Rows[0]["TransID"].ToString());
             if (max1 == 0)
             {

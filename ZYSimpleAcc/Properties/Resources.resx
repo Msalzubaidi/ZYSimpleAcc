@@ -243,4 +243,7 @@
   <data name="AlreadyCancelled" xml:space="preserve">
     <value>هذا السند ملغى سابقا</value>
   </data>
+  <data name="BackUpCreated" xml:space="preserve">
+    <value>تم إنشاء النسخة الإحتياطية</value>
+  </data>
 </root>
