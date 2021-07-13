@@ -521,7 +521,7 @@ namespace ZYSimpleAcc.Forms
                 DataTable dtable = new DataTable();
 
                 string keyword = schControl.Text.ToString();
-                dtable = ss.SerachCusVen(keyword);
+                dtable = ss.SerachCusVen(keyword , 0 );
 
                 int count = dtable.Rows.Count;
                 if(count > 0)

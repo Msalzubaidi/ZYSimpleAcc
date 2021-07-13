@@ -775,12 +775,25 @@ namespace ZYSimpleAcc.Class
 
 
 
-        public DataTable SerachCusVen(string keyword)
+        public DataTable SerachCusVen(string keyword , int operation )
         {
           
             SqlConnection con = new SqlConnection(DataBase.connstring);
-            string qry = "Select * from CustomersAndVendors where [CusVenName] + [CusVenID] + [CusVenMobile] +[CusVenEmail] + [CusVenDetailedAddress] + [CusVenMaxBalance] + [CusVenTaxNo] like '%' + " + "'" +  keyword  + "'"+ "+'%'";
+            string qry = "";
 
+            if (operation == 0)
+            {
+                qry = "Select * from CustomersAndVendors where [CusVenName] + [CusVenID] + [CusVenMobile] +[CusVenEmail] + [CusVenDetailedAddress] + [CusVenMaxBalance] + [CusVenTaxNo] like '%' + " + "'" + keyword + "'" + "+'%'";
+            }
+            if(operation==1)
+            {
+                qry = "Select CusVenID as 'رقم العميل'  , CusVenName as 'اسم العميل' , CusVenDetailedAddress as 'العنوان', CusVenMobile as 'رقم الهاتف' , CusVenEmail as 'البريد الالكتروني'  from CustomersAndVendors where CusorVen ='C' ";
+            }
+
+            if (operation == 2)
+            {
+                qry = "Select CusVenID as 'رقم العميل'  , CusVenName as 'اسم العميل' , CusVenDetailedAddress as 'العنوان', CusVenMobile as 'رقم الهاتف' , CusVenEmail as 'البريد الالكتروني' from CustomersAndVendors where [CusVenName] + [CusVenID] + [CusVenMobile] +[CusVenEmail] + [CusVenDetailedAddress] + [CusVenMaxBalance] + [CusVenTaxNo] like '%' + " + "'" + keyword + "'" + "+'%' and CusorVen ='C'";
+            }
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
 
             cmd.Parameters.Add(new SqlParameter("@keyword", keyword));

@@ -88,6 +88,12 @@
     <Compile Include="Forms\frmChildAccounts.Designer.cs">
       <DependentUpon>frmChildAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmCustomersAndVendoesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCustomersAndVendoesView.Designer.cs">
+      <DependentUpon>frmCustomersAndVendoesView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmCustomersAndVendors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmChildAccounts.resx">
       <DependentUpon>frmChildAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCustomersAndVendoesView.resx">
+      <DependentUpon>frmCustomersAndVendoesView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCustomersAndVendors.resx">
       <DependentUpon>frmCustomersAndVendors.cs</DependentUpon>

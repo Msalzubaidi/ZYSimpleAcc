@@ -52,12 +52,23 @@ namespace ZYSimpleAcc.Forms
 
                 using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
                 {
+                    try
+                    {
 
+                    
                     smtp.Credentials = new NetworkCredential(emailbeg.Text, txtpaswordsender.Text);
                     smtp.EnableSsl = true;
                     smtp.Send(myMsg);
                     XtraMessageBox.Show("الرجاء تفقد بريدك الإلكتروني - تم ارسال كلمة المرور", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        XtraMessageBox.Show(" حدث خطأ غير متوقع - الرجاء التأكد من الاعدادات وللمساعدة اضغط على زر مساعدة  ", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("يجب أن يتم تسجيل الدخول بالبريد المرسل منه على الجهاز المرسل", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show("يجب تفعيل وصول التطبيقات الأقل أمانا من المتصفح", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+                    }
                 }
             }
 
@@ -137,5 +148,13 @@ namespace ZYSimpleAcc.Forms
                 SendKeys.Send("{TAB}");
             }
         }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+
+            XtraMessageBox.Show("يجب أن يتم تسجيل الدخول بالبريد المرسل منه على الجهاز المرسل", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show("يجب تفعيل وصول التطبيقات الأقل أمانا من المتصفح", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        
+    }
     }
 }
