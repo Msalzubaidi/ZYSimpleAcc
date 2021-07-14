@@ -54,11 +54,11 @@ namespace ZYSimpleAcc.Forms
 
                     this.Hide();
                     frmMain main = new frmMain();
-
+                    db.UserLogTransactions(DataBase.Username , "15" , DateTime.Now , Environment.UserName + "/" + Environment.MachineName);
                     string info = Resources.AppName + " " + Resources.AppVersion + "   " + ay.ToString();
                     main.Text = titleform.ToString() + "      " + info.ToString() + "        " + DataBase.Username.ToString();
                     main.Show();
-                    db.UserLogTransactions(username, "تسجيل دخول", DateTime.Now, Environment.MachineName);
+                
 
                  
 

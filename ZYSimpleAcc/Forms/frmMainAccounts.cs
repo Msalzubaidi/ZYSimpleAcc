@@ -55,7 +55,7 @@ namespace ZYSimpleAcc.Forms
                 if (rslt > 0)
                 {
                     XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.UserLogTransactions(DataBase.Username.ToString(), " اضافة حساب جديد" + accNo.ToString() + " / " + accName.ToString(), DateTime.Now, Environment.MachineName);
+               
                     btnclear.PerformClick();
                 }
                 else if (rslt == -150)
@@ -233,7 +233,7 @@ namespace ZYSimpleAcc.Forms
                     {
 
                         XtraMessageBox.Show("تم التفعيل", Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), " تفعيل حساب " + accNo.ToString() + " / " + accName.ToString(), DateTime.Now, Environment.MachineName);
+                     
                         btnclear.PerformClick();
                     }
                     else if (rest <= 0)
@@ -277,7 +277,7 @@ namespace ZYSimpleAcc.Forms
                     {
 
                         XtraMessageBox.Show("تم  الغاء التفعيل ولن يقبل هذا الحساب حركات", Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), " تجميد حساب " + accNo.ToString() + " / " + accName.ToString(), DateTime.Now, Environment.MachineName);
+                  
                         btnclear.PerformClick();
                     }
                     else if (rest <= 0)
@@ -328,7 +328,7 @@ namespace ZYSimpleAcc.Forms
                     {
 
                         XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), " تعديل حساب " + accNo.ToString() + " / ", DateTime.Now, Environment.MachineName);
+
                         btnclear.PerformClick();
                     }
                    
@@ -368,7 +368,7 @@ namespace ZYSimpleAcc.Forms
                     {
 
                         XtraMessageBox.Show(Resources.deleted, Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), " حذف حساب " + accNo.ToString() + " / " , DateTime.Now, Environment.MachineName);
+                 
                         btnclear.PerformClick();
                     }
                     else if (rest == -150)

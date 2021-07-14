@@ -35,7 +35,7 @@ namespace ZYSimpleAcc.Forms
             SqlCommand cmd4;
             SqlDataReader dr4;
 
-            string qry4 = "select distinct (TransType) from UserLogTransactions";
+            string qry4 = "select distinct (TransDescryption) from UserLogTransactions GROUP BY TransDescryption";
             con4.Open();
 
 

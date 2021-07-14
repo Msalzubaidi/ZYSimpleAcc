@@ -130,14 +130,14 @@ namespace ZYSimpleAcc.Class
         }
 
 
-        public int UserLogTransactions(string username, string transType, DateTime transDate, string ComputerName)
+        public int UserLogTransactions(string username , string TransDescryption, DateTime transDate, string ComputerName)
         {
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
-            SqlCommand cmd = new SqlCommand("INSERT INTO UserLogTransactions ( Username , TransType , transDate , ComputerName) VALUES( @username , @transType , @transDate , @ComputerName )", con); // sql command to so get data from data bas
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserLogTransactions ( Username , TransDescryption , transDate , ComputerName) VALUES( @username , @TransDescryption , @transDate , @ComputerName )", con); // sql command to so get data from data bas
 
             cmd.Parameters.Add(new SqlParameter("@username", username));
-            cmd.Parameters.Add(new SqlParameter("@transType", transType));
+            cmd.Parameters.Add(new SqlParameter("@TransDescryption", TransDescryption));
             cmd.Parameters.Add(new SqlParameter("@transDate", transDate));//
             cmd.Parameters.Add(new SqlParameter("@ComputerName", ComputerName));
 

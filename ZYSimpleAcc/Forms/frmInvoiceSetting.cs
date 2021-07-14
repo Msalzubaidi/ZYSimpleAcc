@@ -61,7 +61,7 @@ namespace ZYSimpleAcc.Forms
                 if (result > 0 )
                 {
                     XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.UserLogTransactions(DataBase.Username.ToString(), "حفظ  اعدادات الفواتير", DateTime.Now, Environment.MachineName);
+                 
                 }
                 else
                 {

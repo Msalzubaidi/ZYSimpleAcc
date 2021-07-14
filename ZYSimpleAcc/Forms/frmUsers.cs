@@ -851,7 +851,7 @@ namespace ZYSimpleAcc.Forms
            , buy, buyinv , retbuyinv   , hr , hrsetup , empfiles  , salaries , holidaysandleaves, reports , generalreports ,
            statmentaccount , storesreports , hrreports  , salesreports  , buyreports  , acctransreports , accbalance, 0 , admin , updatecancelstores , updatecanceltrans , updatecancelsales , updatecancelbuy);
                     btnclear.PerformClick();
-                    db.UserLogTransactions(DataBase.Username.ToString(), " اضافة مستخدم جديد" + "("+ username.ToString() +")", DateTime.Now, Environment.MachineName);
+                 
 
                 }
                 else if (add <= 0)
@@ -967,7 +967,7 @@ namespace ZYSimpleAcc.Forms
 
                     XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, 0, MessageBoxIcon.Information);
                     XtraMessageBox.Show("يرجى العلم بأن التعديل يشمل فقط معلومات المستخدم بدون الصلاحيات ", Resources.MessageTitle, 0, MessageBoxIcon.Exclamation);
-                    db.UserLogTransactions(DataBase.Username.ToString(), " تحديث بيانات المستخدم " + "(" + username.ToString() + ")", DateTime.Now, Environment.MachineName);
+              
                     db.UpdateUserinfoadminper(userid , username );
                     btnclear.PerformClick();
 

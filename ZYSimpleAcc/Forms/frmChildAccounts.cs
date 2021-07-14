@@ -171,7 +171,7 @@ namespace ZYSimpleAcc.Forms
                 {
                     XtraMessageBox.Show(Resources.AddedSuccessfully, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ss.MakeAccountParent(accParent , 1 );
-                    db.UserLogTransactions(DataBase.Username.ToString(), " اضافة حساب جديد" + accNo.ToString() + " / " + accName.ToString(), DateTime.Now, Environment.MachineName);
+                
                     btnclear.PerformClick();
                 }
                 else if (rslt == -150)
@@ -240,7 +240,7 @@ namespace ZYSimpleAcc.Forms
                     {
 
                         XtraMessageBox.Show(Resources.deleted, Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), " حذف حساب " + accNo.ToString() + " / ", DateTime.Now, Environment.MachineName);
+                       
                         btnclear.PerformClick();
                     }
                     else if (rest == -150)

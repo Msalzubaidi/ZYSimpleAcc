@@ -57,7 +57,7 @@
             // simpleButton3
             // 
             this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.Location = new System.Drawing.Point(264, 254);
+            this.simpleButton3.Location = new System.Drawing.Point(232, 252);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(60, 23);
             this.simpleButton3.TabIndex = 11;
@@ -67,7 +67,7 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(330, 254);
+            this.simpleButton1.Location = new System.Drawing.Point(298, 252);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(60, 23);
             this.simpleButton1.TabIndex = 9;
@@ -214,7 +214,7 @@
             // txtSaved
             // 
             this.txtSaved.Enabled = false;
-            this.txtSaved.Location = new System.Drawing.Point(150, 257);
+            this.txtSaved.Location = new System.Drawing.Point(118, 255);
             this.txtSaved.Name = "txtSaved";
             this.txtSaved.Size = new System.Drawing.Size(43, 20);
             this.txtSaved.TabIndex = 69;
@@ -223,7 +223,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(147, 241);
+            this.label7.Location = new System.Drawing.Point(115, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 70;
@@ -232,7 +232,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(199, 259);
+            this.checkBox1.Location = new System.Drawing.Point(167, 257);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(51, 17);

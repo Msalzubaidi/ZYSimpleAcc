@@ -606,7 +606,7 @@ namespace ZYSimpleAcc
             if (result == DialogResult.Yes)
             {
 
-                db.UserLogTransactions(DataBase.Username.ToString(), "تسجيل خروج", DateTime.Now, Environment.MachineName);
+             
                 Application.Exit();
                 
 

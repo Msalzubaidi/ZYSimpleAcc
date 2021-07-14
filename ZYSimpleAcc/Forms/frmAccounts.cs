@@ -111,7 +111,7 @@ namespace ZYSimpleAcc.Forms
                 {
 
                    XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.UserLogTransactions(DataBase.Username.ToString(), "حفظ الحسابات العامة", DateTime.Now, Environment.MachineName);
+                   
                     this.Close();
                 }
                 else

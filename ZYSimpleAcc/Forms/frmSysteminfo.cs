@@ -109,7 +109,7 @@ namespace ZYSimpleAcc.Forms
                     if (x > 0)
                     {
                         XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, 0, MessageBoxIcon.Information);
-                        db.UserLogTransactions(DataBase.Username.ToString(), "حفظ بيانات الشركة", DateTime.Now, Environment.MachineName);
+                    
                     }
                     else if (x < 0)
                     {

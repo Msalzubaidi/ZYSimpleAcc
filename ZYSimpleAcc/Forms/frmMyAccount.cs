@@ -61,7 +61,7 @@ namespace ZYSimpleAcc.Forms
                 if (rest > 0)
                 {
                     XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    db.UserLogTransactions(DataBase.Username.ToString(), "تغيير كلمة المرور", DateTime.Now, Environment.MachineName);
+               
                     txt_newpass.Clear();
                     txt_oldpass.Clear();
                     txt_username.Clear();
