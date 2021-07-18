@@ -24,6 +24,7 @@ namespace ZYSimpleAcc.Forms
         }
 
         Shared s = new Shared();
+        Transactions t = new Transactions();
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
@@ -57,7 +58,8 @@ namespace ZYSimpleAcc.Forms
 
         private void frmSendSMSEmail_Load(object sender, EventArgs e)
         {
-          
+            simpleButton3.PerformClick();
+            simpleButton6.PerformClick();
         }
 
         private void btnemailview_Click(object sender, EventArgs e)
@@ -82,10 +84,15 @@ namespace ZYSimpleAcc.Forms
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+            //DataTable dtable1 = s.SelctData("EmailandSMSHistory", 1, " MessageOrEmail="+"'"+ "Email"+"'");
+            //txtMsgEmailID.Clear();
+            //txtMsgEmailID.Enabled = false;
+            //txtMsgEmailID.Text = (dtable1.Rows.Count + 1).ToString(); 
             txtCustId.Clear();
             txtCustName.Clear();
             txtCustEmail.Clear();
             txtMessage.Clear();
+            dateEdit1.EditValue = DateTime.Now;
         }
 
         private void simpleButton2_Click_2(object sender, EventArgs e)
@@ -95,10 +102,15 @@ namespace ZYSimpleAcc.Forms
 
         private void simpleButton6_Click(object sender, EventArgs e)
         {
+            //DataTable dtable1 = s.SelctData("EmailandSMSHistory", 1, " MessageOrEmail=" + "'" + "Mobile" + "'");
+            //txtMsgIDSMS.Clear();
+            //txtMsgIDSMS.Enabled = false;
+            //txtMsgIDSMS.Text = (dtable1.Rows.Count + 1).ToString();
             txtCusIDSMS.Clear();
             txtCusNameSMS.Clear();
             txtMobile.Clear();
             txtMessageSMS.Clear();
+            dateEdit2.EditValue = DateTime.Now; 
         }
 
         private void simpleButton7_Click(object sender, EventArgs e)
@@ -118,6 +130,7 @@ namespace ZYSimpleAcc.Forms
                     string baseURL = "http://api.clickatell.com/http/sendmsg?user=zisan94268&password=OYeNLVUHTNIHbD&api_id=3528011&to='" + to + "'&text='" + messagee + "'";
                     client.OpenRead(baseURL);
                     XtraMessageBox.Show("تم ارسال الرسالة بنجاح", Resources.MessageTitle, 0, MessageBoxIcon.Information);
+                 //   t.NewSMSEmail(1, txtMessageSMS.Text.ToString(), txtCusIDSMS.Text.ToString(), txtCusNameSMS.Text.ToString(), DateTime.Parse(dateEdit2.ToString()),"xxxx@xxxx.com",txtMobile.Text.ToString(), "Mobile");
                     simpleButton3.PerformClick();
                 }
 
@@ -146,12 +159,12 @@ namespace ZYSimpleAcc.Forms
         {
             if (englang.Checked)
             {
-                txtMessageSMS.TextAlign = HorizontalAlignment.Right;
+                txtMessageSMS.TextAlign = HorizontalAlignment.Left;
                 txtMessageSMS.Focus();
             }
             if (arlang.Checked)
             {
-                txtMessageSMS.TextAlign = HorizontalAlignment.Left;
+                txtMessageSMS.TextAlign = HorizontalAlignment.Right;
                 txtMessageSMS.Focus();
             }
         }
@@ -160,12 +173,12 @@ namespace ZYSimpleAcc.Forms
         {
             if (radioButton2.Checked)
             {
-                txtMessage.TextAlign = HorizontalAlignment.Right;
+                txtMessage.TextAlign = HorizontalAlignment.Left;
                 txtMessage.Focus();
             }
             if (radioButton1.Checked)
             {
-                txtMessage.TextAlign = HorizontalAlignment.Left;
+                txtMessage.TextAlign = HorizontalAlignment.Right;
                 txtMessage.Focus();
             }
         }
@@ -214,6 +227,8 @@ namespace ZYSimpleAcc.Forms
                         smtp.Send(myMsg);
 
                         XtraMessageBox.Show("تم ارسال البريد بنجاح", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                     //   t.NewSMSEmail(1 , txtMessage.Text.ToString() , txtCustId.Text.ToString() , txtCustName.Text.ToString() , DateTime.Parse( dateEdit1.ToString()) , txtCustEmail.Text.ToString() , "0000000000" , "Email");
                         simpleButton3.PerformClick();
                     }
                     catch
@@ -233,6 +248,11 @@ namespace ZYSimpleAcc.Forms
         {
             XtraMessageBox.Show("يجب أن يتم تسجيل الدخول بالبريد المرسل منه على الجهاز المرسل", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             XtraMessageBox.Show("يجب تفعيل وصول التطبيقات الأقل أمانا من المتصفح", Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

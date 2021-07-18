@@ -562,6 +562,7 @@
             this.mnuvoucher.Name = "mnuvoucher";
             this.mnuvoucher.Size = new System.Drawing.Size(175, 22);
             this.mnuvoucher.Text = "قيد";
+            this.mnuvoucher.Click += new System.EventHandler(this.mnuvoucher_Click);
             // 
             // mnurecive
             // 
@@ -580,6 +581,7 @@
             this.updatecancelvchr.Name = "updatecancelvchr";
             this.updatecancelvchr.Size = new System.Drawing.Size(175, 22);
             this.updatecancelvchr.Text = "تعديل والغاء قيد";
+            this.updatecancelvchr.Click += new System.EventHandler(this.updatecancelvchr_Click);
             // 
             // updatecancelrecv
             // 

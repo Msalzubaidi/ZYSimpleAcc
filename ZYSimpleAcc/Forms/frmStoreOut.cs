@@ -200,11 +200,12 @@ namespace ZYSimpleAcc.Forms
 
                 int storeid = int.Parse(txtstoreid.Text);
                 string transtype = txttransType.Text;
+                string storename = cboStore.Text.ToString();
 
                 if (StoreoutDetailsGrid.Rows.Count - 1 > 0)
                 {
 
-                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid, transtype , 0 );
+                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid , storename, transtype , 0 );
 
                     if (rest > 0)
                     {
@@ -403,7 +404,74 @@ namespace ZYSimpleAcc.Forms
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtTransID.Text) || s.isDigitsOnly(txtTransID.Text) == false || string.IsNullOrWhiteSpace(cboStore.Text.ToString()) || string.IsNullOrWhiteSpace(txtstoreid.Text) || s.isDigitsOnly(txtstoreid.Text) == false || string.IsNullOrWhiteSpace(transnotes.Text) || string.IsNullOrWhiteSpace(txtTotalout.Text))
+            {
+                XtraMessageBox.Show(Resources.InfoOfStoreinnotEntered, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                int transid = int.Parse(txtTransID.Text);
 
+                DateTime date = DateTime.Parse(datetransdate.EditValue.ToString());
+                string notes = transnotes.Text;
+                float total = float.Parse(txtTotalout.Text);
+
+                int storeid = int.Parse(txtstoreid.Text);
+                string transtype = txttransType.Text;
+                string storename = cboStore.Text.ToString();
+
+                if (StoreoutDetailsGrid.Rows.Count - 1 > 0)
+                {
+                    t.DeleteMasterStoreTrans(transid, transtype);
+                    t.CancelStoreDetailsTransaction(transid, transtype);
+
+                    int rest = t.NewStoreTransMaster(transid, date, notes, total, storeid, storename, transtype, 0);
+
+                    if (rest > 0)
+                    {
+
+                        // db.UserLogTransactions(DataBase.Username.ToString(), "   سند ادحال جديد" + CorVid.ToString() + " / " + Name.ToString(), DateTime.Now, Environment.MachineName);
+                        //Enter data of Grid
+                        for (int i = 0; i < StoreoutDetailsGrid.Rows.Count - 1; i++)
+                        {
+                            int id = int.Parse(txtTransID.Text);
+                            int StoreID = int.Parse(txtstoreid.Text);
+                            string ttype = txttransType.Text;
+                            string itemid = StoreoutDetailsGrid.Rows[i].Cells[0].Value.ToString();
+                            string itemname = StoreoutDetailsGrid.Rows[i].Cells[1].Value.ToString();
+                            float qty = float.Parse(StoreoutDetailsGrid.Rows[i].Cells[4].Value.ToString());
+                            float unitprice = float.Parse(StoreoutDetailsGrid.Rows[i].Cells[3].Value.ToString());
+                            float taxperc = float.Parse(StoreoutDetailsGrid.Rows[i].Cells[5].Value.ToString());
+                            float taxval = float.Parse(StoreoutDetailsGrid.Rows[i].Cells[6].Value.ToString());
+                            string unitname = StoreoutDetailsGrid.Rows[i].Cells[2].Value.ToString();
+                            float linevalue = float.Parse(StoreoutDetailsGrid.Rows[i].Cells[7].Value.ToString());
+
+
+
+
+
+                            t.NewStoreTransDetails(id, StoreID, ttype, date, itemid, itemname, qty, unitprice, unitname, taxperc, taxval, linevalue);
+                        }
+                        XtraMessageBox.Show(Resources.Updated, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnclear.PerformClick();
+                    }
+
+                    else if (rest == -150)
+                    {
+                        XtraMessageBox.Show(Resources.Exist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    else
+                    {
+                        XtraMessageBox.Show(Resources.TryAgain, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show(Resources.noDataEnterinGrid, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+            }
         }
 
         private void btnsaveandprint_Click(object sender, EventArgs e)
@@ -495,9 +563,10 @@ namespace ZYSimpleAcc.Forms
             else
             {
                 int id = int.Parse(txtTransID.Text);
-                int rest = t.CancelStoreMasterTransaction(id);
+                string type = txttransType.Text.ToString();
+                int rest = t.CancelStoreMasterTransaction(id, type);
 
-                    if (rest > 0)
+                if (rest > 0)
                     {
                         XtraMessageBox.Show(Resources.cancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnclear.PerformClick();
@@ -546,25 +615,70 @@ namespace ZYSimpleAcc.Forms
             }
             else
             {
+
                 DataTable dtMaster = new DataTable();
                 DataTable dtDetails = new DataTable();
-                dtMaster = s.SelctData(masterstoretable, 0, "");
-                dtDetails = s.SelctData(detailsstoretable, 0, "");
-                int state = int.Parse(dtMaster.Rows[0]["IsCancelled"].ToString());
-
-                if (state == 1)
+                dtMaster = s.SelctData(masterstoretable, 8, " where TransID=" + txtTransID.Text.ToString() + " and TransType =" + "'" + txttransType.Text.ToString() + "'");
+                dtDetails = s.SelctData(detailsstoretable, 9, " where TransID=" + txtTransID.Text.ToString() + " and TransType =" + "'" + txttransType.Text.ToString() + "'");
+                if (dtMaster.Rows.Count > 0)
                 {
-                    transnotes.Enabled = false;
-                    transnotes.Text = "هذا السند ملغى سابقا";
-                    XtraMessageBox.Show(Resources.AlreadyCancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    int state = int.Parse(dtMaster.Rows[0]["IsCancelled"].ToString());
+
+
+                    if (state == 1)
+                    {
+                        transnotes.Enabled = false;
+                        transnotes.Text = "هذا السند ملغى سابقا";
+                        XtraMessageBox.Show(Resources.AlreadyCancelled, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+                    }
+
+                    if (state == 0)
+                    {
+
+                        txtTransID.Text = dtMaster.Rows[0]["TransID"].ToString();
+                        datetransdate.DateTime = DateTime.Parse(dtMaster.Rows[0]["TransDate"].ToString());
+                        transnotes.Text = dtMaster.Rows[0]["TransNotes"].ToString();
+                        txtTotalout.Text = dtMaster.Rows[0]["TransValue"].ToString();
+                        txtstoreid.Text = dtMaster.Rows[0]["TransStoreID"].ToString();
+                        cboStore.Text = dtMaster.Rows[0]["TransStoreName"].ToString();
+                        txttransType.Text = dtMaster.Rows[0]["TransType"].ToString();
+                        for (int x = 0; x < dtDetails.Rows.Count; x++)
+                        {
+                            DataGridViewRow rowi = (DataGridViewRow)StoreoutDetailsGrid.Rows[0].Clone();
+
+                            rowi.Cells[0].Value = dtDetails.Rows[x]["ItemID"].ToString();
+                            rowi.Cells[1].Value = dtDetails.Rows[x]["ItemName"].ToString();
+                            rowi.Cells[2].Value = dtDetails.Rows[x]["ItemEnteredUnitName"].ToString();
+                            rowi.Cells[3].Value = dtDetails.Rows[x]["ItemEnteredUnitPrice"].ToString();
+                            rowi.Cells[4].Value = dtDetails.Rows[x]["ItemQty"].ToString();
+                            rowi.Cells[5].Value = dtDetails.Rows[x]["taxpercent"].ToString();
+                            rowi.Cells[6].Value = dtDetails.Rows[x]["taxvalue"].ToString();
+                            rowi.Cells[7].Value = dtDetails.Rows[x]["transValue"].ToString();
+
+                            StoreoutDetailsGrid.Rows.Add(rowi);
+                        }
+
+                    }
+
 
 
                 }
-
-                if (state == 0)
+                else
                 {
-
+                    XtraMessageBox.Show(Resources.notExist, Resources.MessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnclear.PerformClick();
                 }
+
+            }
+        }
+
+        private void frmStoreOut_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SendKeys.Send("{TAB}");
             }
         }
     }

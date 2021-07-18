@@ -386,7 +386,7 @@ namespace ZYSimpleAcc.Class
             }
             else
             {
-                Qry = "select * from UserLogTransactions where transDate  >= @dtf  and transDate  <=@dtt and transType=@trans";
+                Qry = "select * from UserLogTransactions where transDate  >= @dtf  and transDate  <=@dtt and TransDescryption=@trans";
             }
 
 
@@ -550,7 +550,7 @@ int instore , int outstore
             DataBase db = new DataBase();
            int rest =  db.checkexist(user_id , username);
             if (rest > 0)
-                return -150; 
+                return 150; 
             else
                 
             return cmd.ExecuteNonQuery();

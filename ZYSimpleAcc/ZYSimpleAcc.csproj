@@ -106,6 +106,12 @@
     <Compile Include="Forms\frmDeveloper.Designer.cs">
       <DependentUpon>frmDeveloper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmJournal.Designer.cs">
+      <DependentUpon>frmJournal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMainAccounts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDeveloper.resx">
       <DependentUpon>frmDeveloper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmJournal.resx">
+      <DependentUpon>frmJournal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMainAccounts.resx">
       <DependentUpon>frmMainAccounts.cs</DependentUpon>

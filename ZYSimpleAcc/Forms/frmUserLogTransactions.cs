@@ -21,12 +21,13 @@ namespace ZYSimpleAcc.Forms
         {
             InitializeComponent();
         }
+        Shared s = new Shared();
 
         private void frmUserLogTransactions_Load(object sender, EventArgs e)
         {
             dtp_from.EditValue = DateTime.Now;
             dtp_to.EditValue = DateTime.Now;
-
+            string item1F = "";
 
 
             string connstring = @"Data Source=" + Resources.servercon + ";Initial Catalog=" + Resources.dbnamecon + ";User ID=" + Resources.usernamecon + ";Password=" + Resources.passwordcon;
@@ -38,6 +39,8 @@ namespace ZYSimpleAcc.Forms
             string qry4 = "select distinct (TransDescryption) from UserLogTransactions GROUP BY TransDescryption";
             con4.Open();
 
+         
+
 
 
             cmd4 = new SqlCommand(qry4, con4);
@@ -45,9 +48,13 @@ namespace ZYSimpleAcc.Forms
 
             while (dr4.Read())
             {
-                string item1F = dr4.GetValue(0).ToString();
-
-                cbo_transtype.Properties.Items.Add(item1F);
+                item1F = dr4.GetValue(0).ToString();
+             
+                if (item1F != "ذمم" && item1F != "نقدا")
+                    cbo_transtype.Properties.Items.Add(item1F);
+                if(item1F == "ذمم" || item1F == "نقدا") { 
+                cbopaytype.Properties.Items.Add(item1F);
+                }
 
 
             }
@@ -134,6 +141,11 @@ namespace ZYSimpleAcc.Forms
             {
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void dtp_to_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -21,7 +21,9 @@ namespace ZYSimpleAcc.Forms
         }
 
         public static int languagearabic = 1;
-        public static string pass = ""; 
+        public static string pass = "";
+        Shared s = new Shared();
+
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
@@ -54,7 +56,7 @@ namespace ZYSimpleAcc.Forms
 
                     this.Hide();
                     frmMain main = new frmMain();
-                    db.UserLogTransactions(DataBase.Username , "15" , DateTime.Now , Environment.UserName + "/" + Environment.MachineName);
+                    db.UserLogTransactions(DataBase.Username , s.TranTypeFromTypes("zgjgajhddaskjgaskj") , DateTime.Now , Environment.UserName + "/" + Environment.MachineName);
                     string info = Resources.AppName + " " + Resources.AppVersion + "   " + ay.ToString();
                     main.Text = titleform.ToString() + "      " + info.ToString() + "        " + DataBase.Username.ToString();
                     main.Show();

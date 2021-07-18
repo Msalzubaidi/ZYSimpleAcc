@@ -58,8 +58,18 @@ namespace ZYSimpleAcc.Class
             {
                 qry = "select ISNULL(Max(TransID) , 0 ) as TransID from " + table_name + qrycondition ;
             }
-          
-
+            else if (x == 8)
+            {
+                qry =  begqry + table_name + qrycondition;
+            }
+            else if (x == 9)
+            {
+                qry = "Select ItemID , ItemName  , ItemEnteredUnitName , ItemEnteredUnitPrice , ItemQty , taxpercent , taxvalue , transValue from " + table_name + qrycondition;
+            }
+            else if (x == 10)
+            {
+                qry = "select ISNULL(Max(TransID) , 0 ) as TransID from " + table_name + qrycondition;
+            }
 
 
 
@@ -140,6 +150,74 @@ namespace ZYSimpleAcc.Class
 
         }
 
+        public string TranTypeFromTypes(string item1F)
+        {
+            string ss = "";
+
+            switch (item1F)
+            {
+
+                case "0":
+                    ss = "ادخال";
+                    break;
+                case "1":
+                    ss = "اخراج";
+                    break;
+                case "2":
+                    ss = "فاتورة بيع";
+                    break;
+                case "3":
+                    ss = "فاتورة شراء";
+                    break;
+                case "4":
+                    ss = "مرتجع البيع";
+                    break;
+                case "5":
+                    ss = "مرتجع الشراء";
+                    break;
+                case "6":
+                    ss = "ذمم";
+                    break;
+                case "7":
+                    ss = "نقدا";
+                    break;
+                case "8":
+                    ss = "اضافة";
+                    break;
+                case "9":
+                    ss = "حذف";
+                    break;
+                case "10":
+                    ss = "تعديل";
+                    break;
+                case "11":
+                    ss = "قيد";
+                    break;
+                case "12":
+                    ss = "صرف";
+                    break;
+                case "13":
+                    ss = "قبض";
+                    break;
+                case "14":
+                    ss = "دخول";
+                    break;
+                case "15":
+                    ss = "تجديد الرخصة";
+                    break;
+                case "16":
+                    ss = "حركة آلية";
+                    break;
+                case "17":
+                    ss = "حركة من قبل المبرمج";
+                    break;
+                default:
+                    ss = "حركة غير معرفة";
+                    break;
+    
+            }
+            return ss;
+        }
 
         
         

@@ -28,6 +28,7 @@ namespace ZYSimpleAcc
 
         public static int instate = 0;
         public static int outstate = 0;
+        public static int jlstate = 0; 
 
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -949,6 +950,48 @@ namespace ZYSimpleAcc
                 frmStoreOut sout = new frmStoreOut();
                 sout.Show();
               
+            }
+        }
+
+        private void mnuvoucher_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+            jlstate = 0;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "القيد")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmJournal jl = new frmJournal();
+                jl.Show();
+            }
+        }
+
+        private void updatecancelvchr_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+            jlstate = 10;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "القيد")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmJournal jl = new frmJournal();
+                jl.Show();
             }
         }
     }

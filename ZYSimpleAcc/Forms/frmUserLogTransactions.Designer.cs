@@ -47,6 +47,8 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.cbopaytype = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cbo_transtype.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_to.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtp_to.Properties)).BeginInit();
@@ -54,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtp_from.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbopaytype.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // simpleButton5
@@ -81,7 +84,7 @@
             this.chk_all.AutoSize = true;
             this.chk_all.Checked = true;
             this.chk_all.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_all.Location = new System.Drawing.Point(360, 28);
+            this.chk_all.Location = new System.Drawing.Point(355, 28);
             this.chk_all.Name = "chk_all";
             this.chk_all.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chk_all.Size = new System.Drawing.Size(116, 17);
@@ -112,7 +115,7 @@
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(298, 22);
+            this.simpleButton1.Location = new System.Drawing.Point(295, 22);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(57, 23);
             this.simpleButton1.TabIndex = 129;
@@ -121,7 +124,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(509, 8);
+            this.labelControl3.Location = new System.Drawing.Point(604, 6);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(47, 13);
             this.labelControl3.TabIndex = 128;
@@ -129,7 +132,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(689, 7);
+            this.labelControl2.Location = new System.Drawing.Point(719, 7);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(17, 13);
             this.labelControl2.TabIndex = 127;
@@ -137,7 +140,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(800, 7);
+            this.labelControl1.Location = new System.Drawing.Point(812, 7);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(14, 13);
             this.labelControl1.TabIndex = 126;
@@ -145,35 +148,36 @@
             // 
             // cbo_transtype
             // 
-            this.cbo_transtype.Location = new System.Drawing.Point(482, 27);
+            this.cbo_transtype.Location = new System.Drawing.Point(580, 25);
             this.cbo_transtype.Name = "cbo_transtype";
             this.cbo_transtype.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbo_transtype.Size = new System.Drawing.Size(150, 20);
+            this.cbo_transtype.Size = new System.Drawing.Size(102, 20);
             this.cbo_transtype.TabIndex = 125;
             // 
             // dtp_to
             // 
             this.dtp_to.EditValue = null;
-            this.dtp_to.Location = new System.Drawing.Point(650, 26);
+            this.dtp_to.Location = new System.Drawing.Point(688, 26);
             this.dtp_to.Name = "dtp_to";
             this.dtp_to.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_to.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtp_to.Size = new System.Drawing.Size(100, 20);
+            this.dtp_to.Size = new System.Drawing.Size(88, 20);
             this.dtp_to.TabIndex = 124;
+            this.dtp_to.EditValueChanged += new System.EventHandler(this.dtp_to_EditValueChanged);
             // 
             // dtp_from
             // 
             this.dtp_from.EditValue = null;
-            this.dtp_from.Location = new System.Drawing.Point(767, 26);
+            this.dtp_from.Location = new System.Drawing.Point(779, 26);
             this.dtp_from.Name = "dtp_from";
             this.dtp_from.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtp_from.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtp_from.Size = new System.Drawing.Size(100, 20);
+            this.dtp_from.Size = new System.Drawing.Size(90, 20);
             this.dtp_from.TabIndex = 123;
             // 
             // MyGrid
@@ -239,12 +243,31 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(502, 6);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(53, 13);
+            this.labelControl4.TabIndex = 137;
+            this.labelControl4.Text = "طريقة الدفع";
+            // 
+            // cbopaytype
+            // 
+            this.cbopaytype.Location = new System.Drawing.Point(474, 25);
+            this.cbopaytype.Name = "cbopaytype";
+            this.cbopaytype.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbopaytype.Size = new System.Drawing.Size(102, 20);
+            this.cbopaytype.TabIndex = 136;
+            // 
             // frmUserLogTransactions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(877, 358);
+            this.Controls.Add(this.labelControl4);
+            this.Controls.Add(this.cbopaytype);
             this.Controls.Add(this.MyGrid);
             this.Controls.Add(this.simpleButton5);
             this.Controls.Add(this.simpleButton4);
@@ -274,6 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtp_from.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbopaytype.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,5 +323,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.ComboBoxEdit cbopaytype;
     }
 }

@@ -12,9 +12,9 @@ namespace ZYSimpleAcc.Class
     {
 
 
-        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int storeid , string type , int IsCancelled )
+        public int  NewStoreTransMaster(int id , DateTime date , string notes , float value , int storeid , string storeName , string type , int IsCancelled )
         {
-            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransType , IsCancelled  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID , @TransType , @IsCancelled )";
+            string qry = "INSERT INTO StoreTransMaster (  TransID ,  TransDate ,  TransNotes ,  TransValue  , TransStoreID , TransStoreName  , TransType , IsCancelled  ) VALUES( @TransID ,  @TransDate ,  @TransNotes ,  @TransValue  , @TransStoreID  , @TransStoreName , @TransType , @IsCancelled )";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
@@ -26,6 +26,7 @@ namespace ZYSimpleAcc.Class
             cmd.Parameters.Add(new SqlParameter("@TransValue", value));
            
             cmd.Parameters.Add(new SqlParameter("@TransStoreID", storeid));
+            cmd.Parameters.Add(new SqlParameter("@TransStoreName", storeName));
             cmd.Parameters.Add(new SqlParameter("@TransType", type));
             cmd.Parameters.Add(new SqlParameter("@IsCancelled", IsCancelled));
 
@@ -77,16 +78,16 @@ namespace ZYSimpleAcc.Class
 
         }
 
-        public int CancelStoreDetailsTransaction(int TransID)
+        public int CancelStoreDetailsTransaction(int TransID , string TransType)
         {
-            string qry = "Delete from  StoreTransDetails where TransID=@TransID ";
+            string qry = "Delete from  StoreTransDetails where TransID=@TransID and TransType=@TransType ";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
 
             cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
-
-            Transactions t = new Transactions();
+            cmd.Parameters.Add(new SqlParameter("@TransType", TransType));
+            
 
             con.Open();
             return cmd.ExecuteNonQuery(); 
@@ -95,16 +96,36 @@ namespace ZYSimpleAcc.Class
 
         }
 
-
-
-        public int CancelStoreMasterTransaction(int TransID)
+        public int DeleteMasterStoreTrans(int TransID, string TransType)
         {
-            string qry = "Update StoreTransMaster set IsCancelled=1 where TransID=@TransID";
+            string qry = "Delete from  StoreTransMaster where TransID=@TransID and TransType=@TransType ";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
+            cmd.Parameters.Add(new SqlParameter("@TransType", TransType));
+
+          
+            con.Open();
+            return cmd.ExecuteNonQuery();
+
+
+
+        }
+
+
+
+
+        public int CancelStoreMasterTransaction(int TransID , string TransType)
+        {
+            string qry = "Update StoreTransMaster set IsCancelled=1 where TransID=@TransID and TransType=@TransType";
 
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
             
-            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID)); 
+            cmd.Parameters.Add(new SqlParameter("@TransType", TransType));
 
             Transactions t = new Transactions();
             DataTable dt  = t.checkState(TransID);
@@ -114,7 +135,7 @@ namespace ZYSimpleAcc.Class
             con.Open();
             if (state == 0 )
             {
-                t.CancelStoreDetailsTransaction(TransID);
+                t.CancelStoreDetailsTransaction(TransID , TransType);
                 return cmd.ExecuteNonQuery(); 
             }
             else if(state == 1)
@@ -168,8 +189,76 @@ namespace ZYSimpleAcc.Class
             return dt;
 
         }
-       
-        
+
+        public int UpdateStoreMasterTransaction(int TransID, string TransType)
+        {
+            string qry = "Update StoreTransMaster set IsCancelled=1 where TransID=@TransID and TransType=@TransType";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@TransID", TransID));
+            cmd.Parameters.Add(new SqlParameter("@TransType", TransType));
+
+            Transactions t = new Transactions();
+            DataTable dt = t.checkState(TransID);
+            int state = int.Parse(dt.Rows[0]["IsCancelled"].ToString());
+
+
+            con.Open();
+            if (state == 0)
+            {
+                t.CancelStoreDetailsTransaction(TransID , TransType);
+                return cmd.ExecuteNonQuery();
+            }
+            else if (state == 1)
+            {
+                return -150; // AlreadCancelled or NOt Exist 
+            }
+            else
+            {
+                return -250;
+            }
+
+
+        }
+
+       public int DeletetoUpdateTrans(int id, string type )
+        {
+            Transactions t = new Transactions();
+
+           int x =  t.CancelStoreDetailsTransaction(id, type);
+           int y =  t.CancelStoreDetailsTransaction(id, type);
+
+            return x + y;  
+
+          
+        }
+
+        public int NewSMSEmail(int MessageID , string MessageSubject, string MussageCustomerID , string MessageCustomerName  , DateTime MessageDate,  string MessageEamil , string MessageMobile , string MessageOrEmail)
+        {
+            string qry = "INSERT INTO EmailandSMSHistory (  MessageID ,  MessageSubject,  MussageCustomerID ,  MessageCustomerName  ,  MessageDate,   MessageEamil ,  MessageMobile ,  MessageOrEmail ) VALUES( @MessageID ,  @MessageSubject,  @MussageCustomerID ,  @MessageCustomerName  ,  @MessageDate,   @MessageEamil ,  @MessageMobile ,  @MessageOrEmail)";
+
+            SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+
+            cmd.Parameters.Add(new SqlParameter("@MessageID", MessageID));//
+            cmd.Parameters.Add(new SqlParameter("@MessageSubject", MessageSubject));//
+            cmd.Parameters.Add(new SqlParameter("@MussageCustomerID", MussageCustomerID));
+            cmd.Parameters.Add(new SqlParameter("@MessageCustomerName", MessageCustomerName));
+            cmd.Parameters.Add(new SqlParameter("@MessageDate", MessageDate));
+            cmd.Parameters.Add(new SqlParameter("@MessageEamil", MessageEamil));
+            cmd.Parameters.Add(new SqlParameter("@MessageMobile", MessageMobile));
+            cmd.Parameters.Add(new SqlParameter("@MessageOrEmail", MessageOrEmail));
+          
+            con.Open();
+            return cmd.ExecuteNonQuery();
+
+
+        }
+
+
 
     }
 }

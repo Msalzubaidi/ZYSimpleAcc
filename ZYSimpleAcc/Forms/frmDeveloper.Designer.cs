@@ -54,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblpassword = new DevExpress.XtraEditors.LabelControl();
             this.lblserver = new System.Windows.Forms.Label();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.lblto = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@
             this.lblversion = new System.Windows.Forms.Label();
             this.lblname = new System.Windows.Forms.Label();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.lblpassword = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -84,6 +84,7 @@
             this.btnRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnResetDataBase = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -339,6 +340,23 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(488, 178);
             this.tableLayoutPanel1.TabIndex = 89;
             // 
+            // lblpassword
+            // 
+            this.lblpassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblpassword.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpassword.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblpassword.Appearance.Options.UseFont = true;
+            this.lblpassword.Appearance.Options.UseForeColor = true;
+            this.lblpassword.Appearance.Options.UseTextOptions = true;
+            this.lblpassword.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblpassword.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblpassword.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.lblpassword.Location = new System.Drawing.Point(42, 158);
+            this.lblpassword.Name = "lblpassword";
+            this.lblpassword.Size = new System.Drawing.Size(59, 13);
+            this.lblpassword.TabIndex = 97;
+            this.lblpassword.Text = "كلمة المرور";
+            // 
             // lblserver
             // 
             this.lblserver.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -589,23 +607,6 @@
             this.labelControl8.TabIndex = 96;
             this.labelControl8.Text = "كلمة المرور";
             // 
-            // lblpassword
-            // 
-            this.lblpassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblpassword.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpassword.Appearance.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblpassword.Appearance.Options.UseFont = true;
-            this.lblpassword.Appearance.Options.UseForeColor = true;
-            this.lblpassword.Appearance.Options.UseTextOptions = true;
-            this.lblpassword.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblpassword.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.lblpassword.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lblpassword.Location = new System.Drawing.Point(42, 158);
-            this.lblpassword.Name = "lblpassword";
-            this.lblpassword.Size = new System.Drawing.Size(59, 13);
-            this.lblpassword.TabIndex = 97;
-            this.lblpassword.Text = "كلمة المرور";
-            // 
             // simpleButton4
             // 
             this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
@@ -688,7 +689,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
+            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
             this.btnRefresh.Location = new System.Drawing.Point(90, 320);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(203, 23);
@@ -712,12 +713,22 @@
             this.label12.TabIndex = 100;
             this.label12.Text = "رقم الشركة الجديد";
             // 
+            // btnResetDataBase
+            // 
+            this.btnResetDataBase.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton6.ImageOptions.Image")));
+            this.btnResetDataBase.Location = new System.Drawing.Point(337, 267);
+            this.btnResetDataBase.Name = "btnResetDataBase";
+            this.btnResetDataBase.Size = new System.Drawing.Size(202, 23);
+            this.btnResetDataBase.TabIndex = 102;
+            this.btnResetDataBase.Text = "استعادة الاعدادات الاساسية للبيانات";
+            // 
             // frmDeveloper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(897, 354);
+            this.Controls.Add(this.btnResetDataBase);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.btnRefresh);
@@ -827,5 +838,6 @@
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.SimpleButton btnResetDataBase;
     }
 }

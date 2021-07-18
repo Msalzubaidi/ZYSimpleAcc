@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSendSMSEmail));
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.btnemailview = new DevExpress.XtraEditors.SimpleButton();
             this.txtCustId = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -64,13 +65,22 @@
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.txtMessageSMS = new System.Windows.Forms.TextBox();
             this.txtMobile = new System.Windows.Forms.TextBox();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.txtMsgIDSMS = new System.Windows.Forms.TextBox();
+            this.txtMsgEmailID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraTabControl1
@@ -89,6 +99,9 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.txtMsgEmailID);
+            this.xtraTabPage1.Controls.Add(this.label3);
+            this.xtraTabPage1.Controls.Add(this.dateEdit1);
             this.xtraTabPage1.Controls.Add(this.simpleButton5);
             this.xtraTabPage1.Controls.Add(this.btnemailview);
             this.xtraTabPage1.Controls.Add(this.txtCustId);
@@ -108,6 +121,16 @@
             this.xtraTabPage1.Size = new System.Drawing.Size(615, 260);
             this.xtraTabPage1.Text = "ارسال بريد الكتروني";
             this.xtraTabPage1.Paint += new System.Windows.Forms.PaintEventHandler(this.xtraTabPage1_Paint);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
+            this.simpleButton5.Location = new System.Drawing.Point(27, 215);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(91, 23);
+            this.simpleButton5.TabIndex = 90;
+            this.simpleButton5.Text = "مساعدة ؟ \r\n";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // btnemailview
             // 
@@ -133,7 +156,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(55, 82);
+            this.checkBox2.Location = new System.Drawing.Point(58, 94);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(126, 17);
             this.checkBox2.TabIndex = 87;
@@ -145,7 +168,7 @@
             // 
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Location = new System.Drawing.Point(27, 31);
+            this.groupBox2.Location = new System.Drawing.Point(30, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(156, 48);
             this.groupBox2.TabIndex = 86;
@@ -163,6 +186,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "العربية";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -248,10 +272,10 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(27, 119);
+            this.txtMessage.Location = new System.Drawing.Point(11, 119);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(473, 79);
+            this.txtMessage.Size = new System.Drawing.Size(489, 79);
             this.txtMessage.TabIndex = 75;
             // 
             // txtCustEmail
@@ -273,6 +297,9 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.txtMsgIDSMS);
+            this.xtraTabPage2.Controls.Add(this.label5);
+            this.xtraTabPage2.Controls.Add(this.dateEdit2);
             this.xtraTabPage2.Controls.Add(this.btnSmsiew);
             this.xtraTabPage2.Controls.Add(this.checkBox1);
             this.xtraTabPage2.Controls.Add(this.groupBox1);
@@ -307,7 +334,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(64, 86);
+            this.checkBox1.Location = new System.Drawing.Point(69, 100);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(100, 17);
             this.checkBox1.TabIndex = 73;
@@ -319,7 +346,7 @@
             // 
             this.groupBox1.Controls.Add(this.arlang);
             this.groupBox1.Controls.Add(this.englang);
-            this.groupBox1.Location = new System.Drawing.Point(10, 35);
+            this.groupBox1.Location = new System.Drawing.Point(16, 45);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(156, 48);
             this.groupBox1.TabIndex = 72;
@@ -454,15 +481,65 @@
             this.txtMobile.Size = new System.Drawing.Size(298, 20);
             this.txtMobile.TabIndex = 60;
             // 
-            // simpleButton5
+            // dateEdit1
             // 
-            this.simpleButton5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton5.ImageOptions.Image")));
-            this.simpleButton5.Location = new System.Drawing.Point(27, 215);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(91, 23);
-            this.simpleButton5.TabIndex = 90;
-            this.simpleButton5.Text = "مساعدة ؟ \r\n";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(30, 24);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(98, 20);
+            this.dateEdit1.TabIndex = 91;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(134, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 16);
+            this.label3.TabIndex = 92;
+            this.label3.Text = "التاريخ";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(120, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 16);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "التاريخ";
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(16, 26);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(98, 20);
+            this.dateEdit2.TabIndex = 93;
+            // 
+            // txtMsgIDSMS
+            // 
+            this.txtMsgIDSMS.Location = new System.Drawing.Point(11, 99);
+            this.txtMsgIDSMS.Name = "txtMsgIDSMS";
+            this.txtMsgIDSMS.Size = new System.Drawing.Size(47, 20);
+            this.txtMsgIDSMS.TabIndex = 95;
+            this.txtMsgIDSMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtMsgEmailID
+            // 
+            this.txtMsgEmailID.Location = new System.Drawing.Point(11, 97);
+            this.txtMsgEmailID.Name = "txtMsgEmailID";
+            this.txtMsgEmailID.Size = new System.Drawing.Size(47, 20);
+            this.txtMsgEmailID.TabIndex = 96;
+            this.txtMsgEmailID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmSendSMSEmail
             // 
@@ -489,6 +566,10 @@
             this.xtraTabPage2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -530,5 +611,11 @@
         private System.Windows.Forms.TextBox txtCustId;
         private DevExpress.XtraEditors.SimpleButton btnSmsiew;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private System.Windows.Forms.TextBox txtMsgIDSMS;
+        private System.Windows.Forms.TextBox txtMsgEmailID;
     }
 }

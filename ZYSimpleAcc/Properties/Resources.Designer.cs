@@ -304,6 +304,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to لم يحدث أي تغيير .
+        /// </summary>
+        internal static string noChangesHappened {
+            get {
+                return ResourceManager.GetString("noChangesHappened", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to لا يوجد بيانات - نتائج بحث.
         /// </summary>
         internal static string NoData {

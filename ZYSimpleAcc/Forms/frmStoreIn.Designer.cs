@@ -215,7 +215,7 @@
             // btndelete
             // 
             this.btndelete.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndelete.ImageOptions.Image")));
-            this.btndelete.Location = new System.Drawing.Point(532, 350);
+            this.btndelete.Location = new System.Drawing.Point(464, 350);
             this.btndelete.Name = "btndelete";
             this.btndelete.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btndelete.Size = new System.Drawing.Size(63, 22);
@@ -226,7 +226,7 @@
             // btnupdate
             // 
             this.btnupdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.ImageOptions.Image")));
-            this.btnupdate.Location = new System.Drawing.Point(463, 350);
+            this.btnupdate.Location = new System.Drawing.Point(533, 350);
             this.btnupdate.Name = "btnupdate";
             this.btnupdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnupdate.Size = new System.Drawing.Size(63, 22);
@@ -613,7 +613,7 @@
             // 
             // btnView
             // 
-            this.btnView.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
+            this.btnView.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnView.ImageOptions.Image")));
             this.btnView.Location = new System.Drawing.Point(325, 350);
             this.btnView.Name = "btnView";
             this.btnView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

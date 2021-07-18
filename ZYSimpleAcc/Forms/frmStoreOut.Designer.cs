@@ -612,7 +612,7 @@
             // 
             // btnView
             // 
-            this.btnView.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnView.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnView.ImageOptions.Image")));
             this.btnView.Location = new System.Drawing.Point(323, 366);
             this.btnView.Name = "btnView";
             this.btnView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -699,6 +699,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "سند إخراج";
             this.Load += new System.EventHandler(this.frmStoreOut_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmStoreOut_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch1.Properties)).EndInit();
