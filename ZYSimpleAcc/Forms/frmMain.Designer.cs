@@ -688,6 +688,7 @@
             this.mnustatofacc.Name = "mnustatofacc";
             this.mnustatofacc.Size = new System.Drawing.Size(167, 22);
             this.mnustatofacc.Text = "كشف حساب";
+            this.mnustatofacc.Click += new System.EventHandler(this.mnustatofacc_Click);
             // 
             // mnugeneralreport
             // 

@@ -994,5 +994,26 @@ namespace ZYSimpleAcc
                 jl.Show();
             }
         }
+
+        private void mnustatofacc_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+          
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "كشف حساب")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmStatmentofAccountReport soa = new frmStatmentofAccountReport();
+                soa.Show();
+            }
+        }
     }
 }

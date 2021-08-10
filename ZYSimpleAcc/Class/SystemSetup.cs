@@ -837,6 +837,35 @@ namespace ZYSimpleAcc.Class
             return dt;
         }
 
-      
+        public DataTable SearchAccounts(string keyword, int operation)
+        {
+            SqlConnection con = new SqlConnection(DataBase.connstring);
+            string qry = "";
+            if (operation == 0)
+                qry = "Select accNo , accName from MainAccounts where [accNo] + [accName] like '%' + " + "'" + keyword + "'" + "+'%'  and (accStatus=1 and IsParent=0)";
+
+            else if (operation == 1)
+                qry = "Select accNo , accName from MainAccounts where [accNo] + [accName] like '%' + " + "'" + keyword + "'" + "+'%'  and (accStatus=1 and IsParent=0)";
+
+            if (operation == 2)
+                qry = "Select accNo , accName from MainAccounts where [accNo] + [accName] like '%' + " + "'" + keyword + "'" + "+'%'  and (accStatus=1 and IsParent=0)";
+
+            else if (operation == 3)
+                qry = "Select accNo , accName from MainAccounts where [accNo] + [accName] like '%' + " + "'" + keyword + "'" + "+'%'  and (accStatus=1 and IsParent=0)";
+
+            SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
+
+            cmd.Parameters.Add(new SqlParameter("@keyword", keyword));
+
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            sda.SelectCommand = cmd;
+            DataTable dt = new System.Data.DataTable();
+            sda.Fill(dt);
+
+            con.Open();
+            return dt;
+        }
+
+
     }
 }

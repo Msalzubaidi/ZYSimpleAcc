@@ -103,5 +103,10 @@ namespace ZYSimpleAcc.Forms
                 SendKeys.Send("{TAB}");
             }
         }
+
+        private void ItemsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
