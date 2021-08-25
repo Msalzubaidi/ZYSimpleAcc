@@ -45,9 +45,12 @@ namespace ZYSimpleAcc
 
             DateTime dt = DateTime.Parse(datatable.Rows[0]["licenceto"].ToString());
             DateTime dt1 = DateTime.Parse(datatable.Rows[0]["licencefrom"].ToString());
+            DateTime now = DateTime.Parse(DateTime.Now.ToString());
             string titleform = datatable.Rows[0]["name"].ToString();
-            TimeSpan t = dt - dt1;
+            TimeSpan t = dt - now; 
             double NrOfDays = t.TotalDays;
+
+          
             string nl = "\r\n";
 
             if (userPermission.Rows.Count > 0)
@@ -402,7 +405,10 @@ namespace ZYSimpleAcc
                 mnuSales.Visible = false;
                 mnuBuy.Visible = false;
                 mnuHR.Visible = false;
-
+                mnuSetting.Visible = false;
+                mnuReports.Visible = false;
+                devmode.Visible = false;
+                mnuSubReports.Visible = false;
                 mnuSubBuy.Visible = false;
                 mnuSubSales.Visible = false;
                 mnuSubStores.Visible = false;
@@ -528,6 +534,7 @@ namespace ZYSimpleAcc
             //    awn.Show();
 
             //}
+           
         }
     
 
@@ -1013,6 +1020,132 @@ namespace ZYSimpleAcc
             {
                 frmStatmentofAccountReport soa = new frmStatmentofAccountReport();
                 soa.Show();
+            }
+        }
+
+        private void mnugeneralreport_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "تقارير عامة")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmGeneralReports gr = new frmGeneralReports();
+                gr.Show();
+            }
+        }
+
+        private void mnustoresrep_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "تقارير المستودعات")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmStoresReports sr = new frmStoresReports();
+                sr.Show();
+            }
+        }
+
+        private void mnuaccBalance_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "معلومات حساب")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmAccountBalance ab = new frmAccountBalance();
+                ab.Show();
+            }
+        }
+
+        private void mnutransreport_Click(object sender, EventArgs e)
+        {
+            bool isopen = false;
+
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "تقارير الحركات")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmTransactionsReports tr = new frmTransactionsReports();
+                tr.Show();
+            }
+        }
+
+        private void mnusalesinv_Click(object sender, EventArgs e)
+        {
+            frmMain.instate = 0;
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "فاتورة بيع")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmSalesInvoice si = new frmSalesInvoice();
+                si.Show();
+            }
+        }
+
+        private void updatecancelsalesinv_Click(object sender, EventArgs e)
+        {
+            frmMain.instate = 0;
+            bool isopen = false;
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Text == "فاتورة بيع")
+                {
+                    isopen = true;
+                    f.BringToFront();
+                    break;
+                }
+            }
+
+            if (isopen == false)
+            {
+                frmSalesInvoice si = new frmSalesInvoice();
+                si.Show();
             }
         }
     }

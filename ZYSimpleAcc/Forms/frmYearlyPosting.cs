@@ -66,7 +66,7 @@ namespace ZYSimpleAcc.Forms
 
         private void label16_Click(object sender, EventArgs e)
         {
-            XtraMessageBox.Show("في حال اختيار هذا الخيار سيتم فتح السنة وتدوير الارصدة واضافة الارصدة الختامية للسنة الفعالى كأرصدة افتتاحية للسنة التالية بدون إمكانية الرجوع للسنة الفعالة ووعدم التعديل عليها", Resources.MessageTitle, 0, MessageBoxIcon.Information);
+            XtraMessageBox.Show("في حال اختيار هذا الخيار سيتم فتح السنة وتدوير الارصدة واضافة الارصدة الختامية للسنة الفعالة كأرصدة افتتاحية للسنة التالية بدون إمكانية الرجوع للسنة الفعالة ووعدم التعديل عليها", Resources.MessageTitle, 0, MessageBoxIcon.Information);
         }
 
         private void label17_Click(object sender, EventArgs e)

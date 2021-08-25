@@ -612,6 +612,7 @@
             this.mnusalesinv.Name = "mnusalesinv";
             this.mnusalesinv.Size = new System.Drawing.Size(205, 22);
             this.mnusalesinv.Text = "فاتورة بيع";
+            this.mnusalesinv.Click += new System.EventHandler(this.mnusalesinv_Click);
             // 
             // mnuretsalesinv
             // 
@@ -624,6 +625,7 @@
             this.updatecancelsalesinv.Name = "updatecancelsalesinv";
             this.updatecancelsalesinv.Size = new System.Drawing.Size(205, 22);
             this.updatecancelsalesinv.Text = "تعديل والغاء فاتورة البيع";
+            this.updatecancelsalesinv.Click += new System.EventHandler(this.updatecancelsalesinv_Click);
             // 
             // updatecancelretsalesinv
             // 
@@ -695,18 +697,21 @@
             this.mnugeneralreport.Name = "mnugeneralreport";
             this.mnugeneralreport.Size = new System.Drawing.Size(167, 22);
             this.mnugeneralreport.Text = "تقارير عامة";
+            this.mnugeneralreport.Click += new System.EventHandler(this.mnugeneralreport_Click);
             // 
             // mnustoresrep
             // 
             this.mnustoresrep.Name = "mnustoresrep";
             this.mnustoresrep.Size = new System.Drawing.Size(167, 22);
             this.mnustoresrep.Text = "المستودعات";
+            this.mnustoresrep.Click += new System.EventHandler(this.mnustoresrep_Click);
             // 
             // mnutransreport
             // 
             this.mnutransreport.Name = "mnutransreport";
             this.mnutransreport.Size = new System.Drawing.Size(167, 22);
             this.mnutransreport.Text = "الحركات";
+            this.mnutransreport.Click += new System.EventHandler(this.mnutransreport_Click);
             // 
             // mnuSalesREport
             // 
@@ -725,6 +730,7 @@
             this.mnuaccBalance.Name = "mnuaccBalance";
             this.mnuaccBalance.Size = new System.Drawing.Size(167, 22);
             this.mnuaccBalance.Text = "رصيد حساب";
+            this.mnuaccBalance.Click += new System.EventHandler(this.mnuaccBalance_Click);
             // 
             // mnuhrreports
             // 
@@ -816,6 +822,9 @@
             this.lic.Size = new System.Drawing.Size(116, 19);
             this.lic.TabIndex = 4;
             this.lic.Text = "License info ...";
+            this.lic.ToolTip = "Licence Information";
+            this.lic.ToolTipIconType = DevExpress.Utils.ToolTipIconType.Application;
+            this.lic.ToolTipTitle = "ZYTECHSOLUTION";
             this.lic.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lic_MouseDoubleClick);
             // 
             // frmMain

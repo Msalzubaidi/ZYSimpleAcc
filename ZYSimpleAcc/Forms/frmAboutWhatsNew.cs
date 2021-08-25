@@ -29,15 +29,18 @@ namespace ZYSimpleAcc.Forms
            
             DataTable datatable = s.SelctData(systeminfotable, 0, "");
 
-         
 
-     
+           
+
 
             DateTime dt = DateTime.Parse(datatable.Rows[0]["licenceto"].ToString());
             DateTime dt1 = DateTime.Parse(datatable.Rows[0]["licencefrom"].ToString());
+
+            DateTime now = DateTime.Parse(DateTime.Now.ToString());
+
             string titleform = datatable.Rows[0]["name"].ToString();
             string version = datatable.Rows[0]["version"].ToString();
-            TimeSpan t = dt - dt1;
+            TimeSpan t = dt - now;
             double NrOfDays = t.TotalDays;
             string nl = "\r\n";
 

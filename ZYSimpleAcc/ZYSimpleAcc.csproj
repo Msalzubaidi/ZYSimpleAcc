@@ -70,6 +70,12 @@
     <Compile Include="Forms\frmAboutWhatsNew.Designer.cs">
       <DependentUpon>frmAboutWhatsNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmAccountBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAccountBalance.Designer.cs">
+      <DependentUpon>frmAccountBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmAreas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     <Compile Include="Forms\frmDeveloper.Designer.cs">
       <DependentUpon>frmDeveloper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmGeneralReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGeneralReports.Designer.cs">
+      <DependentUpon>frmGeneralReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmJournal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </Compile>
     <Compile Include="Forms\frmMainAccounts.Designer.cs">
       <DependentUpon>frmMainAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSalesInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSalesInvoice.Designer.cs">
+      <DependentUpon>frmSalesInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmStatmentofAccountReport.cs">
       <SubType>Form</SubType>
@@ -190,11 +208,23 @@
     <Compile Include="Forms\frmSendSMSEmail.Designer.cs">
       <DependentUpon>frmSendSMSEmail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmStoresReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmStoresReports.Designer.cs">
+      <DependentUpon>frmStoresReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSysteminfo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmSysteminfo.Designer.cs">
       <DependentUpon>frmSysteminfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTransactionsReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTransactionsReports.Designer.cs">
+      <DependentUpon>frmTransactionsReports.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUserLogTransactions.cs">
       <SubType>Form</SubType>
@@ -236,6 +266,9 @@
     <EmbeddedResource Include="Forms\frmAboutWhatsNew.resx">
       <DependentUpon>frmAboutWhatsNew.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmAccountBalance.resx">
+      <DependentUpon>frmAccountBalance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAreas.resx">
       <DependentUpon>frmAreas.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,11 +287,17 @@
     <EmbeddedResource Include="Forms\frmDeveloper.resx">
       <DependentUpon>frmDeveloper.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGeneralReports.resx">
+      <DependentUpon>frmGeneralReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmJournal.resx">
       <DependentUpon>frmJournal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMainAccounts.resx">
       <DependentUpon>frmMainAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSalesInvoice.resx">
+      <DependentUpon>frmSalesInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmStatmentofAccountReport.resx">
       <DependentUpon>frmStatmentofAccountReport.cs</DependentUpon>
@@ -296,8 +335,14 @@
     <EmbeddedResource Include="Forms\frmSendSMSEmail.resx">
       <DependentUpon>frmSendSMSEmail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmStoresReports.resx">
+      <DependentUpon>frmStoresReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSysteminfo.resx">
       <DependentUpon>frmSysteminfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTransactionsReports.resx">
+      <DependentUpon>frmTransactionsReports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUserLogTransactions.resx">
       <DependentUpon>frmUserLogTransactions.cs</DependentUpon>

@@ -34,6 +34,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.datetransdate = new DevExpress.XtraEditors.DateEdit();
             this.JournalGrid = new System.Windows.Forms.DataGridView();
+            this.AccNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.anountDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTransNote = new System.Windows.Forms.TextBox();
             this.btnView = new DevExpress.XtraEditors.SimpleButton();
@@ -47,11 +52,6 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.txtLastNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.AccNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AccName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.anountDebit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountCredit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.JournalGrid)).BeginInit();
@@ -113,6 +113,31 @@
             this.JournalGrid.Name = "JournalGrid";
             this.JournalGrid.Size = new System.Drawing.Size(696, 258);
             this.JournalGrid.TabIndex = 66;
+            // 
+            // AccNo
+            // 
+            this.AccNo.HeaderText = "رقم الحساب";
+            this.AccNo.Name = "AccNo";
+            // 
+            // AccName
+            // 
+            this.AccName.HeaderText = "اسم الحساب";
+            this.AccName.Name = "AccName";
+            // 
+            // anountDebit
+            // 
+            this.anountDebit.HeaderText = "المبلغ المدين";
+            this.anountDebit.Name = "anountDebit";
+            // 
+            // amountCredit
+            // 
+            this.amountCredit.HeaderText = "المبلغ الدائن";
+            this.amountCredit.Name = "amountCredit";
+            // 
+            // desc
+            // 
+            this.desc.HeaderText = "وصف الحركة";
+            this.desc.Name = "desc";
             // 
             // label1
             // 
@@ -184,6 +209,7 @@
             this.btnsave.Size = new System.Drawing.Size(63, 22);
             this.btnsave.TabIndex = 393;
             this.btnsave.Text = "حفظ";
+            this.btnsave.Click += new System.EventHandler(this.btnsave_Click);
             // 
             // btndelete
             // 
@@ -244,31 +270,6 @@
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 403;
             this.label4.Text = "رقم آخر قيد";
-            // 
-            // AccNo
-            // 
-            this.AccNo.HeaderText = "رقم الحساب";
-            this.AccNo.Name = "AccNo";
-            // 
-            // AccName
-            // 
-            this.AccName.HeaderText = "اسم الحساب";
-            this.AccName.Name = "AccName";
-            // 
-            // anountDebit
-            // 
-            this.anountDebit.HeaderText = "المبلغ المدين";
-            this.anountDebit.Name = "anountDebit";
-            // 
-            // amountCredit
-            // 
-            this.amountCredit.HeaderText = "المبلغ الدائن";
-            this.amountCredit.Name = "amountCredit";
-            // 
-            // desc
-            // 
-            this.desc.HeaderText = "وصف الحركة";
-            this.desc.Name = "desc";
             // 
             // frmJournal
             // 
