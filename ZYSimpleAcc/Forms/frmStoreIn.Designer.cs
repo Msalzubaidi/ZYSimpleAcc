@@ -81,6 +81,10 @@
             this.btnView = new DevExpress.XtraEditors.SimpleButton();
             this.txtLastNum = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtbeforeTax = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTaxTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datetransdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StoreInDetailsGrid)).BeginInit();
@@ -332,7 +336,7 @@
             this.txtTotalIN.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtTotalIN.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtTotalIN.Enabled = false;
-            this.txtTotalIN.Location = new System.Drawing.Point(13, 347);
+            this.txtTotalIN.Location = new System.Drawing.Point(12, 398);
             this.txtTotalIN.Name = "txtTotalIN";
             this.txtTotalIN.Size = new System.Drawing.Size(100, 20);
             this.txtTotalIN.TabIndex = 368;
@@ -343,11 +347,11 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(120, 352);
+            this.label14.Location = new System.Drawing.Point(119, 403);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
+            this.label14.Size = new System.Drawing.Size(48, 13);
             this.label14.TabIndex = 370;
-            this.label14.Text = "المجموع";
+            this.label14.Text = "الاجمالي";
             // 
             // txtTaxValue
             // 
@@ -643,12 +647,60 @@
             this.label5.TabIndex = 393;
             this.label5.Text = "رقم اخر سند";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(118, 377);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 13);
+            this.label6.TabIndex = 395;
+            this.label6.Text = "قبل الضريبة";
+            // 
+            // txtbeforeTax
+            // 
+            this.txtbeforeTax.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtbeforeTax.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtbeforeTax.Enabled = false;
+            this.txtbeforeTax.Location = new System.Drawing.Point(11, 372);
+            this.txtbeforeTax.Name = "txtbeforeTax";
+            this.txtbeforeTax.Size = new System.Drawing.Size(100, 20);
+            this.txtbeforeTax.TabIndex = 394;
+            this.txtbeforeTax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(119, 351);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 13);
+            this.label7.TabIndex = 397;
+            this.label7.Text = "الضريبة";
+            // 
+            // txtTaxTotal
+            // 
+            this.txtTaxTotal.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTaxTotal.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.txtTaxTotal.Enabled = false;
+            this.txtTaxTotal.Location = new System.Drawing.Point(12, 346);
+            this.txtTaxTotal.Name = "txtTaxTotal";
+            this.txtTaxTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTaxTotal.TabIndex = 396;
+            this.txtTaxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmStoreIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(796, 379);
+            this.ClientSize = new System.Drawing.Size(796, 420);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtTaxTotal);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtbeforeTax);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtLastNum);
             this.Controls.Add(this.btnView);
@@ -765,5 +817,9 @@
         private DevExpress.XtraEditors.SimpleButton btnView;
         private System.Windows.Forms.TextBox txtLastNum;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtbeforeTax;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTaxTotal;
     }
 }

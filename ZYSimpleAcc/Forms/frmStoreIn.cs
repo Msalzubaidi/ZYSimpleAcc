@@ -63,10 +63,27 @@ namespace ZYSimpleAcc.Forms
 
 
 
-        void CalculateTotalOfin()
+        void CalculateTotalOfinwithTx()
         {
 
             txtTotalIN.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
+                               where row.Cells[7].FormattedValue.ToString() != string.Empty
+                               select Convert.ToDecimal(row.Cells[6].FormattedValue) + Convert.ToDecimal(row.Cells[7].FormattedValue)).Sum().ToString();
+
+        }
+        void CalculateTotalinTax()
+        {
+
+            txtTaxTotal.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
+                               where row.Cells[7].FormattedValue.ToString() != string.Empty
+                               select Convert.ToDecimal(row.Cells[6].FormattedValue)).Sum().ToString();
+
+        }
+
+        void CalculateTotalofin()
+        {
+
+            txtbeforeTax.Text = (from DataGridViewRow row in StoreInDetailsGrid.Rows
                                where row.Cells[7].FormattedValue.ToString() != string.Empty
                                select Convert.ToDecimal(row.Cells[7].FormattedValue)).Sum().ToString();
 
@@ -246,9 +263,12 @@ namespace ZYSimpleAcc.Forms
                 simpleButton2.Focus();
 
              
-                 this.CalculateTotalOfin();
-          
-         
+                 this.CalculateTotalOfinwithTx();
+                this.CalculateTotalofin();
+                this.CalculateTotalinTax();
+
+
+
             }
         }
 
@@ -257,7 +277,9 @@ namespace ZYSimpleAcc.Forms
             try
             {
                 StoreInDetailsGrid.Rows.RemoveAt(StoreInDetailsGrid.CurrentRow.Index);
-                this.CalculateTotalOfin();
+                this.CalculateTotalOfinwithTx();
+                this.CalculateTotalofin();
+                this.CalculateTotalinTax();
             }
             catch
             {
@@ -414,8 +436,10 @@ namespace ZYSimpleAcc.Forms
                 txtTaxValue.Text = this.StoreInDetailsGrid.CurrentRow.Cells[6].Value.ToString();
                 txtTotal.Text = this.StoreInDetailsGrid.CurrentRow.Cells[7].Value.ToString();
             StoreInDetailsGrid.Rows.RemoveAt(StoreInDetailsGrid.CurrentRow.Index);
-             this.CalculateTotalOfin();
-             txtQty.Focus();
+                this.CalculateTotalOfinwithTx();
+                this.CalculateTotalofin();
+                this.CalculateTotalinTax();
+                txtQty.Focus();
             }
 
             catch
@@ -488,7 +512,9 @@ namespace ZYSimpleAcc.Forms
             try
             {
                 StoreInDetailsGrid.Rows.Clear();
-                this.CalculateTotalOfin();
+                this.CalculateTotalOfinwithTx();
+                this.CalculateTotalofin();
+                this.CalculateTotalinTax();
 
             }
             catch

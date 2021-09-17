@@ -71,7 +71,7 @@ namespace ZYSimpleAcc.Forms
 
         private void label17_Click(object sender, EventArgs e)
         {
-            XtraMessageBox.Show("في حال الضغط على موافق لن يمكنك التراجع وستبدأ عملية التدير - يمكن أن تحتاج بعض  الوقت أترك النظام حتى يتم الإنتهاء", Resources.MessageTitle, 0, MessageBoxIcon.Information);
+            XtraMessageBox.Show("في حال الضغط على موافق لا يمكنك التراجع وستبدأ عملية التدوير - يمكن أن تحتاج بعض  الوقت أترك النظام حتى يتم الإنتهاء", Resources.MessageTitle, 0, MessageBoxIcon.Information);
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)

@@ -322,25 +322,21 @@ namespace ZYSimpleAcc.Class
 
             if (operation ==0)
             {
-                qry = "select * from CustomersAndVendors where CusVenID=@id or CusVenName=@name ";
+                qry = "Select * from CustomersAndVendors where CusVenID=@id or CusVenName=@name ";
             }
 
             if (operation == 1)
             {
-                qry = "select * from CustomersAndVendors where CusVenName=@name";
+                qry = "Select * from CustomersAndVendors where CusVenName=@name";
             }
 
+
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data base
-
-
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Parameters.AddWithValue("@name", name);
-
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
-
             System.Data.DataTable dt = new System.Data.DataTable();
             sda.Fill(dt);
-
             con.Open();
             return dt.Rows.Count;
 
@@ -579,30 +575,20 @@ namespace ZYSimpleAcc.Class
         {
             string qry = " Update CustomersAndVendors set CusVenName=@CusVenName ,  CusVenDetailedAddress=@CusVenDetailedAddress ,  CusVenMobile=@CusVenMobile,  CusVenEmail=@CusVenEmail,  CusVenMaxBalance=@CusVenMaxBalance, CusVenStatus=@CusVenStatus ,  CusVenTaxNo=@CusVenTaxNo where CusVenID=@CusVenID ";
             SqlConnection con = new SqlConnection(DataBase.connstring); // making connection  
-
-
             SqlCommand cmd = new SqlCommand(qry, con); // sql command to so get data from data bas
-
-            
             cmd.Parameters.Add(new SqlParameter("@CusVenID", CusVenID));
             cmd.Parameters.Add(new SqlParameter("@CusVenName", CusVenName));
-
             cmd.Parameters.Add(new SqlParameter("@CusVenDetailedAddress", CusVenDetailedAddress));
-
             cmd.Parameters.Add(new SqlParameter("@CusVenMobile", CusVenMobile));
             cmd.Parameters.Add(new SqlParameter("@CusVenEmail", CusVenEmail));
             cmd.Parameters.Add(new SqlParameter("@CusVenMaxBalance", CusVenMaxBalance));
-
             cmd.Parameters.Add(new SqlParameter("@CusVenStatus", CusVenStatus));
-       
             cmd.Parameters.Add(new SqlParameter("@CusVenTaxNo", CusVenTaxNo));
 
 
             SystemSetup ss = new SystemSetup();
             con.Open();
-
             int x = ss.checkexistcusven(CusVenID, CusVenName , 1 );
-
             if (x > 0)
             {
                 return -150;

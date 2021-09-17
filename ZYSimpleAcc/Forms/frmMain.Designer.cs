@@ -81,6 +81,8 @@
             this.mnuStoreSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuinstore = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuoutstore = new System.Windows.Forms.ToolStripMenuItem();
+            this.تبادلToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.اتلافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatecancelin = new System.Windows.Forms.ToolStripMenuItem();
             this.updatecancelout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTrans = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +113,7 @@
             this.mnuhrreports = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ادارةالشيكاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHR = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuhrsetup = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuempfilles = new System.Windows.Forms.ToolStripMenuItem();
@@ -501,6 +504,8 @@
             this.mnuStoreSettings,
             this.mnuinstore,
             this.mnuoutstore,
+            this.تبادلToolStripMenuItem,
+            this.اتلافToolStripMenuItem,
             this.updatecancelin,
             this.updatecancelout});
             this.mnuStores.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -528,6 +533,18 @@
             this.mnuoutstore.Size = new System.Drawing.Size(183, 22);
             this.mnuoutstore.Text = "اخراج";
             this.mnuoutstore.Click += new System.EventHandler(this.mnuoutstore_Click);
+            // 
+            // تبادلToolStripMenuItem
+            // 
+            this.تبادلToolStripMenuItem.Name = "تبادلToolStripMenuItem";
+            this.تبادلToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.تبادلToolStripMenuItem.Text = "تبادل";
+            // 
+            // اتلافToolStripMenuItem
+            // 
+            this.اتلافToolStripMenuItem.Name = "اتلافToolStripMenuItem";
+            this.اتلافToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.اتلافToolStripMenuItem.Text = "اتلاف";
             // 
             // updatecancelin
             // 
@@ -755,6 +772,7 @@
             this.mnuAccTree,
             this.mnuStores,
             this.mnuTrans,
+            this.ادارةالشيكاتToolStripMenuItem,
             this.mnuSales,
             this.mnuBuy,
             this.mnuHR,
@@ -767,6 +785,13 @@
             this.menuStrip1.Size = new System.Drawing.Size(1006, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "mnuMain";
+            // 
+            // ادارةالشيكاتToolStripMenuItem
+            // 
+            this.ادارةالشيكاتToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ادارةالشيكاتToolStripMenuItem.Name = "ادارةالشيكاتToolStripMenuItem";
+            this.ادارةالشيكاتToolStripMenuItem.Size = new System.Drawing.Size(92, 21);
+            this.ادارةالشيكاتToolStripMenuItem.Text = "ادارة الشيكات";
             // 
             // mnuHR
             // 
@@ -941,6 +966,9 @@
         private System.Windows.Forms.ToolStripMenuItem updatecancelretsalesinv;
         private System.Windows.Forms.ToolStripMenuItem updatecancelbuyinv;
         private System.Windows.Forms.ToolStripMenuItem updatecancelretbuyinv;
+        private System.Windows.Forms.ToolStripMenuItem تبادلToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem اتلافToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ادارةالشيكاتToolStripMenuItem;
     }
 }
 
