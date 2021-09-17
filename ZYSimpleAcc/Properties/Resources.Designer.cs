@@ -286,6 +286,15 @@ namespace ZYSimpleAcc.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AccandStock.
+        /// </summary>
+        internal static string MainVersion {
+            get {
+                return ResourceManager.GetString("MainVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ZY Technologies Solutions - تنبيه.
         /// </summary>
         internal static string MessageTitle {

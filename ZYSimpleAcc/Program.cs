@@ -25,17 +25,17 @@ namespace ZYSimpleAcc
 
             DataTable dtable2 = s.SelctData(table, 0, condition);
             int ActiveStatus = int.Parse(dtable2.Rows[0]["Activated"].ToString());
-            if (ActiveStatus == 1)
+            if (ActiveStatus == 0)
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new frmActivation());
             }
-            if (ActiveStatus == 0)
+            if (ActiveStatus == 1)
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new frmLogin());
+                Application.Run(new Test());
 
 
 

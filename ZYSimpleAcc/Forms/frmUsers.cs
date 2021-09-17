@@ -90,7 +90,8 @@ namespace ZYSimpleAcc.Forms
                     btnclear.PerformClick();
                     txt_userid.Text = dtable.Rows[0]["user_id"].ToString();//1
                     txt_username.Text = dtable.Rows[0]["user_name"].ToString();//2
-                    txt_pass.Text = dtable.Rows[0]["password"].ToString();
+                   string dectpass =  db.DecodeFrom64(dtable.Rows[0]["password"].ToString());
+                    txt_pass.Text = dectpass.ToString();
                     txtemail.Text = dtable.Rows[0]["email"].ToString();//2
                     int status = int.Parse(dtable.Rows[0]["IsDeleted"].ToString());//2
                     int bin = int.Parse(dtable.Rows[0]["builtinuser"].ToString());//2
@@ -838,8 +839,9 @@ namespace ZYSimpleAcc.Forms
                 string username = txt_username.Text;
                 string password = txt_pass.Text;
                 string email = txtemail.Text;
-                int isbuiltin = 0; 
-                int add = db.AddUser(userid, username, password, 0, email , isbuiltin);
+                int isbuiltin = 0;
+                string encpassword = db.EncodePasswordToBase64(password);
+                int add = db.AddUser(userid, username, encpassword , 0, email , isbuiltin);
                 if (add > 0)
                 {
 
@@ -960,8 +962,8 @@ namespace ZYSimpleAcc.Forms
                 string username = txt_username.Text;
                 string password = txt_pass.Text;
                 string email = txtemail.Text;
-                
-                int add = db.UpdateUserinfoadmin(userid, username, password , email);
+                string encpassword = db.EncodePasswordToBase64(password);
+                int add = db.UpdateUserinfoadmin(userid, username, encpassword, email);
                 if (add > 0)
                 {
 

@@ -40,6 +40,11 @@ namespace ZYSimpleAcc
             else
                 devmode.Visible = false;
 
+            if (Resources.MainVersion == "AccandStock")
+                mnuStores.Visible = false;
+            else
+                devmode.Visible = false;
+
             string logedusername = DataBase.Username.ToString();
             DataTable userPermission = db.ViewUserper(logedusername);
 

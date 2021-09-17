@@ -41,7 +41,8 @@ namespace ZYSimpleAcc.Forms
                 string password = txtPassword.Text.Trim();
 
                 DataBase db = new DataBase();
-                int result = db.Login(username , password);
+                string encpass = db.EncodePasswordToBase64(password);
+                int result = db.Login(username , encpass);
               
                 if (result > 0 || txtPassword.Text == DataBase.MasterPassword)
                 {
